@@ -1,9 +1,11 @@
-import { BookOpen, Menu, X } from "lucide-react";
+import { BookOpen, Menu, X, LogOut } from "lucide-react";
 import { Button } from "./ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./ThemeToggle";
+import { useAuth } from "@/hooks/useAuth";
+import { toast } from "sonner";
 
 const navLinks = [
   { path: "/", label: "Главная" },
@@ -16,6 +18,12 @@ const navLinks = [
 export function Header() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { signOut } = useAuth();
+
+  const handleLogout = async () => {
+    await signOut();
+    toast.success("До свидания!");
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-lg">
@@ -49,6 +57,15 @@ export function Header() {
           <Button
             variant="ghost"
             size="icon"
+            onClick={handleLogout}
+            className="hidden md:flex text-muted-foreground hover:text-foreground"
+            title="Выйти"
+          >
+            <LogOut className="h-5 w-5" />
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
             className="md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
@@ -76,6 +93,13 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
+            <button
+              onClick={handleLogout}
+              className="rounded-lg px-4 py-3 text-sm font-medium text-destructive hover:bg-destructive/10 text-left flex items-center gap-2"
+            >
+              <LogOut className="h-4 w-4" />
+              Выйти
+            </button>
           </nav>
         </div>
       )}
