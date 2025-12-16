@@ -154,11 +154,70 @@ const Grammar = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground mb-2">Grammatika</h1>
-          <p className="text-muted-foreground">Rus tili grammatikasi asoslari</p>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-12">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-primary/10 blur-3xl animate-pulse-glow" />
+          <div className="absolute right-10 top-20 h-32 w-32 rounded-full bg-secondary/15 blur-2xl animate-bounce-soft" />
+          <div className="absolute left-1/3 bottom-0 h-48 w-48 rounded-full bg-accent/10 blur-3xl" />
+          
+          {/* Floating letters */}
+          <div className="absolute left-[10%] top-[20%] text-6xl font-bold text-primary/10 animate-bounce-soft" style={{ animationDelay: "0s" }}>А</div>
+          <div className="absolute right-[15%] top-[30%] text-5xl font-bold text-secondary/15 animate-bounce-soft" style={{ animationDelay: "0.5s" }}>Б</div>
+          <div className="absolute left-[20%] bottom-[20%] text-4xl font-bold text-accent/10 animate-bounce-soft" style={{ animationDelay: "1s" }}>В</div>
+          <div className="absolute right-[25%] bottom-[30%] text-5xl font-bold text-primary/10 animate-bounce-soft" style={{ animationDelay: "1.5s" }}>Г</div>
         </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="mx-auto max-w-2xl text-center">
+            {/* Badge */}
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm border border-primary/20 animate-fade-in">
+              <BookOpen className="h-4 w-4" />
+              33 ta harf • 4 ta mavzu
+            </div>
+            
+            {/* Title with gradient */}
+            <h1 className="mb-4 text-4xl font-extrabold tracking-tight md:text-5xl animate-fade-in" style={{ animationDelay: "100ms" }}>
+              <span className="bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent">
+                Grammatika
+              </span>
+            </h1>
+            
+            {/* Subtitle */}
+            <p className="mb-6 text-lg text-muted-foreground animate-fade-in" style={{ animationDelay: "200ms" }}>
+              Rus tili grammatikasi asoslarini o'rganing - alifbodan boshlab grammatik qoidalargacha
+            </p>
+
+            {/* Stats */}
+            <div className="flex items-center justify-center gap-6 animate-fade-in" style={{ animationDelay: "300ms" }}>
+              <div className="flex items-center gap-2 rounded-xl bg-card/80 backdrop-blur-sm px-4 py-2 shadow-sm">
+                <span className="text-2xl">🔤</span>
+                <div className="text-left">
+                  <p className="text-lg font-bold text-foreground">33</p>
+                  <p className="text-xs text-muted-foreground">Harflar</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 rounded-xl bg-card/80 backdrop-blur-sm px-4 py-2 shadow-sm">
+                <span className="text-2xl">📚</span>
+                <div className="text-left">
+                  <p className="text-lg font-bold text-foreground">4</p>
+                  <p className="text-xs text-muted-foreground">Mavzu</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 rounded-xl bg-card/80 backdrop-blur-sm px-4 py-2 shadow-sm">
+                <span className="text-2xl">🎯</span>
+                <div className="text-left">
+                  <p className="text-lg font-bold text-foreground">15+</p>
+                  <p className="text-xs text-muted-foreground">Qoidalar</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <main className="container mx-auto px-4 py-8">
 
         {/* Tabs */}
         <div className="mb-8 flex gap-2">
