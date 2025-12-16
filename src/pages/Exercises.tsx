@@ -29,49 +29,49 @@ type Exercise = FillExercise | ChoiceExercise;
 const exerciseCategories = [
   {
     id: "basic",
-    title: "Asosiy so'zlar",
+    title: "Основные слова",
     icon: "📝",
     exercises: [
       { type: "fill" as const, sentence: "Меня ___ Алишер.", answer: "зовут", hint: "ismim", uzbek: "Mening ismim Alisher." },
       { type: "fill" as const, sentence: "Я ___ из Узбекистана.", answer: "приехал", hint: "keldim", uzbek: "Men O'zbekistondan keldim." },
-      { type: "choice" as const, question: "\"Спасибо\" so'zining tarjimasi nima?", options: ["Salom", "Rahmat", "Xayr", "Iltimos"], correct: 1, uzbek: "Rahmat" },
-      { type: "choice" as const, question: "\"До свидания\" nimani bildiradi?", options: ["Xayrli tong", "Xayr", "Salom", "Kechirasiz"], correct: 1, uzbek: "Xayr" },
+      { type: "choice" as const, question: "Как переводится \"Спасибо\"?", options: ["Salom", "Rahmat", "Xayr", "Iltimos"], correct: 1, uzbek: "Rahmat" },
+      { type: "choice" as const, question: "Что означает \"До свидания\"?", options: ["Xayrli tong", "Xayr", "Salom", "Kechirasiz"], correct: 1, uzbek: "Xayr" },
       { type: "fill" as const, sentence: "Доброе ___!", answer: "утро", hint: "tong", uzbek: "Xayrli tong!" },
     ],
   },
   {
     id: "numbers",
-    title: "Raqamlar",
+    title: "Числа",
     icon: "🔢",
     exercises: [
-      { type: "choice" as const, question: "\"Три\" bu qaysi raqam?", options: ["2", "3", "4", "5"], correct: 1, uzbek: "3 - uch" },
+      { type: "choice" as const, question: "Какое число \"Три\"?", options: ["2", "3", "4", "5"], correct: 1, uzbek: "3 - uch" },
       { type: "fill" as const, sentence: "У меня ___ брата.", answer: "два", hint: "ikki", uzbek: "Mening ikkita akam bor." },
-      { type: "choice" as const, question: "\"Пять\" ning tarjimasi:", options: ["To'rt", "Besh", "Olti", "Uch"], correct: 1, uzbek: "Besh" },
+      { type: "choice" as const, question: "Перевод слова \"Пять\":", options: ["To'rt", "Besh", "Olti", "Uch"], correct: 1, uzbek: "Besh" },
       { type: "fill" as const, sentence: "___ часа дня.", answer: "Три", hint: "uch", uzbek: "Kunduzi soat uch." },
-      { type: "choice" as const, question: "\"Десять\" qancha?", options: ["8", "9", "10", "11"], correct: 2, uzbek: "10 - o'n" },
+      { type: "choice" as const, question: "Сколько это \"Десять\"?", options: ["8", "9", "10", "11"], correct: 2, uzbek: "10 - o'n" },
     ],
   },
   {
     id: "verbs",
-    title: "Fe'llar",
+    title: "Глаголы",
     icon: "🏃",
     exercises: [
       { type: "fill" as const, sentence: "Я ___ книгу.", answer: "читаю", hint: "o'qiyman", uzbek: "Men kitob o'qiyman." },
-      { type: "choice" as const, question: "\"Я пишу\" nimani bildiradi?", options: ["Men o'qiyman", "Men yozaman", "Men gaplashaman", "Men yuraman"], correct: 1, uzbek: "Men yozaman" },
+      { type: "choice" as const, question: "Что означает \"Я пишу\"?", options: ["Men o'qiyman", "Men yozaman", "Men gaplashaman", "Men yuraman"], correct: 1, uzbek: "Men yozaman" },
       { type: "fill" as const, sentence: "Он ___ в школе.", answer: "учится", hint: "o'qiydi", uzbek: "U maktabda o'qiydi." },
-      { type: "choice" as const, question: "\"Работать\" fe'lining ma'nosi:", options: ["O'ynamoq", "Ishlamoq", "Uxlamoq", "Yemoq"], correct: 1, uzbek: "Ishlamoq" },
+      { type: "choice" as const, question: "Значение глагола \"Работать\":", options: ["O'ynamoq", "Ishlamoq", "Uxlamoq", "Yemoq"], correct: 1, uzbek: "Ishlamoq" },
       { type: "fill" as const, sentence: "Мы ___ в ресторане.", answer: "едим", hint: "ovqatlanamiz", uzbek: "Biz restoranda ovqatlanamiz." },
     ],
   },
   {
     id: "phrases",
-    title: "Iboralar",
+    title: "Выражения",
     icon: "💬",
     exercises: [
       { type: "fill" as const, sentence: "Как вас ___?", answer: "зовут", hint: "ismingiz", uzbek: "Ismingiz nima?" },
-      { type: "choice" as const, question: "\"Сколько это стоит?\" ning tarjimasi:", options: ["Bu nima?", "Bu qancha?", "Bu qayerda?", "Bu kim?"], correct: 1, uzbek: "Bu qancha turadi?" },
+      { type: "choice" as const, question: "Перевод \"Сколько это стоит?\":", options: ["Bu nima?", "Bu qancha?", "Bu qayerda?", "Bu kim?"], correct: 1, uzbek: "Bu qancha turadi?" },
       { type: "fill" as const, sentence: "Очень ___!", answer: "приятно", hint: "xursand", uzbek: "Tanishganimdan xursandman!" },
-      { type: "choice" as const, question: "\"Извините\" qachon ishlatiladi?", options: ["Salomlashganda", "Kechirim so'raganda", "Xayrlashganda", "Rahmat aytganda"], correct: 1, uzbek: "Kechirasiz" },
+      { type: "choice" as const, question: "Когда используется \"Извините\"?", options: ["При приветствии", "При извинении", "При прощании", "При благодарности"], correct: 1, uzbek: "Kechirasiz" },
       { type: "fill" as const, sentence: "Где находится ___?", answer: "метро", hint: "metro", uzbek: "Metro qayerda joylashgan?" },
     ],
   },
@@ -104,9 +104,9 @@ const Exercises = () => {
     setShowResult(true);
     if (correct) {
       setScore(score + 1);
-      toast.success("To'g'ri javob! 🎉");
+      toast.success("Правильный ответ! 🎉");
     } else {
-      toast.error("Noto'g'ri. Qayta urinib ko'ring!");
+      toast.error("Неправильно. Попробуйте ещё!");
     }
   };
 
@@ -141,8 +141,8 @@ const Exercises = () => {
       
       <main className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground mb-2">Mashqlar</h1>
-          <p className="text-muted-foreground">Bilimlaringizni amalda sinab ko'ring</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Упражнения</h1>
+          <p className="text-muted-foreground">Проверьте свои знания на практике</p>
         </div>
 
         {!selectedCategory ? (
@@ -160,7 +160,7 @@ const Exercises = () => {
                 <span className="text-4xl">{category.icon}</span>
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-foreground">{category.title}</h3>
-                  <p className="text-sm text-muted-foreground">{category.exercises.length} ta mashq</p>
+                  <p className="text-sm text-muted-foreground">{category.exercises.length} упражнений</p>
                 </div>
                 <ChevronRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:translate-x-1" />
               </button>
@@ -170,23 +170,23 @@ const Exercises = () => {
           <div className="mx-auto max-w-md text-center animate-fade-in">
             <div className="rounded-2xl bg-card p-8 shadow-card">
               <div className="mb-4 text-6xl">🎉</div>
-              <h2 className="text-2xl font-bold text-foreground mb-2">Tabriklaymiz!</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-2">Поздравляем!</h2>
               <p className="text-muted-foreground mb-4">
-                Siz barcha mashqlarni tugatdingiz
+                Вы завершили все упражнения
               </p>
               <div className="mb-6 rounded-xl bg-primary/10 p-4">
                 <p className="text-3xl font-bold text-primary">
                   {score} / {currentCategory?.exercises.length}
                 </p>
-                <p className="text-sm text-muted-foreground">to'g'ri javoblar</p>
+                <p className="text-sm text-muted-foreground">правильных ответов</p>
               </div>
               <div className="flex gap-3">
                 <Button variant="outline" onClick={goBack} className="flex-1">
-                  Orqaga
+                  Назад
                 </Button>
                 <Button onClick={resetExercises} className="flex-1">
                   <RefreshCw className="h-4 w-4 mr-2" />
-                  Qayta boshlash
+                  Начать заново
                 </Button>
               </div>
             </div>
@@ -195,7 +195,7 @@ const Exercises = () => {
           <div className="mx-auto max-w-2xl">
             <div className="mb-6 flex items-center justify-between">
               <button onClick={goBack} className="text-primary hover:underline">
-                ← Orqaga
+                ← Назад
               </button>
               <div className="flex items-center gap-4">
                 <span className="text-sm text-muted-foreground">
@@ -216,13 +216,13 @@ const Exercises = () => {
               {currentExercise?.type === "fill" ? (
                 <div>
                   <h3 className="text-lg font-medium text-muted-foreground mb-4">
-                    Bo'sh joyni to'ldiring:
+                    Заполните пропуск:
                   </h3>
                   <p className="text-2xl font-semibold text-foreground mb-2">
                     {currentExercise.sentence.replace("___", showResult ? `[${currentExercise.answer}]` : "___")}
                   </p>
                   <p className="text-sm text-muted-foreground mb-6">
-                    💡 Maslahat: {currentExercise.hint}
+                    💡 Подсказка: {currentExercise.hint}
                   </p>
                   
                   {!showResult ? (
@@ -230,12 +230,12 @@ const Exercises = () => {
                       <Input
                         value={userAnswer}
                         onChange={(e) => setUserAnswer(e.target.value)}
-                        placeholder="Javobingizni yozing..."
+                        placeholder="Введите ответ..."
                         className="flex-1 h-12"
                         onKeyDown={(e) => e.key === "Enter" && checkAnswer()}
                       />
                       <Button onClick={checkAnswer} disabled={!userAnswer.trim()}>
-                        Tekshirish
+                        Проверить
                       </Button>
                     </div>
                   ) : (
@@ -252,7 +252,7 @@ const Exercises = () => {
                       )}
                       <div>
                         <p className="font-medium text-foreground">
-                          {isCorrect ? "To'g'ri!" : `Noto'g'ri. To'g'ri javob: ${currentExercise.answer}`}
+                          {isCorrect ? "Правильно!" : `Неправильно. Правильный ответ: ${currentExercise.answer}`}
                         </p>
                         <p className="text-sm text-muted-foreground">{currentExercise.uzbek}</p>
                       </div>
@@ -262,7 +262,7 @@ const Exercises = () => {
               ) : (
                 <div>
                   <h3 className="text-lg font-medium text-muted-foreground mb-4">
-                    To'g'ri javobni tanlang:
+                    Выберите правильный ответ:
                   </h3>
                   <p className="text-2xl font-semibold text-foreground mb-6">
                     {currentExercise?.question}
@@ -298,7 +298,7 @@ const Exercises = () => {
                       disabled={selectedOption === null}
                       className="w-full"
                     >
-                      Tekshirish
+                      Проверить
                     </Button>
                   ) : (
                     <div
@@ -314,7 +314,7 @@ const Exercises = () => {
                       )}
                       <div>
                         <p className="font-medium text-foreground">
-                          {isCorrect ? "To'g'ri!" : "Noto'g'ri"}
+                          {isCorrect ? "Правильно!" : "Неправильно"}
                         </p>
                         <p className="text-sm text-muted-foreground">{currentExercise?.uzbek}</p>
                       </div>
@@ -326,8 +326,8 @@ const Exercises = () => {
               {showResult && (
                 <Button onClick={nextExercise} className="w-full mt-4">
                   {currentIndex < (currentCategory?.exercises.length || 0) - 1
-                    ? "Keyingi mashq"
-                    : "Natijani ko'rish"}
+                    ? "Следующее упражнение"
+                    : "Посмотреть результат"}
                 </Button>
               )}
             </div>

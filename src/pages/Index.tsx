@@ -7,40 +7,40 @@ import { cn } from "@/lib/utils";
 
 const sections = [
   {
-    title: "Lug'at",
-    description: "Eng ko'p ishlatiladigan ruscha so'zlar va iboralar",
+    title: "Словарь",
+    description: "Самые употребляемые русские слова и выражения",
     icon: BookOpen,
     path: "/vocabulary",
     color: "from-primary to-primary/80",
     textColor: "text-primary-foreground",
   },
   {
-    title: "Grammatika",
-    description: "Rus alifbosi va grammatika qoidalari",
+    title: "Грамматика",
+    description: "Русский алфавит и грамматические правила",
     icon: GraduationCap,
     path: "/grammar",
     color: "from-secondary to-secondary/80",
     textColor: "text-secondary-foreground",
   },
   {
-    title: "Dialoglar",
-    description: "Kundalik hayotga oid suhbatlar",
+    title: "Диалоги",
+    description: "Разговоры на повседневные темы",
     icon: MessageCircle,
     path: "/dialogues",
     color: "from-accent to-accent/80",
     textColor: "text-accent-foreground",
   },
   {
-    title: "Mashqlar",
-    description: "Bo'sh joyni to'ldirish va to'g'ri javobni tanlash",
+    title: "Упражнения",
+    description: "Заполнение пропусков и выбор ответа",
     icon: PenTool,
     path: "/exercises",
     color: "from-primary to-primary/80",
     textColor: "text-primary-foreground",
   },
   {
-    title: "Testlar",
-    description: "Har bir mavzu bo'yicha testlar va natijalar",
+    title: "Тесты",
+    description: "Тесты по каждой теме с результатами",
     icon: FileCheck,
     path: "/tests",
     color: "from-secondary to-secondary/80",
@@ -59,17 +59,17 @@ const Index = () => {
           <div className="mx-auto max-w-2xl text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary animate-fade-in">
               <Sparkles className="h-4 w-4" />
-              Kunlik mashqingizni bajarishni unutmang!
+              Не забудьте выполнить ежедневные упражнения!
             </div>
             <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-foreground md:text-5xl animate-fade-in" style={{ animationDelay: "100ms" }}>
-              Rus tilini <span className="text-primary">oson</span> o'rganing
+              Изучайте русский язык <span className="text-primary">легко</span>
             </h1>
             <p className="mb-8 text-lg text-muted-foreground animate-fade-in" style={{ animationDelay: "200ms" }}>
-              Interaktiv darslar, so'z kartochkalari va mashqlar orqali rus tilini tez va samarali o'rganing
+              Учите русский язык быстро и эффективно с интерактивными уроками, карточками слов и упражнениями
             </p>
             <Link to="/vocabulary">
               <Button variant="hero" size="lg" className="animate-fade-in" style={{ animationDelay: "300ms" }}>
-                O'rganishni boshlash
+                Начать обучение
               </Button>
             </Link>
           </div>
@@ -84,13 +84,13 @@ const Index = () => {
       <main className="container mx-auto px-4 py-8">
         {/* Progress Stats */}
         <section className="mb-10">
-          <h2 className="mb-4 text-lg font-semibold text-foreground">Sizning natijalaringiz</h2>
+          <h2 className="mb-4 text-lg font-semibold text-foreground">Ваши результаты</h2>
           <ProgressStats />
         </section>
 
         {/* Sections Grid */}
         <section>
-          <h2 className="mb-6 text-2xl font-bold text-foreground">Bo'limlar</h2>
+          <h2 className="mb-6 text-2xl font-bold text-foreground">Разделы</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {sections.map((section, index) => {
               const Icon = section.icon;
@@ -114,7 +114,7 @@ const Index = () => {
                     <h3 className="mb-2 text-xl font-bold">{section.title}</h3>
                     <p className="text-sm opacity-90 mb-4">{section.description}</p>
                     <div className="flex items-center gap-1 text-sm font-medium">
-                      <span>Boshlash</span>
+                      <span>Начать</span>
                       <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </div>
                   </div>
@@ -129,15 +129,15 @@ const Index = () => {
 
         {/* Quick Info */}
         <section className="mt-12 rounded-2xl bg-card p-6 shadow-card">
-          <h3 className="text-xl font-bold text-foreground mb-4">Ilova haqida</h3>
+          <h3 className="text-xl font-bold text-foreground mb-4">О приложении</h3>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <div className="flex items-start gap-3">
               <div className="rounded-lg bg-primary/10 p-2 text-primary">
                 <BookOpen className="h-5 w-5" />
               </div>
               <div>
-                <h4 className="font-semibold text-foreground">Keng lug'at</h4>
-                <p className="text-sm text-muted-foreground">100+ so'z va iboralar</p>
+                <h4 className="font-semibold text-foreground">Большой словарь</h4>
+                <p className="text-sm text-muted-foreground">100+ слов и выражений</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -145,8 +145,8 @@ const Index = () => {
                 <MessageCircle className="h-5 w-5" />
               </div>
               <div>
-                <h4 className="font-semibold text-foreground">Amaliy dialoglar</h4>
-                <p className="text-sm text-muted-foreground">Kundalik suhbatlar</p>
+                <h4 className="font-semibold text-foreground">Практические диалоги</h4>
+                <p className="text-sm text-muted-foreground">Повседневные разговоры</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -154,8 +154,8 @@ const Index = () => {
                 <FileCheck className="h-5 w-5" />
               </div>
               <div>
-                <h4 className="font-semibold text-foreground">Interaktiv testlar</h4>
-                <p className="text-sm text-muted-foreground">Bilimni tekshirish</p>
+                <h4 className="font-semibold text-foreground">Интерактивные тесты</h4>
+                <p className="text-sm text-muted-foreground">Проверка знаний</p>
               </div>
             </div>
           </div>
@@ -166,7 +166,7 @@ const Index = () => {
       <footer className="border-t border-border bg-card py-8 mt-12">
         <div className="container mx-auto px-4 text-center">
           <p className="text-sm text-muted-foreground">
-            © 2024 RusTil - Rus tilini o'rganish ilovasi
+            © 2024 RusTil - Приложение для изучения русского языка
           </p>
         </div>
       </footer>

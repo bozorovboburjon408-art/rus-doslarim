@@ -6,9 +6,9 @@ import { cn } from "@/lib/utils";
 const dialogues = [
   {
     id: "greeting",
-    title: "Tanishish",
+    title: "Знакомство",
     icon: "👋",
-    description: "Birinchi tanishish va salomlashish",
+    description: "Первое знакомство и приветствие",
     conversation: [
       { speaker: "A", russian: "Здравствуйте!", uzbek: "Assalomu alaykum!" },
       { speaker: "B", russian: "Здравствуйте! Как вас зовут?", uzbek: "Assalomu alaykum! Ismingiz nima?" },
@@ -21,9 +21,9 @@ const dialogues = [
   },
   {
     id: "shopping",
-    title: "Do'konda",
+    title: "В магазине",
     icon: "🛒",
-    description: "Xarid qilish va narx so'rash",
+    description: "Покупки и вопрос о цене",
     conversation: [
       { speaker: "A", russian: "Добрый день! Сколько стоит этот хлеб?", uzbek: "Hayrli kun! Bu non qancha turadi?" },
       { speaker: "B", russian: "Здравствуйте! Этот хлеб стоит пятьдесят рублей.", uzbek: "Assalomu alaykum! Bu non ellik rubl turadi." },
@@ -36,9 +36,9 @@ const dialogues = [
   },
   {
     id: "restaurant",
-    title: "Restoranda",
+    title: "В ресторане",
     icon: "🍽️",
-    description: "Ovqat buyurtma qilish",
+    description: "Заказ еды",
     conversation: [
       { speaker: "A", russian: "Здравствуйте! Столик на двоих, пожалуйста.", uzbek: "Assalomu alaykum! Ikki kishilik stol, iltimos." },
       { speaker: "B", russian: "Конечно! Вот меню.", uzbek: "Albatta! Mana menyu." },
@@ -52,9 +52,9 @@ const dialogues = [
   },
   {
     id: "directions",
-    title: "Yo'l so'rash",
+    title: "Спросить дорогу",
     icon: "🗺️",
-    description: "Manzilni topish",
+    description: "Найти нужное место",
     conversation: [
       { speaker: "A", russian: "Извините, как пройти к метро?", uzbek: "Kechirasiz, metroga qanday borsa bo'ladi?" },
       { speaker: "B", russian: "Идите прямо, потом поверните налево.", uzbek: "To'g'ri boring, keyin chapga buriling." },
@@ -68,9 +68,9 @@ const dialogues = [
   },
   {
     id: "phone",
-    title: "Telefon qo'ng'irog'i",
+    title: "Телефонный звонок",
     icon: "📞",
-    description: "Telefonda suhbat",
+    description: "Разговор по телефону",
     conversation: [
       { speaker: "A", russian: "Алло! Здравствуйте!", uzbek: "Allo! Assalomu alaykum!" },
       { speaker: "B", russian: "Здравствуйте! Кто это?", uzbek: "Assalomu alaykum! Bu kim?" },
@@ -83,9 +83,9 @@ const dialogues = [
   },
   {
     id: "doctor",
-    title: "Shifokorда",
+    title: "У врача",
     icon: "🏥",
-    description: "Kasallikni tushuntirish",
+    description: "Объяснить болезнь",
     conversation: [
       { speaker: "A", russian: "Здравствуйте, доктор.", uzbek: "Assalomu alaykum, doktor." },
       { speaker: "B", russian: "Здравствуйте. На что жалуетесь?", uzbek: "Assalomu alaykum. Nima shikoyatingiz bor?" },
@@ -128,8 +128,8 @@ const Dialogues = () => {
       
       <main className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground mb-2">Dialoglar</h1>
-          <p className="text-muted-foreground">Kundalik hayotga oid suhbatlarni o'rganing</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Диалоги</h1>
+          <p className="text-muted-foreground">Изучайте повседневные разговоры</p>
         </div>
 
         {!selectedDialogue ? (
@@ -152,7 +152,7 @@ const Dialogues = () => {
                 <p className="text-sm text-muted-foreground">{dialogue.description}</p>
                 <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
                   <MessageCircle className="h-4 w-4" />
-                  <span>{dialogue.conversation.length} ta replika</span>
+                  <span>{dialogue.conversation.length} реплик</span>
                 </div>
               </button>
             ))}
@@ -164,14 +164,14 @@ const Dialogues = () => {
                 onClick={() => setSelectedDialogue(null)}
                 className="flex items-center gap-2 text-primary hover:underline"
               >
-                ← Dialoglar ro'yxatiga qaytish
+                ← Вернуться к списку диалогов
               </button>
               <button
                 onClick={speakAll}
                 className="flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-primary-foreground hover:bg-primary/90 transition-colors"
               >
                 <Volume2 className="h-4 w-4" />
-                Hammasini tinglash
+                Прослушать всё
               </button>
             </div>
 

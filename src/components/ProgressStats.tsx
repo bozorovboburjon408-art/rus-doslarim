@@ -30,25 +30,25 @@ export function ProgressStats() {
       <StatCard
         icon={<Flame className="h-5 w-5" />}
         value="7"
-        label="Kunlik davomiylik"
+        label="Дней подряд"
         delay={0}
       />
       <StatCard
         icon={<BookOpen className="h-5 w-5" />}
         value="24"
-        label="O'rganilgan so'zlar"
+        label="Изучено слов"
         delay={100}
       />
       <StatCard
         icon={<Trophy className="h-5 w-5" />}
         value="3"
-        label="Tugatilgan darslar"
+        label="Завершено уроков"
         delay={200}
       />
       <StatCard
         icon={<Clock className="h-5 w-5" />}
-        value="45 min"
-        label="Umumiy vaqt"
+        value="45 мин"
+        label="Общее время"
         delay={300}
       />
     </div>

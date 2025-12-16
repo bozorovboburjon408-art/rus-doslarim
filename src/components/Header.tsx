@@ -6,12 +6,12 @@ import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
-  { path: "/", label: "Bosh sahifa" },
-  { path: "/vocabulary", label: "Lug'at" },
-  { path: "/grammar", label: "Grammatika" },
-  { path: "/dialogues", label: "Dialoglar" },
-  { path: "/exercises", label: "Mashqlar" },
-  { path: "/tests", label: "Testlar" },
+  { path: "/", label: "Главная" },
+  { path: "/vocabulary", label: "Словарь" },
+  { path: "/grammar", label: "Грамматика" },
+  { path: "/dialogues", label: "Диалоги" },
+  { path: "/exercises", label: "Упражнения" },
+  { path: "/tests", label: "Тесты" },
 ];
 
 export function Header() {

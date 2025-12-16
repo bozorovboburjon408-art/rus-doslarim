@@ -7,81 +7,81 @@ import { cn } from "@/lib/utils";
 const vocabularyCategories = [
   {
     id: "greetings",
-    name: "Salomlashish",
+    name: "Приветствия",
     icon: "👋",
     words: [
-      { russian: "Привет", uzbek: "Salom", pronunciation: "Privyet", example: "Привет, как дела? - Salom, qanday ahvol?" },
-      { russian: "Здравствуйте", uzbek: "Assalomu alaykum", pronunciation: "Zdrastvuyte", example: "Здравствуйте, меня зовут Анна. - Assalomu alaykum, mening ismim Anna." },
-      { russian: "До свидания", uzbek: "Xayr", pronunciation: "Da svidaniya", example: "До свидания, до завтра! - Xayr, ertaga ko'rishguncha!" },
-      { russian: "Доброе утро", uzbek: "Xayrli tong", pronunciation: "Dobraye utra", example: "Доброе утро! Как спалось? - Xayrli tong! Qanday uxladingiz?" },
-      { russian: "Добрый вечер", uzbek: "Xayrli kech", pronunciation: "Dobryy vecher", example: "Добрый вечер, друзья! - Xayrli kech, do'stlar!" },
+      { russian: "Привет", uzbek: "Salom", pronunciation: "Привет", example: "Привет, как дела? - Salom, qanday ahvol?" },
+      { russian: "Здравствуйте", uzbek: "Assalomu alaykum", pronunciation: "Здравствуйте", example: "Здравствуйте, меня зовут Анна. - Assalomu alaykum, mening ismim Anna." },
+      { russian: "До свидания", uzbek: "Xayr", pronunciation: "До свидания", example: "До свидания, до завтра! - Xayr, ertaga ko'rishguncha!" },
+      { russian: "Доброе утро", uzbek: "Xayrli tong", pronunciation: "Доброе утро", example: "Доброе утро! Как спалось? - Xayrli tong! Qanday uxladingiz?" },
+      { russian: "Добрый вечер", uzbek: "Xayrli kech", pronunciation: "Добрый вечер", example: "Добрый вечер, друзья! - Xayrli kech, do'stlar!" },
     ],
   },
   {
     id: "numbers",
-    name: "Raqamlar",
+    name: "Числа",
     icon: "🔢",
     words: [
-      { russian: "Один", uzbek: "Bir", pronunciation: "Adin", example: "У меня один брат. - Mening bitta akam bor." },
-      { russian: "Два", uzbek: "Ikki", pronunciation: "Dva", example: "Два плюс два - четыре. - Ikki qo'shish ikki - to'rt." },
-      { russian: "Три", uzbek: "Uch", pronunciation: "Tri", example: "Три часа дня. - Kunduzi soat uch." },
-      { russian: "Четыре", uzbek: "To'rt", pronunciation: "Chetyre", example: "Четыре сезона года. - Yilning to'rt fasli." },
-      { russian: "Пять", uzbek: "Besh", pronunciation: "Pyat'", example: "Пять пальцев на руке. - Qo'lda beshta barmoq." },
-      { russian: "Десять", uzbek: "O'n", pronunciation: "Desyat'", example: "Десять минут. - O'n daqiqa." },
-      { russian: "Сто", uzbek: "Yuz", pronunciation: "Sto", example: "Сто рублей. - Yuz rubl." },
+      { russian: "Один", uzbek: "Bir", pronunciation: "Один", example: "У меня один брат. - Mening bitta akam bor." },
+      { russian: "Два", uzbek: "Ikki", pronunciation: "Два", example: "Два плюс два - четыре. - Ikki qo'shish ikki - to'rt." },
+      { russian: "Три", uzbek: "Uch", pronunciation: "Три", example: "Три часа дня. - Kunduzi soat uch." },
+      { russian: "Четыре", uzbek: "To'rt", pronunciation: "Четыре", example: "Четыре сезона года. - Yilning to'rt fasli." },
+      { russian: "Пять", uzbek: "Besh", pronunciation: "Пять", example: "Пять пальцев на руке. - Qo'lda beshta barmoq." },
+      { russian: "Десять", uzbek: "O'n", pronunciation: "Десять", example: "Десять минут. - O'n daqiqa." },
+      { russian: "Сто", uzbek: "Yuz", pronunciation: "Сто", example: "Сто рублей. - Yuz rubl." },
     ],
   },
   {
     id: "family",
-    name: "Oila",
+    name: "Семья",
     icon: "👨‍👩‍👧‍👦",
     words: [
-      { russian: "Мама", uzbek: "Ona", pronunciation: "Mama", example: "Моя мама - учительница. - Mening onam o'qituvchi." },
-      { russian: "Папа", uzbek: "Ota", pronunciation: "Papa", example: "Папа читает газету. - Ota gazeta o'qiyapti." },
-      { russian: "Брат", uzbek: "Aka/Uka", pronunciation: "Brat", example: "Мой брат - студент. - Mening akam talaba." },
-      { russian: "Сестра", uzbek: "Opa/Singil", pronunciation: "Sistra", example: "Сестра живёт в Москве. - Opam Moskvada yashaydi." },
-      { russian: "Бабушка", uzbek: "Buvi", pronunciation: "Babushka", example: "Бабушка готовит вкусно. - Buvi mazali ovqat tayyorlaydi." },
-      { russian: "Дедушка", uzbek: "Bobo", pronunciation: "Dedushka", example: "Дедушка рассказывает истории. - Bobo hikoyalar aytib beradi." },
+      { russian: "Мама", uzbek: "Ona", pronunciation: "Мама", example: "Моя мама - учительница. - Mening onam o'qituvchi." },
+      { russian: "Папа", uzbek: "Ota", pronunciation: "Папа", example: "Папа читает газету. - Ota gazeta o'qiyapti." },
+      { russian: "Брат", uzbek: "Aka/Uka", pronunciation: "Брат", example: "Мой брат - студент. - Mening akam talaba." },
+      { russian: "Сестра", uzbek: "Opa/Singil", pronunciation: "Сестра", example: "Сестра живёт в Москве. - Opam Moskvada yashaydi." },
+      { russian: "Бабушка", uzbek: "Buvi", pronunciation: "Бабушка", example: "Бабушка готовит вкусно. - Buvi mazali ovqat tayyorlaydi." },
+      { russian: "Дедушка", uzbek: "Bobo", pronunciation: "Дедушка", example: "Дедушка рассказывает истории. - Bobo hikoyalar aytib beradi." },
     ],
   },
   {
     id: "food",
-    name: "Ovqatlar",
+    name: "Еда",
     icon: "🍽️",
     words: [
-      { russian: "Хлеб", uzbek: "Non", pronunciation: "Khleb", example: "Свежий хлеб очень вкусный. - Yangi non juda mazali." },
-      { russian: "Вода", uzbek: "Suv", pronunciation: "Vada", example: "Дайте, пожалуйста, воды. - Iltimos, suv bering." },
-      { russian: "Чай", uzbek: "Choy", pronunciation: "Chay", example: "Я люблю зелёный чай. - Men ko'k choyni yaxshi ko'raman." },
-      { russian: "Мясо", uzbek: "Go'sht", pronunciation: "Myasa", example: "Мясо нужно хорошо варить. - Go'shtni yaxshi pishirish kerak." },
-      { russian: "Рис", uzbek: "Guruch", pronunciation: "Ris", example: "Плов готовят из риса. - Palovni guruchdan tayyorlashadi." },
-      { russian: "Яблоко", uzbek: "Olma", pronunciation: "Yablaka", example: "Красное яблоко сладкое. - Qizil olma shirin." },
+      { russian: "Хлеб", uzbek: "Non", pronunciation: "Хлеб", example: "Свежий хлеб очень вкусный. - Yangi non juda mazali." },
+      { russian: "Вода", uzbek: "Suv", pronunciation: "Вода", example: "Дайте, пожалуйста, воды. - Iltimos, suv bering." },
+      { russian: "Чай", uzbek: "Choy", pronunciation: "Чай", example: "Я люблю зелёный чай. - Men ko'k choyni yaxshi ko'raman." },
+      { russian: "Мясо", uzbek: "Go'sht", pronunciation: "Мясо", example: "Мясо нужно хорошо варить. - Go'shtni yaxshi pishirish kerak." },
+      { russian: "Рис", uzbek: "Guruch", pronunciation: "Рис", example: "Плов готовят из риса. - Palovni guruchdan tayyorlashadi." },
+      { russian: "Яблоко", uzbek: "Olma", pronunciation: "Яблоко", example: "Красное яблоко сладкое. - Qizil olma shirin." },
     ],
   },
   {
     id: "colors",
-    name: "Ranglar",
+    name: "Цвета",
     icon: "🎨",
     words: [
-      { russian: "Красный", uzbek: "Qizil", pronunciation: "Krasnyy", example: "Красный цветок. - Qizil gul." },
-      { russian: "Синий", uzbek: "Ko'k", pronunciation: "Siniy", example: "Синее небо. - Ko'k osmon." },
-      { russian: "Зелёный", uzbek: "Yashil", pronunciation: "Zilyonyy", example: "Зелёная трава. - Yashil maysalar." },
-      { russian: "Жёлтый", uzbek: "Sariq", pronunciation: "Jyoltyy", example: "Жёлтое солнце. - Sariq quyosh." },
-      { russian: "Белый", uzbek: "Oq", pronunciation: "Belyy", example: "Белый снег. - Oq qor." },
-      { russian: "Чёрный", uzbek: "Qora", pronunciation: "Chyornyy", example: "Чёрная кошка. - Qora mushuk." },
+      { russian: "Красный", uzbek: "Qizil", pronunciation: "Красный", example: "Красный цветок. - Qizil gul." },
+      { russian: "Синий", uzbek: "Ko'k", pronunciation: "Синий", example: "Синее небо. - Ko'k osmon." },
+      { russian: "Зелёный", uzbek: "Yashil", pronunciation: "Зелёный", example: "Зелёная трава. - Yashil maysalar." },
+      { russian: "Жёлтый", uzbek: "Sariq", pronunciation: "Жёлтый", example: "Жёлтое солнце. - Sariq quyosh." },
+      { russian: "Белый", uzbek: "Oq", pronunciation: "Белый", example: "Белый снег. - Oq qor." },
+      { russian: "Чёрный", uzbek: "Qora", pronunciation: "Чёрный", example: "Чёрная кошка. - Qora mushuk." },
     ],
   },
   {
     id: "days",
-    name: "Hafta kunlari",
+    name: "Дни недели",
     icon: "📅",
     words: [
-      { russian: "Понедельник", uzbek: "Dushanba", pronunciation: "Panidyelnik", example: "В понедельник я работаю. - Dushanba kuni ishlayman." },
-      { russian: "Вторник", uzbek: "Seshanba", pronunciation: "Vtornik", example: "Во вторник у нас урок. - Seshanba kuni darsimiz bor." },
-      { russian: "Среда", uzbek: "Chorshanba", pronunciation: "Srida", example: "Среда - середина недели. - Chorshanba - haftaning o'rtasi." },
-      { russian: "Четверг", uzbek: "Payshanba", pronunciation: "Chitverk", example: "В четверг идём в кино. - Payshanba kuni kinoga boramiz." },
-      { russian: "Пятница", uzbek: "Juma", pronunciation: "Pyatnitsa", example: "Пятница - любимый день. - Juma - sevimli kun." },
-      { russian: "Суббота", uzbek: "Shanba", pronunciation: "Subota", example: "В субботу отдыхаем. - Shanba kuni dam olamiz." },
-      { russian: "Воскресенье", uzbek: "Yakshanba", pronunciation: "Vaskrisenye", example: "Воскресенье - выходной. - Yakshanba - dam olish kuni." },
+      { russian: "Понедельник", uzbek: "Dushanba", pronunciation: "Понедельник", example: "В понедельник я работаю. - Dushanba kuni ishlayman." },
+      { russian: "Вторник", uzbek: "Seshanba", pronunciation: "Вторник", example: "Во вторник у нас урок. - Seshanba kuni darsimiz bor." },
+      { russian: "Среда", uzbek: "Chorshanba", pronunciation: "Среда", example: "Среда - середина недели. - Chorshanba - haftaning o'rtasi." },
+      { russian: "Четверг", uzbek: "Payshanba", pronunciation: "Четверг", example: "В четверг идём в кино. - Payshanba kuni kinoga boramiz." },
+      { russian: "Пятница", uzbek: "Juma", pronunciation: "Пятница", example: "Пятница - любимый день. - Juma - sevimli kun." },
+      { russian: "Суббота", uzbek: "Shanba", pronunciation: "Суббота", example: "В субботу отдыхаем. - Shanba kuni dam olamiz." },
+      { russian: "Воскресенье", uzbek: "Yakshanba", pronunciation: "Воскресенье", example: "Воскресенье - выходной. - Yakshanba - dam olish kuni." },
     ],
   },
 ];
@@ -111,8 +111,8 @@ const Vocabulary = () => {
       
       <main className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground mb-2">Lug'at</h1>
-          <p className="text-muted-foreground">Eng ko'p ishlatiladigan ruscha so'zlarni o'rganing</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Словарь</h1>
+          <p className="text-muted-foreground">Изучайте самые употребляемые русские слова</p>
         </div>
 
         {!selectedCategory ? (
@@ -132,7 +132,7 @@ const Vocabulary = () => {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold text-foreground">{category.name}</h3>
-                  <p className="text-sm text-muted-foreground">{category.words.length} ta so'z</p>
+                  <p className="text-sm text-muted-foreground">{category.words.length} слов</p>
                 </div>
                 <ChevronRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:translate-x-1" />
               </button>
@@ -147,7 +147,7 @@ const Vocabulary = () => {
               }}
               className="mb-6 flex items-center gap-2 text-primary hover:underline"
             >
-              ← Kategoriyalarga qaytish
+              ← Вернуться к категориям
             </button>
 
             <div className="mb-6 flex items-center gap-4">
@@ -160,7 +160,7 @@ const Vocabulary = () => {
             <div className="relative mb-6">
               <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
               <Input
-                placeholder="So'z qidirish..."
+                placeholder="Поиск слова..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-12 h-12 rounded-xl"
@@ -201,7 +201,7 @@ const Vocabulary = () => {
                   
                   {expandedWord === word.russian && (
                     <div className="mt-4 pt-4 border-t border-border animate-fade-in">
-                      <p className="text-sm font-medium text-muted-foreground mb-2">Misol:</p>
+                      <p className="text-sm font-medium text-muted-foreground mb-2">Пример:</p>
                       <p className="text-foreground bg-muted/50 rounded-lg p-3">{word.example}</p>
                     </div>
                   )}
