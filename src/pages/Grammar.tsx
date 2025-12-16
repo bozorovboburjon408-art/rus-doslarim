@@ -165,14 +165,6 @@ const grammarTopics = [
   },
 ];
 
-const casesTable = [
-  { case: "Именительный", question: "Кто? Что?", example: "брат, сестра" },
-  { case: "Родительный", question: "Кого? Чего?", example: "брата, сестры" },
-  { case: "Дательный", question: "Кому? Чему?", example: "брату, сестре" },
-  { case: "Винительный", question: "Кого? Что?", example: "брата, сестру" },
-  { case: "Творительный", question: "Кем? Чем?", example: "братом, сестрой" },
-  { case: "Предложный", question: "О ком? О чём?", example: "о брате, о сестре" },
-];
 
 const Grammar = () => {
   const [expandedTopic, setExpandedTopic] = useState<string | null>("cases");
@@ -239,40 +231,6 @@ const Grammar = () => {
       </section>
 
       <main className="container mx-auto px-4 py-8">
-        {/* Cases Quick Reference Table */}
-        <div className="mb-8 rounded-2xl bg-card p-6 shadow-card animate-fade-in">
-          <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-            <span className="text-2xl">📋</span>
-            Таблица падежей
-          </h2>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="text-left py-3 px-2 font-semibold text-foreground">Падеж</th>
-                  <th className="text-left py-3 px-2 font-semibold text-foreground">Вопрос</th>
-                  <th className="text-left py-3 px-2 font-semibold text-foreground">Пример</th>
-                </tr>
-              </thead>
-              <tbody>
-                {casesTable.map((row, index) => (
-                  <tr 
-                    key={row.case} 
-                    className={cn(
-                      "border-b border-border/50 transition-colors hover:bg-muted/30",
-                      index % 2 === 0 && "bg-muted/10"
-                    )}
-                  >
-                    <td className="py-3 px-2 font-medium text-primary">{row.case}</td>
-                    <td className="py-3 px-2 text-muted-foreground">{row.question}</td>
-                    <td className="py-3 px-2 text-foreground">{row.example}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
         {/* Grammar Topics */}
         <div className="space-y-4">
           {grammarTopics.map((topic, index) => (
