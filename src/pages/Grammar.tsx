@@ -167,7 +167,7 @@ const grammarTopics = [
 
 
 const Grammar = () => {
-  const [expandedTopic, setExpandedTopic] = useState<string | null>("cases");
+  const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
 
   return (
     <div className="min-h-screen bg-background">
