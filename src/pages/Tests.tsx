@@ -21,78 +21,7 @@ interface Test {
 }
 
 const tests: Test[] = [
-  {
-    id: "alphabet",
-    title: "Русский алфавит",
-    icon: "🔤",
-    description: "Тест на знание кириллических букв",
-    timeLimit: 5,
-    questions: [
-      { question: "Как произносится буква \"А\"?", options: ["o", "a", "e", "u"], correct: 1, explanation: "Буква А произносится как \"а\"." },
-      { question: "Какой звук даёт буква \"Ж\"?", options: ["sh", "ch", "j", "ts"], correct: 2, explanation: "Буква Ж даёт звук \"ж\" (жук)." },
-      { question: "Сколько букв в русском алфавите?", options: ["26", "30", "33", "35"], correct: 2, explanation: "В русском алфавите 33 буквы." },
-      { question: "Как произносится буква \"Ы\"?", options: ["i", "e", "ы (твёрдый)", "u"], correct: 2, explanation: "Буква Ы - твёрдый гласный звук." },
-      { question: "Как произносится буква \"Щ\"?", options: ["sh", "shch", "ch", "ts"], correct: 1, explanation: "Буква Щ произносится как \"щ\"." },
-    ],
-  },
-  {
-    id: "greetings",
-    title: "Приветствия",
-    icon: "👋",
-    description: "Тест на выражения приветствия",
-    timeLimit: 5,
-    questions: [
-      { question: "Как переводится \"Здравствуйте\"?", options: ["Xayr", "Assalomu alaykum", "Rahmat", "Kechirasiz"], correct: 1, explanation: "Здравствуйте - официальная форма приветствия." },
-      { question: "Когда используется \"До свидания\"?", options: ["При встрече", "При прощании", "При благодарности", "При вопросе"], correct: 1, explanation: "До свидания - выражение прощания." },
-      { question: "Перевод \"Добрый вечер\":", options: ["Xayrli tong", "Xayrli kun", "Xayrli kech", "Xayrli tun"], correct: 2, explanation: "Добрый вечер - Xayrli kech." },
-      { question: "Как приветствуют друзей?", options: ["Здравствуйте", "Привет", "До свидания", "Спасибо"], correct: 1, explanation: "Привет - неформальное приветствие." },
-      { question: "Что означает \"Пока\"?", options: ["Salom", "Xayr (norasmiy)", "Rahmat", "Iltimos"], correct: 1, explanation: "Пока - неформальное прощание." },
-    ],
-  },
-  {
-    id: "numbers",
-    title: "Числа",
-    icon: "🔢",
-    description: "Тест на русские числа",
-    timeLimit: 5,
-    questions: [
-      { question: "Какое число \"Семь\"?", options: ["5", "6", "7", "8"], correct: 2, explanation: "Семь = 7 (yetti)." },
-      { question: "Значение слова \"Двадцать\":", options: ["12", "20", "22", "200"], correct: 1, explanation: "Двадцать = 20 (yigirma)." },
-      { question: "Сколько это \"Сто\"?", options: ["10", "50", "100", "1000"], correct: 2, explanation: "Сто = 100 (yuz)." },
-      { question: "\"Пятнадцать\" это:", options: ["5", "14", "15", "50"], correct: 2, explanation: "Пятнадцать = 15 (o'n besh)." },
-      { question: "Перевод слова \"Тысяча\":", options: ["Yuz", "Ming", "Million", "O'n"], correct: 1, explanation: "Тысяча = 1000 (ming)." },
-    ],
-  },
-  {
-    id: "family",
-    title: "Семья",
-    icon: "👨‍👩‍👧‍👦",
-    description: "Тест на членов семьи",
-    timeLimit: 5,
-    questions: [
-      { question: "Кто такая \"Бабушка\"?", options: ["Ona", "Opa", "Buvi", "Xola"], correct: 2, explanation: "Бабушка = buvi (grandmother)." },
-      { question: "Перевод слова \"Брат\":", options: ["Ota", "Aka/uka", "Opa", "Amaki"], correct: 1, explanation: "Брат = aka или uka." },
-      { question: "Кто такой \"Дядя\"?", options: ["Amaki/tog'a", "Ota", "Bobo", "Aka"], correct: 0, explanation: "Дядя = amaki или tog'a." },
-      { question: "\"Внук\" это:", options: ["O'g'il", "Nevara (o'g'il)", "Aka", "Jiyan"], correct: 1, explanation: "Внук = nevara (мальчик)." },
-      { question: "Значение слова \"Жена\":", options: ["Qiz", "Opa", "Xotin", "Ona"], correct: 2, explanation: "Жена = xotin, rafiq." },
-    ],
-  },
-  {
-    id: "verbs",
-    title: "Глаголы",
-    icon: "🏃",
-    description: "Тест на основные глаголы",
-    timeLimit: 7,
-    questions: [
-      { question: "Значение глагола \"Читать\":", options: ["Yozmoq", "O'qimoq", "Gapirmoq", "Eshitmoq"], correct: 1, explanation: "Читать = o'qimoq." },
-      { question: "Перевод \"Я работаю\":", options: ["Men o'qiyman", "Men ishlayman", "Men yuraman", "Men uxlayman"], correct: 1, explanation: "Работать = ishlamoq." },
-      { question: "Что означает \"Говорить\"?", options: ["Eshitmoq", "Ko'rmoq", "Gapirmoq", "O'ylamoq"], correct: 2, explanation: "Говорить = gapirmoq." },
-      { question: "\"Они идут\" - это:", options: ["Ular kelishadi", "Ular yurishadi/ketishadi", "Ular o'tirishadi", "Ular turishadi"], correct: 1, explanation: "Идти = yurmoq, ketmoq." },
-      { question: "Глагол \"Писать\":", options: ["O'qimoq", "Yozmoq", "Chizmoq", "Rasm solmoq"], correct: 1, explanation: "Писать = yozmoq." },
-      { question: "Перевод \"Слушать\":", options: ["Ko'rmoq", "Sezmoq", "Eshitmoq/tinglamoq", "Gapirmoq"], correct: 2, explanation: "Слушать = eshitmoq, tinglamoq." },
-      { question: "Что означает \"Мы едим\"?", options: ["Biz ketyapmiz", "Biz ovqatlanayapmiz", "Biz uxlayapmiz", "Biz o'ynayapmiz"], correct: 1, explanation: "Есть (еда) = ovqatlanmoq." },
-    ],
-  },
+  // Тесты будут добавлены позже
 ];
 
 const Tests = () => {
