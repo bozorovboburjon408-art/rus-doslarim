@@ -24,7 +24,7 @@ export function Header() {
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
             <BookOpen className="h-5 w-5" />
           </div>
-          <span className="text-xl font-bold text-foreground">РусТил</span>
+          <span className="text-xl font-bold text-foreground">Русский язык</span>
         </Link>
         
         <nav className="hidden items-center gap-1 md:flex">
