@@ -6,173 +6,172 @@ import { cn } from "@/lib/utils";
 const grammarTopics = [
   {
     id: "cases",
-    title: "Padejlar (Падежи)",
+    title: "Падежи",
     icon: "📋",
     content: [
       {
-        subtitle: "Именительный падеж (Bosh kelishik) - Ким? Нима?",
+        subtitle: "Именительный падеж - Кто? Что?",
         rules: [
-          "Gap egasi sifatida ishlatiladi",
-          "Masalan: Мальчик читает (O'g'il bola o'qiyapti)",
-          "Masalan: Книга лежит на столе (Kitob stolda yotibdi)",
+          "Используется как подлежащее в предложении",
+          "Например: Мальчик читает",
+          "Например: Книга лежит на столе",
         ],
       },
       {
-        subtitle: "Родительный падеж (Qaratqich kelishik) - Кого? Чего?",
+        subtitle: "Родительный падеж - Кого? Чего?",
         rules: [
-          "Egalik, yo'qlik, miqdor bildiradi",
-          "Erkak jinsi: -а, -я. Masalan: брат → брата, учитель → учителя",
-          "Ayol jinsi: -ы, -и. Masalan: сестра → сестры, книга → книги",
-          "Masalan: У меня нет брата (Mening akam yo'q)",
+          "Обозначает принадлежность, отсутствие, количество",
+          "Мужской род: -а, -я. Например: брат → брата, учитель → учителя",
+          "Женский род: -ы, -и. Например: сестра → сестры, книга → книги",
+          "Например: У меня нет брата",
         ],
       },
       {
-        subtitle: "Дательный падеж (Jo'nalish kelishik) - Кому? Чему?",
+        subtitle: "Дательный падеж - Кому? Чему?",
         rules: [
-          "Kimga/nimaga yo'nalganlikni bildiradi",
-          "Erkak jinsi: -у, -ю. Masalan: брат → брату, учитель → учителю",
-          "Ayol jinsi: -е. Masalan: сестра → сестре, мама → маме",
-          "Masalan: Я дал книгу брату (Men akamga kitob berdim)",
+          "Обозначает направление действия к кому/чему-либо",
+          "Мужской род: -у, -ю. Например: брат → брату, учитель → учителю",
+          "Женский род: -е. Например: сестра → сестре, мама → маме",
+          "Например: Я дал книгу брату",
         ],
       },
       {
-        subtitle: "Винительный падеж (Tushum kelishik) - Кого? Что?",
+        subtitle: "Винительный падеж - Кого? Что?",
         rules: [
-          "To'g'ri to'ldiruvchi sifatida ishlatiladi",
-          "Jonli erkak jinsi: -а, -я (qaratqich bilan bir xil)",
-          "Jonsiz erkak jinsi: o'zgarmaydi (bosh kelishik bilan bir xil)",
-          "Ayol jinsi: -у, -ю. Masalan: сестра → сестру, книга → книгу",
-          "Masalan: Я вижу брата (Men akamni ko'ryapman)",
+          "Используется как прямое дополнение",
+          "Одушевлённый мужской род: -а, -я (как родительный)",
+          "Неодушевлённый мужской род: не изменяется (как именительный)",
+          "Женский род: -у, -ю. Например: сестра → сестру, книга → книгу",
+          "Например: Я вижу брата",
         ],
       },
       {
-        subtitle: "Творительный падеж (Vosita kelishik) - Кем? Чем?",
+        subtitle: "Творительный падеж - Кем? Чем?",
         rules: [
-          "Vosita, birga bo'lishni bildiradi",
-          "Erkak jinsi: -ом, -ем. Masalan: брат → братом, учитель → учителем",
-          "Ayol jinsi: -ой, -ей. Masalan: сестра → сестрой, книга → книгой",
-          "Masalan: Я пишу ручкой (Men ruchka bilan yozyapman)",
+          "Обозначает инструмент, совместность",
+          "Мужской род: -ом, -ем. Например: брат → братом, учитель → учителем",
+          "Женский род: -ой, -ей. Например: сестра → сестрой, книга → книгой",
+          "Например: Я пишу ручкой",
         ],
       },
       {
-        subtitle: "Предложный падеж (O'rin kelishik) - О ком? О чём? Где?",
+        subtitle: "Предложный падеж - О ком? О чём? Где?",
         rules: [
-          "Faqat predloglar bilan ishlatiladi (в, на, о, об)",
-          "Erkak jinsi: -е. Masalan: брат → о брате, стол → на столе",
-          "Ayol jinsi: -е. Masalan: сестра → о сестре, книга → в книге",
-          "Masalan: Я думаю о маме (Men onam haqida o'ylayapman)",
+          "Используется только с предлогами (в, на, о, об)",
+          "Мужской род: -е. Например: брат → о брате, стол → на столе",
+          "Женский род: -е. Например: сестра → о сестре, книга → в книге",
+          "Например: Я думаю о маме",
         ],
       },
     ],
   },
   {
     id: "nouns",
-    title: "Otlar (Существительные)",
+    title: "Существительные",
     icon: "📝",
     content: [
       {
-        subtitle: "Jinsi bo'yicha",
+        subtitle: "Род существительных",
         rules: [
-          "Erkak jinsi: -ый, -ой, -ий tugaydi yoki undosh bilan tugaydi. Masalan: стол (stol), дом (uy), мальчик (o'g'il bola)",
-          "Ayol jinsi: -а, -я, -ь tugaydi. Masalan: мама (ona), земля (yer), ночь (tun)",
-          "O'rta jinsi: -о, -е tugaydi. Masalan: окно (deraza), море (dengiz), солнце (quyosh)",
+          "Мужской род: оканчивается на согласную или -й. Например: стол, дом, мальчик",
+          "Женский род: оканчивается на -а, -я, -ь. Например: мама, земля, ночь",
+          "Средний род: оканчивается на -о, -е. Например: окно, море, солнце",
         ],
       },
       {
-        subtitle: "Ko'plik shakli",
+        subtitle: "Множественное число",
         rules: [
-          "Erkak va ayol jinsi: -ы, -и qo'shiladi. Masalan: стол → столы, книга → книги",
-          "O'rta jinsi: -а, -я ga o'zgaradi. Masalan: окно → окна, море → моря",
-          "Istisno so'zlar: человек → люди, ребёнок → дети",
+          "Мужской и женский род: добавляется -ы, -и. Например: стол → столы, книга → книги",
+          "Средний род: меняется на -а, -я. Например: окно → окна, море → моря",
+          "Исключения: человек → люди, ребёнок → дети",
         ],
       },
     ],
   },
   {
     id: "verbs",
-    title: "Fe'llar (Глаголы)",
+    title: "Глаголы",
     icon: "🏃",
     content: [
       {
-        subtitle: "Hozirgi zamon",
+        subtitle: "Настоящее время",
         rules: [
-          "Я (men): -ю, -у. Masalan: я читаю (men o'qiyman), я пишу (men yozaman)",
-          "Ты (sen): -ешь, -ишь. Masalan: ты читаешь, ты пишешь",
-          "Он/она (u): -ет, -ит. Masalan: он читает, она пишет",
-          "Мы (biz): -ем, -им. Masalan: мы читаем, мы пишем",
-          "Вы (siz): -ете, -ите. Masalan: вы читаете, вы пишете",
-          "Они (ular): -ют, -ут, -ат, -ят. Masalan: они читают, они пишут",
+          "Я: -ю, -у. Например: я читаю, я пишу",
+          "Ты: -ешь, -ишь. Например: ты читаешь, ты пишешь",
+          "Он/она: -ет, -ит. Например: он читает, она пишет",
+          "Мы: -ем, -им. Например: мы читаем, мы пишем",
+          "Вы: -ете, -ите. Например: вы читаете, вы пишете",
+          "Они: -ют, -ут, -ат, -ят. Например: они читают, они пишут",
         ],
       },
       {
-        subtitle: "O'tgan zamon",
+        subtitle: "Прошедшее время",
         rules: [
-          "Erkak jinsi: -л. Masalan: он читал (u o'qidi)",
-          "Ayol jinsi: -ла. Masalan: она читала (u o'qidi)",
-          "O'rta jinsi: -ло. Masalan: оно читало",
-          "Ko'plik: -ли. Masalan: они читали (ular o'qishdi)",
+          "Мужской род: -л. Например: он читал",
+          "Женский род: -ла. Например: она читала",
+          "Средний род: -ло. Например: оно читало",
+          "Множественное число: -ли. Например: они читали",
         ],
       },
     ],
   },
   {
     id: "sentences",
-    title: "Gap tuzilishi",
+    title: "Построение предложений",
     icon: "💬",
     content: [
       {
-        subtitle: "Oddiy gap tartibi",
+        subtitle: "Порядок слов в предложении",
         rules: [
-          "Rus tilida gap tartibi: Ega + Kesim + Boshqa bo'laklar",
-          "Masalan: Я читаю книгу (Men kitob o'qiyman)",
-          "So'roq gaplar: intonatsiya orqali yoki so'roq so'zlari bilan",
-          "Masalan: Ты читаешь? (Sen o'qiyapsanmi?) Что ты читаешь? (Nima o'qiyapsan?)",
+          "В русском языке: Подлежащее + Сказуемое + Другие члены",
+          "Например: Я читаю книгу",
+          "Вопросительные предложения: с помощью интонации или вопросительных слов",
+          "Например: Ты читаешь? Что ты читаешь?",
         ],
       },
       {
-        subtitle: "Bo'lishsiz gap",
+        subtitle: "Отрицательные предложения",
         rules: [
-          "Не so'zi fe'ldan oldin qo'yiladi",
-          "Masalan: Я не читаю (Men o'qimayman)",
-          "Masalan: Он не знает (U bilmaydi)",
+          "Частица «не» ставится перед глаголом",
+          "Например: Я не читаю",
+          "Например: Он не знает",
         ],
       },
     ],
   },
   {
     id: "pronouns",
-    title: "Olmoshlar (Местоимения)",
+    title: "Местоимения",
     icon: "👤",
     content: [
       {
-        subtitle: "Shaxs olmoshlari",
+        subtitle: "Личные местоимения",
         rules: [
-          "Я - men, Ты - sen, Он - u (erkak), Она - u (ayol), Оно - u (narsa)",
-          "Мы - biz, Вы - siz, Они - ular",
-          "Вы - hurmat shakli ham bo'lishi mumkin",
+          "Я, Ты, Он, Она, Оно",
+          "Мы, Вы, Они",
+          "«Вы» также используется как форма вежливости",
         ],
       },
       {
-        subtitle: "Egalik olmoshlari",
+        subtitle: "Притяжательные местоимения",
         rules: [
-          "Мой/моя/моё - mening, Твой/твоя/твоё - sening",
-          "Его - uning (erkak), Её - uning (ayol)",
-          "Наш/наша/наше - bizning, Ваш/ваша/ваше - sizning",
-          "Их - ularning",
+          "Мой/моя/моё, Твой/твоя/твоё",
+          "Его, Её",
+          "Наш/наша/наше, Ваш/ваша/ваше",
+          "Их",
         ],
       },
     ],
   },
 ];
 
-// Cases summary table
 const casesTable = [
-  { case: "Именительный", question: "Кто? Что?", example: "брат, сестра", uzbek: "Bosh kelishik" },
-  { case: "Родительный", question: "Кого? Чего?", example: "брата, сестры", uzbek: "Qaratqich" },
-  { case: "Дательный", question: "Кому? Чему?", example: "брату, сестре", uzbek: "Jo'nalish" },
-  { case: "Винительный", question: "Кого? Что?", example: "брата, сестру", uzbek: "Tushum" },
-  { case: "Творительный", question: "Кем? Чем?", example: "братом, сестрой", uzbek: "Vosita" },
-  { case: "Предложный", question: "О ком? О чём?", example: "о брате, о сестре", uzbek: "O'rin" },
+  { case: "Именительный", question: "Кто? Что?", example: "брат, сестра" },
+  { case: "Родительный", question: "Кого? Чего?", example: "брата, сестры" },
+  { case: "Дательный", question: "Кому? Чему?", example: "брату, сестре" },
+  { case: "Винительный", question: "Кого? Что?", example: "брата, сестру" },
+  { case: "Творительный", question: "Кем? Чем?", example: "братом, сестрой" },
+  { case: "Предложный", question: "О ком? О чём?", example: "о брате, о сестре" },
 ];
 
 const Grammar = () => {
@@ -184,13 +183,11 @@ const Grammar = () => {
       
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-12">
-        {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-primary/10 blur-3xl animate-pulse-glow" />
           <div className="absolute right-10 top-20 h-32 w-32 rounded-full bg-secondary/15 blur-2xl animate-bounce-soft" />
           <div className="absolute left-1/3 bottom-0 h-48 w-48 rounded-full bg-accent/10 blur-3xl" />
           
-          {/* Floating case names */}
           <div className="absolute left-[10%] top-[20%] text-4xl font-bold text-primary/10 animate-bounce-soft" style={{ animationDelay: "0s" }}>Им.</div>
           <div className="absolute right-[15%] top-[30%] text-3xl font-bold text-secondary/15 animate-bounce-soft" style={{ animationDelay: "0.5s" }}>Род.</div>
           <div className="absolute left-[20%] bottom-[20%] text-3xl font-bold text-accent/10 animate-bounce-soft" style={{ animationDelay: "1s" }}>Дат.</div>
@@ -199,45 +196,41 @@ const Grammar = () => {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="mx-auto max-w-2xl text-center">
-            {/* Badge */}
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm border border-primary/20 animate-fade-in">
               <BookOpen className="h-4 w-4" />
-              6 ta padej • 5 ta mavzu
+              6 падежей • 5 тем
             </div>
             
-            {/* Title with gradient */}
             <h1 className="mb-4 text-4xl font-extrabold tracking-tight md:text-5xl animate-fade-in" style={{ animationDelay: "100ms" }}>
               <span className="bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent">
-                Grammatika
+                Грамматика
               </span>
             </h1>
             
-            {/* Subtitle */}
             <p className="mb-6 text-lg text-muted-foreground animate-fade-in" style={{ animationDelay: "200ms" }}>
-              Rus tili grammatikasi asoslarini o'rganing - padejlardan boshlab grammatik qoidalargacha
+              Изучайте основы русской грамматики - от падежей до грамматических правил
             </p>
 
-            {/* Stats */}
             <div className="flex items-center justify-center gap-4 flex-wrap animate-fade-in" style={{ animationDelay: "300ms" }}>
               <div className="flex items-center gap-2 rounded-xl bg-card/80 backdrop-blur-sm px-4 py-2 shadow-sm">
                 <span className="text-2xl">📋</span>
                 <div className="text-left">
                   <p className="text-lg font-bold text-foreground">6</p>
-                  <p className="text-xs text-muted-foreground">Padejlar</p>
+                  <p className="text-xs text-muted-foreground">Падежей</p>
                 </div>
               </div>
               <div className="flex items-center gap-2 rounded-xl bg-card/80 backdrop-blur-sm px-4 py-2 shadow-sm">
                 <span className="text-2xl">📚</span>
                 <div className="text-left">
                   <p className="text-lg font-bold text-foreground">5</p>
-                  <p className="text-xs text-muted-foreground">Mavzu</p>
+                  <p className="text-xs text-muted-foreground">Тем</p>
                 </div>
               </div>
               <div className="flex items-center gap-2 rounded-xl bg-card/80 backdrop-blur-sm px-4 py-2 shadow-sm">
                 <span className="text-2xl">🎯</span>
                 <div className="text-left">
                   <p className="text-lg font-bold text-foreground">20+</p>
-                  <p className="text-xs text-muted-foreground">Qoidalar</p>
+                  <p className="text-xs text-muted-foreground">Правил</p>
                 </div>
               </div>
             </div>
@@ -250,16 +243,15 @@ const Grammar = () => {
         <div className="mb-8 rounded-2xl bg-card p-6 shadow-card animate-fade-in">
           <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
             <span className="text-2xl">📋</span>
-            Padejlar jadvali
+            Таблица падежей
           </h2>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-border">
-                  <th className="text-left py-3 px-2 font-semibold text-foreground">Padej</th>
-                  <th className="text-left py-3 px-2 font-semibold text-foreground">Savol</th>
-                  <th className="text-left py-3 px-2 font-semibold text-foreground">Misol</th>
-                  <th className="text-left py-3 px-2 font-semibold text-foreground">O'zbekcha</th>
+                  <th className="text-left py-3 px-2 font-semibold text-foreground">Падеж</th>
+                  <th className="text-left py-3 px-2 font-semibold text-foreground">Вопрос</th>
+                  <th className="text-left py-3 px-2 font-semibold text-foreground">Пример</th>
                 </tr>
               </thead>
               <tbody>
@@ -274,7 +266,6 @@ const Grammar = () => {
                     <td className="py-3 px-2 font-medium text-primary">{row.case}</td>
                     <td className="py-3 px-2 text-muted-foreground">{row.question}</td>
                     <td className="py-3 px-2 text-foreground">{row.example}</td>
-                    <td className="py-3 px-2 text-secondary font-medium">{row.uzbek}</td>
                   </tr>
                 ))}
               </tbody>
@@ -305,7 +296,7 @@ const Grammar = () => {
                   <div>
                     <h3 className="text-xl font-semibold text-foreground">{topic.title}</h3>
                     <p className="text-sm text-muted-foreground">
-                      {topic.content.length} ta bo'lim
+                      {topic.content.length} {topic.content.length === 1 ? "раздел" : topic.content.length < 5 ? "раздела" : "разделов"}
                     </p>
                   </div>
                 </div>
