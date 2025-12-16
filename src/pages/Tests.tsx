@@ -3,7 +3,6 @@ import { Header } from "@/components/Header";
 import { CheckCircle2, XCircle, Trophy, Clock, ChevronRight, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { toast } from "sonner";
 
 interface TestQuestion {
   question: string;
@@ -17,81 +16,81 @@ interface Test {
   title: string;
   icon: string;
   description: string;
-  timeLimit: number; // in minutes
+  timeLimit: number;
   questions: TestQuestion[];
 }
 
 const tests: Test[] = [
   {
     id: "alphabet",
-    title: "Rus alifbosi",
+    title: "Русский алфавит",
     icon: "🔤",
-    description: "Kirill harflarini bilish testi",
+    description: "Тест на знание кириллических букв",
     timeLimit: 5,
     questions: [
-      { question: "\"А\" harfining talaffuzi qanday?", options: ["o", "a", "e", "u"], correct: 1, explanation: "А harfi \"a\" deb talaffuz qilinadi." },
-      { question: "\"Ж\" harfi qanday tovush beradi?", options: ["sh", "ch", "j", "ts"], correct: 2, explanation: "Ж harfi \"j\" tovushini beradi (juk - qo'ng'iz)." },
-      { question: "Rus alifbosida nechta harf bor?", options: ["26", "30", "33", "35"], correct: 2, explanation: "Rus alifbosida 33 ta harf mavjud." },
-      { question: "\"Ы\" harfining eng yaqin talaffuzi qaysi?", options: ["i", "e", "ı (qattiq i)", "u"], correct: 2, explanation: "Ы harfi qattiq \"ı\" tovushiga yaqin." },
-      { question: "\"Щ\" harfi qanday talaffuz qilinadi?", options: ["sh", "shch", "ch", "ts"], correct: 1, explanation: "Щ harfi \"shch\" deb talaffuz qilinadi." },
+      { question: "Как произносится буква \"А\"?", options: ["o", "a", "e", "u"], correct: 1, explanation: "Буква А произносится как \"а\"." },
+      { question: "Какой звук даёт буква \"Ж\"?", options: ["sh", "ch", "j", "ts"], correct: 2, explanation: "Буква Ж даёт звук \"ж\" (жук)." },
+      { question: "Сколько букв в русском алфавите?", options: ["26", "30", "33", "35"], correct: 2, explanation: "В русском алфавите 33 буквы." },
+      { question: "Как произносится буква \"Ы\"?", options: ["i", "e", "ы (твёрдый)", "u"], correct: 2, explanation: "Буква Ы - твёрдый гласный звук." },
+      { question: "Как произносится буква \"Щ\"?", options: ["sh", "shch", "ch", "ts"], correct: 1, explanation: "Буква Щ произносится как \"щ\"." },
     ],
   },
   {
     id: "greetings",
-    title: "Salomlashish",
+    title: "Приветствия",
     icon: "👋",
-    description: "Salomlashish iboralari testi",
+    description: "Тест на выражения приветствия",
     timeLimit: 5,
     questions: [
-      { question: "\"Здравствуйте\" qanday tarjima qilinadi?", options: ["Xayr", "Assalomu alaykum", "Rahmat", "Kechirasiz"], correct: 1, explanation: "Здравствуйте - rasmiy salomlashish shakli." },
-      { question: "\"До свидания\" qachon ishlatiladi?", options: ["Uchrashganda", "Xayrlashganda", "Rahmat aytganda", "So'raganda"], correct: 1, explanation: "До свидания - xayrlashish ibodasi." },
-      { question: "\"Добрый вечер\" ning tarjimasi:", options: ["Xayrli tong", "Xayrli kun", "Xayrli kech", "Xayrli tun"], correct: 2, explanation: "Добрый вечер - Xayrli kech." },
-      { question: "Do'stlar bilan qanday salomlashiladi?", options: ["Здравствуйте", "Привет", "До свидания", "Спасибо"], correct: 1, explanation: "Привет - norasmiy, do'stona salomlashish." },
-      { question: "\"Пока\" nimani bildiradi?", options: ["Salom", "Xayr (norasmiy)", "Rahmat", "Iltimos"], correct: 1, explanation: "Пока - norasmiy xayrlashish." },
+      { question: "Как переводится \"Здравствуйте\"?", options: ["Xayr", "Assalomu alaykum", "Rahmat", "Kechirasiz"], correct: 1, explanation: "Здравствуйте - официальная форма приветствия." },
+      { question: "Когда используется \"До свидания\"?", options: ["При встрече", "При прощании", "При благодарности", "При вопросе"], correct: 1, explanation: "До свидания - выражение прощания." },
+      { question: "Перевод \"Добрый вечер\":", options: ["Xayrli tong", "Xayrli kun", "Xayrli kech", "Xayrli tun"], correct: 2, explanation: "Добрый вечер - Xayrli kech." },
+      { question: "Как приветствуют друзей?", options: ["Здравствуйте", "Привет", "До свидания", "Спасибо"], correct: 1, explanation: "Привет - неформальное приветствие." },
+      { question: "Что означает \"Пока\"?", options: ["Salom", "Xayr (norasmiy)", "Rahmat", "Iltimos"], correct: 1, explanation: "Пока - неформальное прощание." },
     ],
   },
   {
     id: "numbers",
-    title: "Raqamlar",
+    title: "Числа",
     icon: "🔢",
-    description: "Ruscha raqamlar testi",
+    description: "Тест на русские числа",
     timeLimit: 5,
     questions: [
-      { question: "\"Семь\" bu qaysi raqam?", options: ["5", "6", "7", "8"], correct: 2, explanation: "Семь = 7 (yetti)." },
-      { question: "\"Двадцать\" ning ma'nosi:", options: ["12", "20", "22", "200"], correct: 1, explanation: "Двадцать = 20 (yigirma)." },
-      { question: "\"Сто\" qancha?", options: ["10", "50", "100", "1000"], correct: 2, explanation: "Сто = 100 (yuz)." },
-      { question: "\"Пятнадцать\" bu:", options: ["5", "14", "15", "50"], correct: 2, explanation: "Пятнадцать = 15 (o'n besh)." },
-      { question: "\"Тысяча\" ning tarjimasi:", options: ["Yuz", "Ming", "Million", "O'n"], correct: 1, explanation: "Тысяча = 1000 (ming)." },
+      { question: "Какое число \"Семь\"?", options: ["5", "6", "7", "8"], correct: 2, explanation: "Семь = 7 (yetti)." },
+      { question: "Значение слова \"Двадцать\":", options: ["12", "20", "22", "200"], correct: 1, explanation: "Двадцать = 20 (yigirma)." },
+      { question: "Сколько это \"Сто\"?", options: ["10", "50", "100", "1000"], correct: 2, explanation: "Сто = 100 (yuz)." },
+      { question: "\"Пятнадцать\" это:", options: ["5", "14", "15", "50"], correct: 2, explanation: "Пятнадцать = 15 (o'n besh)." },
+      { question: "Перевод слова \"Тысяча\":", options: ["Yuz", "Ming", "Million", "O'n"], correct: 1, explanation: "Тысяча = 1000 (ming)." },
     ],
   },
   {
     id: "family",
-    title: "Oila",
+    title: "Семья",
     icon: "👨‍👩‍👧‍👦",
-    description: "Oila a'zolari testi",
+    description: "Тест на членов семьи",
     timeLimit: 5,
     questions: [
-      { question: "\"Бабушка\" kim?", options: ["Ona", "Opa", "Buvi", "Xola"], correct: 2, explanation: "Бабушка = buvi (grandmother)." },
-      { question: "\"Брат\" ning tarjimasi:", options: ["Ota", "Aka/uka", "Opa", "Amaki"], correct: 1, explanation: "Брат = aka yoki uka." },
-      { question: "\"Дядя\" kim bo'ladi?", options: ["Amaki/tog'a", "Ota", "Bobo", "Aka"], correct: 0, explanation: "Дядя = amaki yoki tog'a." },
-      { question: "\"Внук\" bu:", options: ["O'g'il", "Nevara (o'g'il)", "Aka", "Jiyan"], correct: 1, explanation: "Внук = nevara (o'g'il bola)." },
-      { question: "\"Жена\" ning ma'nosi:", options: ["Qiz", "Opa", "Xotin", "Ona"], correct: 2, explanation: "Жена = xotin, rafiq." },
+      { question: "Кто такая \"Бабушка\"?", options: ["Ona", "Opa", "Buvi", "Xola"], correct: 2, explanation: "Бабушка = buvi (grandmother)." },
+      { question: "Перевод слова \"Брат\":", options: ["Ota", "Aka/uka", "Opa", "Amaki"], correct: 1, explanation: "Брат = aka или uka." },
+      { question: "Кто такой \"Дядя\"?", options: ["Amaki/tog'a", "Ota", "Bobo", "Aka"], correct: 0, explanation: "Дядя = amaki или tog'a." },
+      { question: "\"Внук\" это:", options: ["O'g'il", "Nevara (o'g'il)", "Aka", "Jiyan"], correct: 1, explanation: "Внук = nevara (мальчик)." },
+      { question: "Значение слова \"Жена\":", options: ["Qiz", "Opa", "Xotin", "Ona"], correct: 2, explanation: "Жена = xotin, rafiq." },
     ],
   },
   {
     id: "verbs",
-    title: "Fe'llar",
+    title: "Глаголы",
     icon: "🏃",
-    description: "Asosiy fe'llar testi",
+    description: "Тест на основные глаголы",
     timeLimit: 7,
     questions: [
-      { question: "\"Читать\" fe'lining ma'nosi:", options: ["Yozmoq", "O'qimoq", "Gapirmoq", "Eshitmoq"], correct: 1, explanation: "Читать = o'qimoq." },
-      { question: "\"Я работаю\" ning tarjimasi:", options: ["Men o'qiyman", "Men ishlayman", "Men yuraman", "Men uxlayman"], correct: 1, explanation: "Работать = ishlamoq." },
-      { question: "\"Говорить\" nimani bildiradi?", options: ["Eshitmoq", "Ko'rmoq", "Gapirmoq", "O'ylamoq"], correct: 2, explanation: "Говорить = gapirmoq." },
-      { question: "\"Они идут\" - bu:", options: ["Ular kelishadi", "Ular yurishadi/ketishadi", "Ular o'tirishadi", "Ular turishadi"], correct: 1, explanation: "Идти = yurmoq, ketmoq." },
-      { question: "\"Писать\" fe'li:", options: ["O'qimoq", "Yozmoq", "Chizmoq", "Rasm solmoq"], correct: 1, explanation: "Писать = yozmoq." },
-      { question: "\"Слушать\" ning tarjimasi:", options: ["Ko'rmoq", "Sezmoq", "Eshitmoq/tinglamoq", "Gapirmoq"], correct: 2, explanation: "Слушать = eshitmoq, tinglamoq." },
-      { question: "\"Мы едим\" nimani bildiradi?", options: ["Biz ketyapmiz", "Biz ovqatlanayapmiz", "Biz uxlayapmiz", "Biz o'ynayapmiz"], correct: 1, explanation: "Есть (еда) = ovqatlanmoq." },
+      { question: "Значение глагола \"Читать\":", options: ["Yozmoq", "O'qimoq", "Gapirmoq", "Eshitmoq"], correct: 1, explanation: "Читать = o'qimoq." },
+      { question: "Перевод \"Я работаю\":", options: ["Men o'qiyman", "Men ishlayman", "Men yuraman", "Men uxlayman"], correct: 1, explanation: "Работать = ishlamoq." },
+      { question: "Что означает \"Говорить\"?", options: ["Eshitmoq", "Ko'rmoq", "Gapirmoq", "O'ylamoq"], correct: 2, explanation: "Говорить = gapirmoq." },
+      { question: "\"Они идут\" - это:", options: ["Ular kelishadi", "Ular yurishadi/ketishadi", "Ular o'tirishadi", "Ular turishadi"], correct: 1, explanation: "Идти = yurmoq, ketmoq." },
+      { question: "Глагол \"Писать\":", options: ["O'qimoq", "Yozmoq", "Chizmoq", "Rasm solmoq"], correct: 1, explanation: "Писать = yozmoq." },
+      { question: "Перевод \"Слушать\":", options: ["Ko'rmoq", "Sezmoq", "Eshitmoq/tinglamoq", "Gapirmoq"], correct: 2, explanation: "Слушать = eshitmoq, tinglamoq." },
+      { question: "Что означает \"Мы едим\"?", options: ["Biz ketyapmiz", "Biz ovqatlanayapmiz", "Biz uxlayapmiz", "Biz o'ynayapmiz"], correct: 1, explanation: "Есть (еда) = ovqatlanmoq." },
     ],
   },
 ];
@@ -101,19 +100,14 @@ const Tests = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
   const [showResults, setShowResults] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(0);
 
   const currentTest = tests.find((t) => t.id === selectedTest);
 
   const startTest = (testId: string) => {
-    const test = tests.find((t) => t.id === testId);
-    if (test) {
-      setSelectedTest(testId);
-      setCurrentQuestion(0);
-      setAnswers([]);
-      setShowResults(false);
-      setTimeLeft(test.timeLimit * 60);
-    }
+    setSelectedTest(testId);
+    setCurrentQuestion(0);
+    setAnswers([]);
+    setShowResults(false);
   };
 
   const selectAnswer = (optionIndex: number) => {
@@ -163,8 +157,8 @@ const Tests = () => {
       
       <main className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground mb-2">Testlar</h1>
-          <p className="text-muted-foreground">Bilimlaringizni sinab ko'ring va natijalaringizni baholang</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Тесты</h1>
+          <p className="text-muted-foreground">Проверьте свои знания и оцените результаты</p>
         </div>
 
         {!selectedTest ? (
@@ -182,17 +176,17 @@ const Tests = () => {
                   <span className="text-4xl">{test.icon}</span>
                   <div className="flex items-center gap-1 text-sm text-muted-foreground">
                     <Clock className="h-4 w-4" />
-                    {test.timeLimit} min
+                    {test.timeLimit} мин
                   </div>
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-2">{test.title}</h3>
                 <p className="text-sm text-muted-foreground mb-4">{test.description}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">
-                    {test.questions.length} ta savol
+                    {test.questions.length} вопросов
                   </span>
                   <Button onClick={() => startTest(test.id)} size="sm">
-                    Boshlash
+                    Начать
                     <ChevronRight className="h-4 w-4 ml-1" />
                   </Button>
                 </div>
@@ -207,21 +201,21 @@ const Tests = () => {
                   "h-16 w-16 mx-auto mb-4",
                   getPercentage() >= 80 ? "text-yellow-500" : getPercentage() >= 60 ? "text-gray-400" : "text-orange-400"
                 )} />
-                <h2 className="text-2xl font-bold text-foreground mb-2">Test yakunlandi!</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-2">Тест завершён!</h2>
                 <p className="text-muted-foreground">{currentTest?.title}</p>
               </div>
 
               <div className="mb-8 rounded-xl bg-muted/30 p-6">
                 <div className="text-5xl font-bold text-primary mb-2">{getPercentage()}%</div>
                 <p className="text-lg text-foreground">
-                  {calculateScore()} / {currentTest?.questions.length} to'g'ri javob
+                  {calculateScore()} / {currentTest?.questions.length} правильных ответов
                 </p>
                 <p className="text-sm text-muted-foreground mt-2">
                   {getPercentage() >= 80
-                    ? "🎉 Ajoyib natija!"
+                    ? "🎉 Отличный результат!"
                     : getPercentage() >= 60
-                    ? "👍 Yaxshi, davom eting!"
-                    : "📚 Ko'proq mashq qiling"}
+                    ? "👍 Хорошо, продолжайте!"
+                    : "📚 Нужно больше практики"}
                 </p>
               </div>
 
@@ -244,9 +238,9 @@ const Tests = () => {
                         <p className="font-medium text-foreground text-sm">{q.question}</p>
                         <p className="text-xs text-muted-foreground mt-1">
                           {answers[index] !== q.correct && (
-                            <span className="text-destructive">Sizning javobingiz: {q.options[answers[index]]} • </span>
+                            <span className="text-destructive">Ваш ответ: {q.options[answers[index]]} • </span>
                           )}
-                          To'g'ri javob: {q.options[q.correct]}
+                          Правильный ответ: {q.options[q.correct]}
                         </p>
                         <p className="text-xs text-muted-foreground mt-1 italic">{q.explanation}</p>
                       </div>
@@ -257,11 +251,11 @@ const Tests = () => {
 
               <div className="flex gap-3">
                 <Button variant="outline" onClick={resetTest} className="flex-1">
-                  Testlarga qaytish
+                  Вернуться к тестам
                 </Button>
                 <Button onClick={() => startTest(selectedTest)} className="flex-1">
                   <RotateCcw className="h-4 w-4 mr-2" />
-                  Qayta topshirish
+                  Пройти заново
                 </Button>
               </div>
             </div>
@@ -270,7 +264,7 @@ const Tests = () => {
           <div className="mx-auto max-w-2xl">
             <div className="mb-6 flex items-center justify-between">
               <button onClick={resetTest} className="text-primary hover:underline">
-                ← Testlarga qaytish
+                ← Вернуться к тестам
               </button>
               <div className="flex items-center gap-4">
                 <span className="text-sm font-medium text-foreground">
@@ -332,7 +326,7 @@ const Tests = () => {
                   disabled={currentQuestion === 0}
                   className="flex-1"
                 >
-                  Oldingi
+                  Предыдущий
                 </Button>
                 <Button
                   onClick={nextQuestion}
@@ -340,8 +334,8 @@ const Tests = () => {
                   className="flex-1"
                 >
                   {currentQuestion === (currentTest?.questions.length || 0) - 1
-                    ? "Yakunlash"
-                    : "Keyingi"}
+                    ? "Завершить"
+                    : "Следующий"}
                 </Button>
               </div>
             </div>
