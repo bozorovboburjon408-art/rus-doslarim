@@ -248,57 +248,92 @@ const Grammar = () => {
             <div
               key={topic.id}
               className={cn(
-                "rounded-2xl bg-card shadow-sm overflow-hidden transition-all duration-300 animate-fade-in",
-                expandedTopic === topic.id && "shadow-card ring-2 ring-primary/20"
+                "rounded-2xl bg-card shadow-sm overflow-hidden transition-all duration-500 animate-fade-in group",
+                expandedTopic === topic.id 
+                  ? "shadow-lg ring-2 ring-primary/30 scale-[1.01]" 
+                  : "hover:shadow-md hover:scale-[1.005] hover:ring-1 hover:ring-primary/10"
               )}
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <button
                 onClick={() => setExpandedTopic(expandedTopic === topic.id ? null : topic.id)}
                 className={cn(
-                  "flex w-full items-center justify-between p-6 text-left transition-colors",
-                  expandedTopic === topic.id && "bg-primary/5"
+                  "flex w-full items-center justify-between p-6 text-left transition-all duration-300",
+                  expandedTopic === topic.id 
+                    ? "bg-gradient-to-r from-primary/10 via-primary/5 to-transparent" 
+                    : "hover:bg-muted/30"
                 )}
               >
                 <div className="flex items-center gap-4">
-                  <div className={cn("p-3 rounded-xl bg-muted/50", topic.iconColor)}>
-                    <topic.icon className="h-6 w-6" />
+                  <div className={cn(
+                    "p-3 rounded-xl transition-all duration-300",
+                    expandedTopic === topic.id 
+                      ? "bg-primary/20 scale-110 shadow-md" 
+                      : "bg-muted/50 group-hover:bg-muted group-hover:scale-105",
+                    topic.iconColor
+                  )}>
+                    <topic.icon className={cn(
+                      "h-6 w-6 transition-transform duration-300",
+                      expandedTopic === topic.id && "animate-pulse"
+                    )} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-foreground">{topic.title}</h3>
+                    <h3 className={cn(
+                      "text-xl font-semibold transition-colors duration-300",
+                      expandedTopic === topic.id ? "text-primary" : "text-foreground group-hover:text-primary/80"
+                    )}>{topic.title}</h3>
                     <p className="text-sm text-muted-foreground">
                       {topic.content.length} {topic.content.length === 1 ? "раздел" : topic.content.length < 5 ? "раздела" : "разделов"}
                     </p>
                   </div>
                 </div>
-                <ChevronDown
-                  className={cn(
-                    "h-5 w-5 text-muted-foreground transition-transform duration-300",
-                    expandedTopic === topic.id && "rotate-180"
-                  )}
-                />
+                <div className={cn(
+                  "p-2 rounded-full transition-all duration-300",
+                  expandedTopic === topic.id 
+                    ? "bg-primary/20 rotate-180" 
+                    : "bg-muted/50 group-hover:bg-muted"
+                )}>
+                  <ChevronDown className="h-5 w-5 text-muted-foreground" />
+                </div>
               </button>
               
-              {expandedTopic === topic.id && (
-                <div className="border-t border-border px-6 pb-6 animate-fade-in">
-                  {topic.content.map((section, idx) => (
-                    <div key={idx} className="mt-4">
-                      <h4 className="font-semibold text-primary mb-3 text-lg">{section.subtitle}</h4>
-                      <ul className="space-y-2">
-                        {section.rules.map((rule, ruleIdx) => (
-                          <li
-                            key={ruleIdx}
-                            className="flex items-start gap-2 text-foreground bg-muted/30 rounded-lg p-3"
-                          >
-                            <span className="text-primary mt-1">•</span>
-                            <span>{rule}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+              <div className={cn(
+                "grid transition-all duration-500 ease-in-out",
+                expandedTopic === topic.id 
+                  ? "grid-rows-[1fr] opacity-100" 
+                  : "grid-rows-[0fr] opacity-0"
+              )}>
+                <div className="overflow-hidden">
+                  <div className="border-t border-border px-6 pb-6 bg-gradient-to-b from-primary/5 to-transparent">
+                    {topic.content.map((section, idx) => (
+                      <div 
+                        key={idx} 
+                        className="mt-6 animate-fade-in"
+                        style={{ animationDelay: `${idx * 150}ms` }}
+                      >
+                        <div className="flex items-center gap-2 mb-4">
+                          <div className="h-1 w-1 rounded-full bg-primary animate-pulse" />
+                          <h4 className="font-semibold text-primary text-lg">{section.subtitle}</h4>
+                        </div>
+                        <ul className="space-y-3">
+                          {section.rules.map((rule, ruleIdx) => (
+                            <li
+                              key={ruleIdx}
+                              className="flex items-start gap-3 text-foreground bg-card/80 backdrop-blur-sm rounded-xl p-4 shadow-sm border border-border/50 
+                                       hover:shadow-md hover:border-primary/20 hover:bg-card transition-all duration-300 
+                                       hover:translate-x-1 animate-fade-in cursor-default"
+                              style={{ animationDelay: `${(idx * 150) + (ruleIdx * 80)}ms` }}
+                            >
+                              <span className="text-primary mt-0.5 text-lg">→</span>
+                              <span className="leading-relaxed">{rule}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>
