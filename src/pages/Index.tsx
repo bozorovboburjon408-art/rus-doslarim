@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { BookOpen, GraduationCap, Sparkles, PenTool, FileCheck, ChevronRight } from "lucide-react";
 import { Header } from "@/components/Header";
-import { ProgressStats } from "@/components/ProgressStats";
+
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
@@ -150,11 +150,6 @@ const Index = () => {
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
-        {/* Progress Stats */}
-        <section className="mb-10">
-          <h2 className="mb-4 text-lg font-semibold text-foreground">Ваши результаты</h2>
-          <ProgressStats />
-        </section>
 
         {/* Sections Grid */}
         <section>
