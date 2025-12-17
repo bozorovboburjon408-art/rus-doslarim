@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Plus, Trash2, Save, X, GripVertical } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { supabase } from "@/integrations/supabase/client";
+import { useAdmin } from "@/contexts/AdminContext";
 import { toast } from "sonner";
 
 interface Question {
@@ -31,6 +31,7 @@ interface TestManagerProps {
 }
 
 const TestManager = ({ test, onSave, onCancel }: TestManagerProps) => {
+  const { adminApiCall } = useAdmin();
   const [title, setTitle] = useState(test?.title || "");
   const [description, setDescription] = useState(test?.description || "");
   const [questions, setQuestions] = useState<Question[]>(
@@ -92,32 +93,23 @@ const TestManager = ({ test, onSave, onCancel }: TestManagerProps) => {
     setIsSaving(true);
 
     try {
-      if (test?.id) {
-        const { error } = await supabase
-          .from("tests")
-          .update({
-            title,
-            description,
-            questions: questions as any,
-            is_published: isPublished,
-          })
-          .eq("id", test.id);
+      const testData = {
+        title,
+        description,
+        questions,
+        is_published: isPublished,
+      };
 
-        if (error) throw error;
-        toast.success("Test yangilandi");
+      const result = test?.id
+        ? await adminApiCall('update', testData, test.id)
+        : await adminApiCall('create', testData);
+
+      if (result.success) {
+        toast.success(test?.id ? "Test yangilandi" : "Test yaratildi");
+        onSave();
       } else {
-        const { error } = await supabase.from("tests").insert({
-          title,
-          description,
-          questions: questions as any,
-          is_published: isPublished,
-        });
-
-        if (error) throw error;
-        toast.success("Test yaratildi");
+        toast.error(result.error || "Xatolik yuz berdi");
       }
-
-      onSave();
     } catch (error: any) {
       toast.error(error.message || "Xatolik yuz berdi");
     } finally {
