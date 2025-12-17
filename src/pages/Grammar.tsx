@@ -3,12 +3,22 @@ import { Header } from "@/components/Header";
 import { BookOpen, ChevronDown, TableProperties, FileText, Zap, MessageSquare, User, LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+// Case colors for distinct styling
+const caseColors = [
+  { bg: "bg-blue-500/10", border: "border-blue-500/30", text: "text-blue-600 dark:text-blue-400", accent: "bg-blue-500", ring: "ring-blue-500/20" },
+  { bg: "bg-emerald-500/10", border: "border-emerald-500/30", text: "text-emerald-600 dark:text-emerald-400", accent: "bg-emerald-500", ring: "ring-emerald-500/20" },
+  { bg: "bg-amber-500/10", border: "border-amber-500/30", text: "text-amber-600 dark:text-amber-400", accent: "bg-amber-500", ring: "ring-amber-500/20" },
+  { bg: "bg-rose-500/10", border: "border-rose-500/30", text: "text-rose-600 dark:text-rose-400", accent: "bg-rose-500", ring: "ring-rose-500/20" },
+  { bg: "bg-violet-500/10", border: "border-violet-500/30", text: "text-violet-600 dark:text-violet-400", accent: "bg-violet-500", ring: "ring-violet-500/20" },
+  { bg: "bg-cyan-500/10", border: "border-cyan-500/30", text: "text-cyan-600 dark:text-cyan-400", accent: "bg-cyan-500", ring: "ring-cyan-500/20" },
+];
+
 const grammarTopics: Array<{
   id: string;
   title: string;
   icon: LucideIcon;
   iconColor: string;
-  content: Array<{ subtitle: string; rules: string[] }>;
+  content: Array<{ subtitle: string; rules: string[]; colorIndex?: number }>;
 }> = [
   {
     id: "cases",
@@ -18,6 +28,7 @@ const grammarTopics: Array<{
     content: [
       {
         subtitle: "Именительный падеж - Кто? Что?",
+        colorIndex: 0,
         rules: [
           "Используется как подлежащее в предложении",
           "Например: Мальчик читает",
@@ -26,6 +37,7 @@ const grammarTopics: Array<{
       },
       {
         subtitle: "Родительный падеж - Кого? Чего?",
+        colorIndex: 1,
         rules: [
           "Обозначает принадлежность, отсутствие, количество",
           "Мужской род: -а, -я. Например: брат → брата, учитель → учителя",
@@ -35,6 +47,7 @@ const grammarTopics: Array<{
       },
       {
         subtitle: "Дательный падеж - Кому? Чему?",
+        colorIndex: 2,
         rules: [
           "Обозначает направление действия к кому/чему-либо",
           "Мужской род: -у, -ю. Например: брат → брату, учитель → учителю",
@@ -44,6 +57,7 @@ const grammarTopics: Array<{
       },
       {
         subtitle: "Винительный падеж - Кого? Что?",
+        colorIndex: 3,
         rules: [
           "Используется как прямое дополнение",
           "Одушевлённый мужской род: -а, -я (как родительный)",
@@ -54,6 +68,7 @@ const grammarTopics: Array<{
       },
       {
         subtitle: "Творительный падеж - Кем? Чем?",
+        colorIndex: 4,
         rules: [
           "Обозначает инструмент, совместность",
           "Мужской род: -ом, -ем. Например: брат → братом, учитель → учителем",
@@ -63,6 +78,7 @@ const grammarTopics: Array<{
       },
       {
         subtitle: "Предложный падеж - О ком? О чём? Где?",
+        colorIndex: 5,
         rules: [
           "Используется только с предлогами (в, на, о, об)",
           "Мужской род: -е. Например: брат → о брате, стол → на столе",
@@ -305,32 +321,74 @@ const Grammar = () => {
               )}>
                 <div className="overflow-hidden">
                   <div className="border-t border-border px-6 pb-6 bg-gradient-to-b from-primary/5 to-transparent">
-                    {topic.content.map((section, idx) => (
-                      <div 
-                        key={idx} 
-                        className="mt-6 animate-fade-in"
-                        style={{ animationDelay: `${idx * 150}ms` }}
-                      >
-                        <div className="flex items-center gap-2 mb-4">
-                          <div className="h-1 w-1 rounded-full bg-primary animate-pulse" />
-                          <h4 className="font-semibold text-primary text-lg">{section.subtitle}</h4>
-                        </div>
-                        <ul className="space-y-3">
-                          {section.rules.map((rule, ruleIdx) => (
-                            <li
-                              key={ruleIdx}
-                              className="flex items-start gap-3 text-foreground bg-card/80 backdrop-blur-sm rounded-xl p-4 shadow-sm border border-border/50 
-                                       hover:shadow-md hover:border-primary/20 hover:bg-card transition-all duration-300 
-                                       hover:translate-x-1 animate-fade-in cursor-default"
-                              style={{ animationDelay: `${(idx * 150) + (ruleIdx * 80)}ms` }}
+                    {topic.id === "cases" ? (
+                      <div className="grid gap-4 mt-6 md:grid-cols-2 lg:grid-cols-3">
+                        {topic.content.map((section, idx) => {
+                          const colors = caseColors[section.colorIndex ?? 0];
+                          return (
+                            <div 
+                              key={idx} 
+                              className={cn(
+                                "rounded-2xl p-5 animate-fade-in transition-all duration-300",
+                                "hover:scale-[1.02] hover:shadow-lg cursor-default",
+                                colors.bg, colors.border, "border-2", colors.ring, "ring-2"
+                              )}
+                              style={{ animationDelay: `${idx * 100}ms` }}
                             >
-                              <span className="text-primary mt-0.5 text-lg">→</span>
-                              <span className="leading-relaxed">{rule}</span>
-                            </li>
-                          ))}
-                        </ul>
+                              <div className="flex items-center gap-3 mb-4">
+                                <div className={cn("w-3 h-3 rounded-full", colors.accent)} />
+                                <h4 className={cn("font-bold text-base", colors.text)}>
+                                  {section.subtitle}
+                                </h4>
+                              </div>
+                              <ul className="space-y-2">
+                                {section.rules.map((rule, ruleIdx) => (
+                                  <li
+                                    key={ruleIdx}
+                                    className={cn(
+                                      "flex items-start gap-2 text-sm text-foreground/90 animate-fade-in",
+                                      "bg-background/50 rounded-lg p-3 transition-all duration-200",
+                                      "hover:bg-background/80"
+                                    )}
+                                    style={{ animationDelay: `${(idx * 100) + (ruleIdx * 50)}ms` }}
+                                  >
+                                    <span className={cn("mt-0.5", colors.text)}>•</span>
+                                    <span className="leading-relaxed">{rule}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          );
+                        })}
                       </div>
-                    ))}
+                    ) : (
+                      topic.content.map((section, idx) => (
+                        <div 
+                          key={idx} 
+                          className="mt-6 animate-fade-in"
+                          style={{ animationDelay: `${idx * 150}ms` }}
+                        >
+                          <div className="flex items-center gap-2 mb-4">
+                            <div className="h-1 w-1 rounded-full bg-primary animate-pulse" />
+                            <h4 className="font-semibold text-primary text-lg">{section.subtitle}</h4>
+                          </div>
+                          <ul className="space-y-3">
+                            {section.rules.map((rule, ruleIdx) => (
+                              <li
+                                key={ruleIdx}
+                                className="flex items-start gap-3 text-foreground bg-card/80 backdrop-blur-sm rounded-xl p-4 shadow-sm border border-border/50 
+                                         hover:shadow-md hover:border-primary/20 hover:bg-card transition-all duration-300 
+                                         hover:translate-x-1 animate-fade-in cursor-default"
+                                style={{ animationDelay: `${(idx * 150) + (ruleIdx * 80)}ms` }}
+                              >
+                                <span className="text-primary mt-0.5 text-lg">→</span>
+                                <span className="leading-relaxed">{rule}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))
+                    )}
                   </div>
                 </div>
               </div>
