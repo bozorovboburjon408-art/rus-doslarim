@@ -215,6 +215,19 @@ const grammarTopics: Array<{
 
 const Grammar = () => {
   const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
+  const [expandedCases, setExpandedCases] = useState<Set<number>>(new Set());
+
+  const toggleCase = (index: number) => {
+    setExpandedCases(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(index)) {
+        newSet.delete(index);
+      } else {
+        newSet.add(index);
+      }
+      return newSet;
+    });
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -341,48 +354,132 @@ const Grammar = () => {
               )}>
                 <div className="overflow-hidden">
                   <div className="border-t border-border px-6 pb-6 bg-gradient-to-b from-primary/5 to-transparent">
-                    <div className={cn(
-                      "grid gap-4 mt-6",
-                      topic.content.length > 2 ? "md:grid-cols-2 lg:grid-cols-3" : "md:grid-cols-2"
-                    )}>
-                      {topic.content.map((section, idx) => {
-                        const colors = caseColors[section.colorIndex ?? idx % caseColors.length];
-                        return (
-                          <div 
-                            key={idx} 
-                            className={cn(
-                              "rounded-2xl p-5 animate-fade-in transition-all duration-300",
-                              "hover:scale-[1.02] hover:shadow-lg cursor-default",
-                              colors.bg, colors.border, "border-2", colors.ring, "ring-2"
-                            )}
-                            style={{ animationDelay: `${idx * 100}ms` }}
-                          >
-                            <div className="flex items-center gap-3 mb-4">
-                              <div className={cn("w-3 h-3 rounded-full", colors.accent)} />
-                              <h4 className={cn("font-bold text-base", colors.text)}>
-                                {section.subtitle}
-                              </h4>
+                    {topic.id === "cases" ? (
+                      // Special rendering for cases - individual expandable items
+                      <div className="grid gap-3 mt-6">
+                        {topic.content.map((section, idx) => {
+                          const colors = caseColors[section.colorIndex ?? idx % caseColors.length];
+                          const isExpanded = expandedCases.has(idx);
+                          return (
+                            <div 
+                              key={idx} 
+                              className={cn(
+                                "rounded-2xl overflow-hidden transition-all duration-500 animate-fade-in",
+                                colors.border, "border-2", colors.ring, "ring-2",
+                                isExpanded ? "shadow-xl scale-[1.01]" : "hover:shadow-lg hover:scale-[1.005]"
+                              )}
+                              style={{ animationDelay: `${idx * 80}ms` }}
+                            >
+                              <button
+                                onClick={() => toggleCase(idx)}
+                                className={cn(
+                                  "w-full flex items-center justify-between p-4 transition-all duration-300",
+                                  isExpanded ? colors.bg : "bg-card hover:bg-muted/30"
+                                )}
+                              >
+                                <div className="flex items-center gap-3">
+                                  <div className={cn(
+                                    "w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-lg transition-all duration-300",
+                                    colors.accent,
+                                    isExpanded && "scale-110 shadow-lg"
+                                  )}>
+                                    {idx + 1}
+                                  </div>
+                                  <h4 className={cn(
+                                    "font-bold text-base transition-all duration-300",
+                                    isExpanded ? colors.text : "text-foreground"
+                                  )}>
+                                    {section.subtitle}
+                                  </h4>
+                                </div>
+                                <div className={cn(
+                                  "p-2 rounded-full transition-all duration-500",
+                                  isExpanded ? `${colors.bg} rotate-180` : "bg-muted/50"
+                                )}>
+                                  <ChevronDown className={cn(
+                                    "h-5 w-5 transition-colors duration-300",
+                                    isExpanded ? colors.text : "text-muted-foreground"
+                                  )} />
+                                </div>
+                              </button>
+                              
+                              <div className={cn(
+                                "grid transition-all duration-500 ease-in-out",
+                                isExpanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                              )}>
+                                <div className="overflow-hidden">
+                                  <div className={cn("p-4 pt-0", colors.bg)}>
+                                    <ul className="space-y-2">
+                                      {section.rules.map((rule, ruleIdx) => (
+                                        <li
+                                          key={ruleIdx}
+                                          className={cn(
+                                            "flex items-start gap-2 text-sm text-foreground/90",
+                                            "bg-background/60 backdrop-blur-sm rounded-xl p-3 transition-all duration-300",
+                                            "hover:bg-background/80 hover:shadow-sm hover:translate-x-1",
+                                            isExpanded && "animate-fade-in"
+                                          )}
+                                          style={{ animationDelay: `${ruleIdx * 60}ms` }}
+                                        >
+                                          <span className={cn("mt-0.5 transition-transform", colors.text, isExpanded && "animate-pulse")}>
+                                            {rule.startsWith("📌") ? "" : rule.startsWith("🔗") ? "" : "•"}
+                                          </span>
+                                          <span className="leading-relaxed">{rule}</span>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                            <ul className="space-y-2">
-                              {section.rules.map((rule, ruleIdx) => (
-                                <li
-                                  key={ruleIdx}
-                                  className={cn(
-                                    "flex items-start gap-2 text-sm text-foreground/90 animate-fade-in",
-                                    "bg-background/50 rounded-lg p-3 transition-all duration-200",
-                                    "hover:bg-background/80"
-                                  )}
-                                  style={{ animationDelay: `${(idx * 100) + (ruleIdx * 50)}ms` }}
-                                >
-                                  <span className={cn("mt-0.5", colors.text)}>•</span>
-                                  <span className="leading-relaxed">{rule}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        );
-                      })}
-                    </div>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      // Regular rendering for other topics
+                      <div className={cn(
+                        "grid gap-4 mt-6",
+                        topic.content.length > 2 ? "md:grid-cols-2 lg:grid-cols-3" : "md:grid-cols-2"
+                      )}>
+                        {topic.content.map((section, idx) => {
+                          const colors = caseColors[section.colorIndex ?? idx % caseColors.length];
+                          return (
+                            <div 
+                              key={idx} 
+                              className={cn(
+                                "rounded-2xl p-5 animate-fade-in transition-all duration-300",
+                                "hover:scale-[1.02] hover:shadow-lg cursor-default",
+                                colors.bg, colors.border, "border-2", colors.ring, "ring-2"
+                              )}
+                              style={{ animationDelay: `${idx * 100}ms` }}
+                            >
+                              <div className="flex items-center gap-3 mb-4">
+                                <div className={cn("w-3 h-3 rounded-full", colors.accent)} />
+                                <h4 className={cn("font-bold text-base", colors.text)}>
+                                  {section.subtitle}
+                                </h4>
+                              </div>
+                              <ul className="space-y-2">
+                                {section.rules.map((rule, ruleIdx) => (
+                                  <li
+                                    key={ruleIdx}
+                                    className={cn(
+                                      "flex items-start gap-2 text-sm text-foreground/90 animate-fade-in",
+                                      "bg-background/50 rounded-lg p-3 transition-all duration-200",
+                                      "hover:bg-background/80"
+                                    )}
+                                    style={{ animationDelay: `${(idx * 100) + (ruleIdx * 50)}ms` }}
+                                  >
+                                    <span className={cn("mt-0.5", colors.text)}>•</span>
+                                    <span className="leading-relaxed">{rule}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
