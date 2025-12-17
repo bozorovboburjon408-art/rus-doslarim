@@ -1,13 +1,20 @@
 import { useState } from "react";
 import { Header } from "@/components/Header";
-import { BookOpen, ChevronDown } from "lucide-react";
+import { BookOpen, ChevronDown, TableProperties, FileText, Zap, MessageSquare, User, LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const grammarTopics = [
+const grammarTopics: Array<{
+  id: string;
+  title: string;
+  icon: LucideIcon;
+  iconColor: string;
+  content: Array<{ subtitle: string; rules: string[] }>;
+}> = [
   {
     id: "cases",
     title: "Падежи",
-    icon: "📋",
+    icon: TableProperties,
+    iconColor: "text-blue-500",
     content: [
       {
         subtitle: "Именительный падеж - Кто? Что?",
@@ -68,7 +75,8 @@ const grammarTopics = [
   {
     id: "nouns",
     title: "Существительные",
-    icon: "📝",
+    icon: FileText,
+    iconColor: "text-green-500",
     content: [
       {
         subtitle: "Род существительных",
@@ -91,7 +99,8 @@ const grammarTopics = [
   {
     id: "verbs",
     title: "Глаголы",
-    icon: "🏃",
+    icon: Zap,
+    iconColor: "text-orange-500",
     content: [
       {
         subtitle: "Настоящее время",
@@ -118,7 +127,8 @@ const grammarTopics = [
   {
     id: "sentences",
     title: "Построение предложений",
-    icon: "💬",
+    icon: MessageSquare,
+    iconColor: "text-purple-500",
     content: [
       {
         subtitle: "Порядок слов в предложении",
@@ -142,7 +152,8 @@ const grammarTopics = [
   {
     id: "pronouns",
     title: "Местоимения",
-    icon: "👤",
+    icon: User,
+    iconColor: "text-pink-500",
     content: [
       {
         subtitle: "Личные местоимения",
@@ -250,7 +261,9 @@ const Grammar = () => {
                 )}
               >
                 <div className="flex items-center gap-4">
-                  <span className="text-3xl">{topic.icon}</span>
+                  <div className={cn("p-3 rounded-xl bg-muted/50", topic.iconColor)}>
+                    <topic.icon className="h-6 w-6" />
+                  </div>
                   <div>
                     <h3 className="text-xl font-semibold text-foreground">{topic.title}</h3>
                     <p className="text-sm text-muted-foreground">
