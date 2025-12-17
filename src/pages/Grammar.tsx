@@ -228,20 +228,20 @@ const Grammar = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50/80 via-white to-violet-50/50 dark:from-blue-950/20 dark:via-background dark:to-violet-950/10 py-12">
+      <section className="relative overflow-hidden bg-gradient-to-br from-white via-gray-50/50 to-gray-100/30 dark:from-gray-900 dark:via-gray-900/80 dark:to-gray-800/50 py-12">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Soft gradient blobs */}
-          <div className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-blue-200/20 dark:bg-blue-400/5 blur-3xl" />
-          <div className="absolute right-0 top-10 h-48 w-48 rounded-full bg-violet-200/25 dark:bg-violet-400/5 blur-3xl" />
-          <div className="absolute left-1/4 bottom-0 h-56 w-56 rounded-full bg-sky-200/20 dark:bg-sky-400/5 blur-3xl" />
+          <div className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-gray-200/30 dark:bg-gray-600/10 blur-3xl" />
+          <div className="absolute right-0 top-10 h-48 w-48 rounded-full bg-gray-300/20 dark:bg-gray-500/10 blur-3xl" />
+          <div className="absolute left-1/4 bottom-0 h-56 w-56 rounded-full bg-gray-200/25 dark:bg-gray-600/10 blur-3xl" />
           
           {/* Large decorative case labels - very faint */}
-          <div className="absolute left-[5%] top-[10%] text-7xl md:text-8xl font-black text-blue-300/[0.04] dark:text-blue-300/[0.03] select-none">Им.</div>
-          <div className="absolute right-[8%] top-[5%] text-6xl md:text-7xl font-black text-violet-300/[0.05] dark:text-violet-300/[0.03] select-none">Род.</div>
-          <div className="absolute left-[15%] bottom-[15%] text-6xl md:text-7xl font-black text-sky-300/[0.04] dark:text-sky-300/[0.03] select-none">Дат.</div>
-          <div className="absolute right-[12%] bottom-[20%] text-7xl md:text-8xl font-black text-blue-300/[0.05] dark:text-blue-300/[0.03] select-none">Вин.</div>
-          <div className="absolute left-[40%] top-[8%] text-5xl md:text-6xl font-black text-violet-300/[0.04] dark:text-violet-300/[0.03] select-none">Твор.</div>
-          <div className="absolute right-[35%] bottom-[10%] text-5xl md:text-6xl font-black text-sky-300/[0.05] dark:text-sky-300/[0.03] select-none">Пред.</div>
+          <div className="absolute left-[5%] top-[10%] text-7xl md:text-8xl font-black text-gray-400/[0.06] dark:text-gray-400/[0.04] select-none">Им.</div>
+          <div className="absolute right-[8%] top-[5%] text-6xl md:text-7xl font-black text-gray-500/[0.05] dark:text-gray-500/[0.03] select-none">Род.</div>
+          <div className="absolute left-[15%] bottom-[15%] text-6xl md:text-7xl font-black text-gray-400/[0.06] dark:text-gray-400/[0.04] select-none">Дат.</div>
+          <div className="absolute right-[12%] bottom-[20%] text-7xl md:text-8xl font-black text-gray-500/[0.05] dark:text-gray-500/[0.03] select-none">Вин.</div>
+          <div className="absolute left-[40%] top-[8%] text-5xl md:text-6xl font-black text-gray-400/[0.06] dark:text-gray-400/[0.04] select-none">Твор.</div>
+          <div className="absolute right-[35%] bottom-[10%] text-5xl md:text-6xl font-black text-gray-500/[0.05] dark:text-gray-500/[0.04] select-none">Пред.</div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
