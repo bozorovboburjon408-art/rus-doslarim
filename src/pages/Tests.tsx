@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
-import { useAuth } from "@/contexts/AuthContext";
+import { useAdmin } from "@/contexts/AdminContext";
 import { supabase } from "@/integrations/supabase/client";
 import TestManager from "@/components/TestManager";
 import { Button } from "@/components/ui/button";
@@ -50,7 +50,7 @@ interface Test {
 }
 
 const Tests = () => {
-  const { user, isAdmin, signOut, isLoading: authLoading } = useAuth();
+  const { isAdmin, logout, isLoading: adminLoading, adminApiCall } = useAdmin();
   const [tests, setTests] = useState<Test[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedTest, setSelectedTest] = useState<string | null>(null);
@@ -89,7 +89,7 @@ const Tests = () => {
 
   useEffect(() => {
     fetchTests();
-  }, [isAdmin]);
+  }, []);
 
   const startTest = (testId: string) => {
     setSelectedTest(testId);
@@ -141,17 +141,20 @@ const Tests = () => {
 
   const handleDeleteTest = async (testId: string) => {
     try {
-      const { error } = await supabase.from("tests").delete().eq("id", testId);
-      if (error) throw error;
-      toast.success("Test o'chirildi");
-      fetchTests();
+      const result = await adminApiCall('delete', undefined, testId);
+      if (result.success) {
+        toast.success("Test o'chirildi");
+        fetchTests();
+      } else {
+        toast.error(result.error || "Xatolik yuz berdi");
+      }
     } catch (error: any) {
       toast.error(error.message || "Xatolik yuz berdi");
     }
   };
 
-  const handleSignOut = async () => {
-    await signOut();
+  const handleSignOut = () => {
+    logout();
     toast.success("Tizimdan chiqdingiz");
   };
 
@@ -160,7 +163,7 @@ const Tests = () => {
     ? tests
     : tests.filter((t) => t.is_published);
 
-  if (authLoading) {
+  if (adminLoading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
