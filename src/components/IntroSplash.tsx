@@ -24,15 +24,15 @@ const IntroSplash = ({ onComplete }: IntroSplashProps) => {
   return (
     <div className={cn(
       "fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-500",
-      "bg-gradient-to-b from-[hsl(222,47%,10%)] to-[hsl(222,50%,6%)]",
+      "bg-background",
       stage >= 4 ? "opacity-0 pointer-events-none" : "opacity-100"
     )}>
       {/* Animated gradient background */}
       <div className="absolute inset-0 animated-gradient opacity-30" />
       
       {/* Blur orbs */}
-      <div className="absolute -left-32 top-1/4 h-80 w-80 rounded-full bg-primary/30 blur-[100px] animate-pulse" />
-      <div className="absolute -right-32 bottom-1/4 h-80 w-80 rounded-full bg-secondary/20 blur-[100px] animate-pulse" style={{ animationDelay: "1s" }} />
+      <div className="absolute -left-32 top-1/4 h-80 w-80 rounded-full bg-primary/20 dark:bg-primary/30 blur-[100px] animate-pulse" />
+      <div className="absolute -right-32 bottom-1/4 h-80 w-80 rounded-full bg-secondary/15 dark:bg-secondary/20 blur-[100px] animate-pulse" style={{ animationDelay: "1s" }} />
       
       {/* Floating letters */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -40,7 +40,7 @@ const IntroSplash = ({ onComplete }: IntroSplashProps) => {
           <div
             key={letter}
             className={cn(
-              "absolute text-6xl font-bold text-primary/20 transition-all duration-1000",
+              "absolute text-6xl font-bold text-primary/10 dark:text-primary/20 transition-all duration-1000",
               stage >= 1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}
             style={{
@@ -67,7 +67,7 @@ const IntroSplash = ({ onComplete }: IntroSplashProps) => {
 
         {/* Title */}
         <h1 className={cn(
-          "text-4xl md:text-5xl font-bold text-white mb-4 transition-all duration-700",
+          "text-4xl md:text-5xl font-bold text-foreground mb-4 transition-all duration-700",
           stage >= 2 ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
         )}>
           Русский язык
