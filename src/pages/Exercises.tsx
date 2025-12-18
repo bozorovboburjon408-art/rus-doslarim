@@ -364,26 +364,26 @@ const Exercises = () => {
   };
 
   return (
-    <div className="min-h-screen gradient-navy">
+    <div className="min-h-screen bg-background gradient-navy">
       <Header />
       
       {/* Hero Section */}
       <section className="relative overflow-hidden py-12">
         <div className="absolute inset-0 animated-gradient opacity-30" />
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-primary/30 blur-[80px] animate-pulse" />
-          <div className="absolute right-10 top-20 h-32 w-32 rounded-full bg-secondary/20 blur-[60px] animate-pulse" style={{ animationDelay: "1s" }} />
-          <div className="absolute left-1/3 bottom-0 h-48 w-48 rounded-full bg-primary/15 blur-[80px]" />
+          <div className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-primary/20 dark:bg-primary/30 blur-[80px] animate-pulse" />
+          <div className="absolute right-10 top-20 h-32 w-32 rounded-full bg-secondary/15 dark:bg-secondary/20 blur-[60px] animate-pulse" style={{ animationDelay: "1s" }} />
+          <div className="absolute left-1/3 bottom-0 h-48 w-48 rounded-full bg-primary/10 dark:bg-primary/15 blur-[80px]" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="mx-auto max-w-2xl text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm border border-primary/30 animate-fade-in">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 dark:bg-primary/20 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm border border-primary/20 dark:border-primary/30 animate-fade-in">
               <Target className="h-4 w-4" />
               {exerciseCategories.length} kategoriya • 70+ mashq
             </div>
             
-            <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-white md:text-5xl animate-fade-in" style={{ animationDelay: "100ms" }}>
+            <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-foreground md:text-5xl animate-fade-in" style={{ animationDelay: "100ms" }}>
               Mashqlar
             </h1>
             
@@ -392,30 +392,30 @@ const Exercises = () => {
             </p>
 
             <div className="flex items-center justify-center gap-4 flex-wrap animate-fade-in" style={{ animationDelay: "300ms" }}>
-              <div className="flex items-center gap-2 rounded-xl bg-card/50 backdrop-blur-sm px-4 py-2 border border-border/30">
+              <div className="flex items-center gap-2 rounded-xl bg-card/80 backdrop-blur-sm px-4 py-2 border border-border/30">
                 <div className="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center">
-                  <Trophy className="h-5 w-5 text-amber-400" />
+                  <Trophy className="h-5 w-5 text-amber-500" />
                 </div>
                 <div className="text-left">
-                  <p className="text-lg font-bold text-white">3</p>
+                  <p className="text-lg font-bold text-foreground">3</p>
                   <p className="text-xs text-muted-foreground">Daraja</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 rounded-xl bg-card/50 backdrop-blur-sm px-4 py-2 border border-border/30">
+              <div className="flex items-center gap-2 rounded-xl bg-card/80 backdrop-blur-sm px-4 py-2 border border-border/30">
                 <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
                   <BookOpen className="h-5 w-5 text-primary" />
                 </div>
                 <div className="text-left">
-                  <p className="text-lg font-bold text-white">5</p>
+                  <p className="text-lg font-bold text-foreground">5</p>
                   <p className="text-xs text-muted-foreground">Tur</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 rounded-xl bg-card/50 backdrop-blur-sm px-4 py-2 border border-border/30">
+              <div className="flex items-center gap-2 rounded-xl bg-card/80 backdrop-blur-sm px-4 py-2 border border-border/30">
                 <div className="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center">
-                  <Flame className="h-5 w-5 text-orange-400" />
+                  <Flame className="h-5 w-5 text-orange-500" />
                 </div>
                 <div className="text-left">
-                  <p className="text-lg font-bold text-white">70+</p>
+                  <p className="text-lg font-bold text-foreground">70+</p>
                   <p className="text-xs text-muted-foreground">Mashq</p>
                 </div>
               </div>
@@ -450,7 +450,7 @@ const Exercises = () => {
                       <IconComponent className="h-7 w-7 text-white" />
                     </div>
                     
-                    <h3 className="text-xl font-bold text-white mb-1">{category.title}</h3>
+                    <h3 className="text-xl font-bold text-foreground mb-1">{category.title}</h3>
                     <p className="text-sm text-primary font-medium mb-2">{category.titleUz}</p>
                     <p className="text-sm text-muted-foreground mb-4">{category.description}</p>
                     
@@ -475,7 +475,7 @@ const Exercises = () => {
                 <div className="w-20 h-20 mx-auto bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center mb-4 shadow-glow">
                   <Trophy className="h-10 w-10 text-white" />
                 </div>
-                <h2 className="text-3xl font-bold text-white mb-2">Tabriklaymiz! 🎉</h2>
+                <h2 className="text-3xl font-bold text-foreground mb-2">Tabriklaymiz! 🎉</h2>
                 <p className="text-muted-foreground">
                   Siz barcha mashqlarni yakunladingiz
                 </p>

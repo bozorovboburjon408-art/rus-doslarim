@@ -37,7 +37,7 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider attribute="class" defaultTheme="dark" forcedTheme="dark">
+      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
         <AdminProvider>
           <TooltipProvider>
             <Toaster />
