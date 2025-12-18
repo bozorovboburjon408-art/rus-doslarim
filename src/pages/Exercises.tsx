@@ -378,7 +378,7 @@ const Exercises = () => {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="mx-auto max-w-2xl text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 dark:bg-primary/20 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm border border-primary/20 dark:border-primary/30 animate-fade-in">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10 px-4 py-2 text-sm font-medium text-primary shadow-lg animate-fade-in">
               <Target className="h-4 w-4" />
               {exerciseCategories.length} kategoriya • 70+ mashq
             </div>
@@ -392,8 +392,8 @@ const Exercises = () => {
             </p>
 
             <div className="flex items-center justify-center gap-4 flex-wrap animate-fade-in" style={{ animationDelay: "300ms" }}>
-              <div className="flex items-center gap-2 rounded-xl bg-card/80 backdrop-blur-sm px-4 py-2 border border-border/30">
-                <div className="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center">
+              <div className="flex items-center gap-2 rounded-xl glass-section px-4 py-2">
+                <div className="w-10 h-10 rounded-lg bg-amber-500/20 backdrop-blur-sm flex items-center justify-center border border-amber-500/20">
                   <Trophy className="h-5 w-5 text-amber-500" />
                 </div>
                 <div className="text-left">
@@ -401,8 +401,8 @@ const Exercises = () => {
                   <p className="text-xs text-muted-foreground">Daraja</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 rounded-xl bg-card/80 backdrop-blur-sm px-4 py-2 border border-border/30">
-                <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+              <div className="flex items-center gap-2 rounded-xl glass-section px-4 py-2">
+                <div className="w-10 h-10 rounded-lg bg-primary/20 backdrop-blur-sm flex items-center justify-center border border-primary/20">
                   <BookOpen className="h-5 w-5 text-primary" />
                 </div>
                 <div className="text-left">
@@ -410,8 +410,8 @@ const Exercises = () => {
                   <p className="text-xs text-muted-foreground">Tur</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 rounded-xl bg-card/80 backdrop-blur-sm px-4 py-2 border border-border/30">
-                <div className="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center">
+              <div className="flex items-center gap-2 rounded-xl glass-section px-4 py-2">
+                <div className="w-10 h-10 rounded-lg bg-orange-500/20 backdrop-blur-sm flex items-center justify-center border border-orange-500/20">
                   <Flame className="h-5 w-5 text-orange-500" />
                 </div>
                 <div className="text-left">
@@ -435,12 +435,12 @@ const Exercises = () => {
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
                   className={cn(
-                    "group relative overflow-hidden rounded-2xl bg-card/50 backdrop-blur-sm p-6 text-left transition-all duration-300",
-                    "hover:shadow-glow hover:-translate-y-1 animate-fade-in border border-border/30"
+                    "group relative overflow-hidden rounded-2xl glass-section p-6 text-left transition-all duration-300",
+                    "hover:shadow-glow hover:-translate-y-1 animate-fade-in"
                   )}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/20 to-transparent rounded-bl-full opacity-50" />
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full opacity-50" />
                   
                   <div className="relative z-10">
                     <div className={cn(
@@ -470,7 +470,7 @@ const Exercises = () => {
         ) : completed ? (
           // Completion Screen
           <div className="mx-auto max-w-lg text-center animate-fade-in">
-            <div className="rounded-2xl bg-card/50 backdrop-blur-sm p-8 border border-border/30">
+            <div className="rounded-2xl glass-section p-8">
               <div className="mb-6">
                 <div className="w-20 h-20 mx-auto bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center mb-4 shadow-glow">
                   <Trophy className="h-10 w-10 text-white" />

@@ -308,37 +308,36 @@ const Grammar = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background gradient-navy">
       <Header />
       
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-white via-green-50/40 to-emerald-50/30 dark:from-gray-900 dark:via-emerald-950/20 dark:to-green-950/10 py-12">
+      <section className="relative overflow-hidden py-12">
+        <div className="absolute inset-0 animated-gradient opacity-30" />
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Soft gradient blobs */}
-          <div className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-green-200/25 dark:bg-green-600/10 blur-3xl" />
-          <div className="absolute right-0 top-10 h-48 w-48 rounded-full bg-emerald-200/20 dark:bg-emerald-500/10 blur-3xl" />
-          <div className="absolute left-1/4 bottom-0 h-56 w-56 rounded-full bg-green-100/30 dark:bg-green-600/10 blur-3xl" />
+          <div className="absolute -left-20 top-0 h-64 w-64 rounded-full bg-green-500/20 dark:bg-green-500/15 blur-[80px] animate-pulse" />
+          <div className="absolute right-0 top-10 h-48 w-48 rounded-full bg-emerald-500/15 dark:bg-emerald-500/10 blur-[60px] animate-pulse" style={{ animationDelay: "1s" }} />
+          <div className="absolute left-1/4 bottom-0 h-56 w-56 rounded-full bg-green-500/10 dark:bg-green-500/10 blur-[80px]" />
           
           {/* Large decorative case labels - very faint */}
-          <div className="absolute left-[5%] top-[10%] text-7xl md:text-8xl font-black text-green-400/[0.06] dark:text-green-400/[0.04] select-none">Им.</div>
-          <div className="absolute right-[8%] top-[5%] text-6xl md:text-7xl font-black text-emerald-500/[0.05] dark:text-emerald-500/[0.03] select-none">Род.</div>
-          <div className="absolute left-[15%] bottom-[15%] text-6xl md:text-7xl font-black text-green-400/[0.06] dark:text-green-400/[0.04] select-none">Дат.</div>
-          <div className="absolute right-[12%] bottom-[20%] text-7xl md:text-8xl font-black text-emerald-500/[0.05] dark:text-emerald-500/[0.03] select-none">Вин.</div>
-          <div className="absolute left-[40%] top-[8%] text-5xl md:text-6xl font-black text-green-400/[0.06] dark:text-green-400/[0.04] select-none">Твор.</div>
-          <div className="absolute right-[35%] bottom-[10%] text-5xl md:text-6xl font-black text-emerald-500/[0.05] dark:text-emerald-500/[0.04] select-none">Пред.</div>
+          <div className="absolute left-[5%] top-[10%] text-7xl md:text-8xl font-black text-green-400/[0.08] dark:text-green-400/[0.06] select-none">Им.</div>
+          <div className="absolute right-[8%] top-[5%] text-6xl md:text-7xl font-black text-emerald-500/[0.07] dark:text-emerald-500/[0.05] select-none">Род.</div>
+          <div className="absolute left-[15%] bottom-[15%] text-6xl md:text-7xl font-black text-green-400/[0.08] dark:text-green-400/[0.06] select-none">Дат.</div>
+          <div className="absolute right-[12%] bottom-[20%] text-7xl md:text-8xl font-black text-emerald-500/[0.07] dark:text-emerald-500/[0.05] select-none">Вин.</div>
+          <div className="absolute left-[40%] top-[8%] text-5xl md:text-6xl font-black text-green-400/[0.08] dark:text-green-400/[0.06] select-none">Твор.</div>
+          <div className="absolute right-[35%] bottom-[10%] text-5xl md:text-6xl font-black text-emerald-500/[0.07] dark:text-emerald-500/[0.06] select-none">Пред.</div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="mx-auto max-w-2xl text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm border border-primary/20 animate-fade-in">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10 px-4 py-2 text-sm font-medium text-primary shadow-lg animate-fade-in">
               <BookOpen className="h-4 w-4" />
               6 падежей • 5 тем
             </div>
             
-            <h1 className="mb-4 text-4xl font-extrabold tracking-tight md:text-5xl animate-fade-in" style={{ animationDelay: "100ms" }}>
-              <span className="bg-gradient-to-r from-primary via-primary to-secondary bg-clip-text text-transparent">
-                Грамматика
-              </span>
+            <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-foreground md:text-5xl animate-fade-in" style={{ animationDelay: "100ms" }}>
+              Грамматика
             </h1>
             
             <p className="mb-6 text-lg text-muted-foreground animate-fade-in" style={{ animationDelay: "200ms" }}>
@@ -346,21 +345,21 @@ const Grammar = () => {
             </p>
 
             <div className="flex items-center justify-center gap-4 flex-wrap animate-fade-in" style={{ animationDelay: "300ms" }}>
-              <div className="flex items-center gap-2 rounded-xl bg-card/80 backdrop-blur-sm px-4 py-2 shadow-sm">
+              <div className="flex items-center gap-2 rounded-xl glass-section px-4 py-2">
                 <span className="text-2xl">📋</span>
                 <div className="text-left">
                   <p className="text-lg font-bold text-foreground">6</p>
                   <p className="text-xs text-muted-foreground">Падежей</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 rounded-xl bg-card/80 backdrop-blur-sm px-4 py-2 shadow-sm">
+              <div className="flex items-center gap-2 rounded-xl glass-section px-4 py-2">
                 <span className="text-2xl">📚</span>
                 <div className="text-left">
                   <p className="text-lg font-bold text-foreground">5</p>
                   <p className="text-xs text-muted-foreground">Тем</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 rounded-xl bg-card/80 backdrop-blur-sm px-4 py-2 shadow-sm">
+              <div className="flex items-center gap-2 rounded-xl glass-section px-4 py-2">
                 <span className="text-2xl">🎯</span>
                 <div className="text-left">
                   <p className="text-lg font-bold text-foreground">20+</p>
@@ -379,10 +378,10 @@ const Grammar = () => {
             <div
               key={topic.id}
               className={cn(
-                "rounded-2xl bg-card shadow-sm overflow-hidden transition-all duration-500 animate-fade-in group",
+                "rounded-2xl glass-section overflow-hidden transition-all duration-500 animate-fade-in group",
                 expandedTopic === topic.id 
-                  ? "shadow-lg ring-2 ring-primary/30 scale-[1.01]" 
-                  : "hover:shadow-md hover:scale-[1.005] hover:ring-1 hover:ring-primary/10"
+                  ? "shadow-glow ring-2 ring-primary/30 scale-[1.01]" 
+                  : "hover:shadow-lg hover:scale-[1.005] hover:ring-1 hover:ring-primary/10"
               )}
               style={{ animationDelay: `${index * 100}ms` }}
             >
@@ -392,7 +391,7 @@ const Grammar = () => {
                   "flex w-full items-center justify-between p-6 text-left transition-all duration-300",
                   expandedTopic === topic.id 
                     ? "bg-gradient-to-r from-primary/10 via-primary/5 to-transparent" 
-                    : "hover:bg-muted/30"
+                    : "hover:bg-white/5 dark:hover:bg-white/5"
                 )}
               >
                 <div className="flex items-center gap-4">
