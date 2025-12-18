@@ -70,7 +70,7 @@ export const exerciseCategories: ExerciseCategory[] = [
     titleUz: "Kelishiklar",
     description: "Русские падежи и склонения",
     icon: "TableProperties",
-    color: "text-blue-500",
+    color: "bg-gradient-to-br from-blue-500 to-blue-600",
     exercises: [
       // Beginner
       { id: "c1", type: "case", difficulty: "beginner", points: 10, word: "книга", originalForm: "книга", targetCase: "Родительный", answer: "книги", hint: "Кого? Чего?" },
@@ -98,7 +98,7 @@ export const exerciseCategories: ExerciseCategory[] = [
     titleUz: "Fe'llar",
     description: "Спряжение глаголов",
     icon: "Zap",
-    color: "text-orange-500",
+    color: "bg-gradient-to-br from-orange-500 to-amber-500",
     exercises: [
       // Beginner - Present tense
       { id: "v1", type: "conjugation", difficulty: "beginner", points: 10, verb: "читать", infinitive: "читать", pronoun: "я", tense: "настоящее", answer: "читаю" },
@@ -126,7 +126,7 @@ export const exerciseCategories: ExerciseCategory[] = [
     titleUz: "Akademik rus tili",
     description: "Университетская лексика",
     icon: "GraduationCap",
-    color: "text-purple-500",
+    color: "bg-gradient-to-br from-purple-500 to-violet-600",
     exercises: [
       // Fill exercises
       { id: "a1", type: "fill", difficulty: "beginner", points: 10, sentence: "Студенты ___ в университете.", answer: "учатся", hint: "o'qiydilar", uzbek: "Talabalar universitetda o'qiydilar.", explanation: "Глагол «учиться» - o'qimoq" },
@@ -152,7 +152,7 @@ export const exerciseCategories: ExerciseCategory[] = [
     titleUz: "Tarjima",
     description: "Русско-узбекский перевод",
     icon: "Languages",
-    color: "text-green-500",
+    color: "bg-gradient-to-br from-emerald-500 to-green-600",
     exercises: [
       // Russian to Uzbek
       { id: "t1", type: "translate", difficulty: "beginner", points: 10, russian: "Здравствуйте!", uzbek: "Assalomu alaykum!", direction: "ru-uz", acceptedAnswers: ["assalomu alaykum", "salom", "assalomu aleykum"] },
@@ -178,7 +178,7 @@ export const exerciseCategories: ExerciseCategory[] = [
     titleUz: "Gaplar",
     description: "Построение предложений",
     icon: "MessageSquare",
-    color: "text-pink-500",
+    color: "bg-gradient-to-br from-pink-500 to-rose-600",
     exercises: [
       { id: "s1", type: "fill", difficulty: "beginner", points: 10, sentence: "Меня ___ Алишер.", answer: "зовут", hint: "ismim", uzbek: "Mening ismim Alisher.", explanation: "«Меня зовут» = Mening ismim" },
       { id: "s2", type: "fill", difficulty: "beginner", points: 10, sentence: "Я ___ из Узбекистана.", answer: "приехал", hint: "keldim", uzbek: "Men O'zbekistondan keldim.", explanation: "Приехать - kelmoq" },
