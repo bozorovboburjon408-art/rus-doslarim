@@ -13,7 +13,6 @@ const sections = [
     icon: BookOpen,
     path: "/vocabulary",
     color: "from-primary to-primary/80",
-    textColor: "text-primary-foreground",
   },
   {
     title: "Грамматика",
@@ -21,7 +20,6 @@ const sections = [
     icon: GraduationCap,
     path: "/grammar",
     color: "from-secondary to-secondary/80",
-    textColor: "text-secondary-foreground",
   },
   {
     title: "Упражнения",
@@ -29,7 +27,6 @@ const sections = [
     icon: PenTool,
     path: "/exercises",
     color: "from-primary to-primary/80",
-    textColor: "text-primary-foreground",
   },
   {
     title: "Тесты",
@@ -37,7 +34,6 @@ const sections = [
     icon: FileCheck,
     path: "/tests",
     color: "from-secondary to-secondary/80",
-    textColor: "text-secondary-foreground",
   },
 ];
 
@@ -74,13 +70,13 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen gradient-navy">
       <Header />
       
       {/* Hero Section with Animated Gradient */}
       <section className="relative overflow-hidden py-20">
         {/* Animated Gradient Background */}
-        <div className="absolute inset-0 animated-gradient opacity-10" />
+        <div className="absolute inset-0 animated-gradient opacity-50" />
         
         {/* Floating Russian Letters */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -88,7 +84,7 @@ const Index = () => {
             <div
               key={index}
               className={cn(
-                "absolute font-bold text-primary/5 dark:text-primary/10 float-slow select-none",
+                "absolute font-bold text-primary/15 float-slow select-none",
                 el.size
               )}
               style={{
@@ -104,22 +100,22 @@ const Index = () => {
 
         {/* Blur orbs */}
         <div className="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-primary/20 blur-[100px] animate-pulse" />
-        <div className="absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-secondary/20 blur-[100px] animate-pulse" style={{ animationDelay: "1s" }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 rounded-full bg-accent/10 blur-[80px]" />
+        <div className="absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-secondary/15 blur-[100px] animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 rounded-full bg-primary/10 blur-[80px]" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="mx-auto max-w-2xl text-center">
             {/* Badge */}
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20 px-5 py-2.5 text-sm font-medium text-primary animate-fade-in">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 px-5 py-2.5 text-sm font-medium text-primary animate-fade-in">
               <Sparkles className="h-4 w-4 animate-pulse" />
               Не забудьте выполнить ежедневные упражнения!
             </div>
             
             {/* Main Title with Typing Effect */}
-            <h1 className="mb-6 text-4xl font-extrabold tracking-tight text-foreground md:text-6xl animate-fade-in" style={{ animationDelay: "100ms" }}>
+            <h1 className="mb-6 text-4xl font-extrabold tracking-tight text-white md:text-6xl animate-fade-in" style={{ animationDelay: "100ms" }}>
               Изучайте русский язык{" "}
               <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-primary via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                <span className="text-primary">
                   {typedText}
                 </span>
                 <span className="animate-pulse text-primary">|</span>
@@ -136,7 +132,7 @@ const Index = () => {
               <Button 
                 variant="hero" 
                 size="lg" 
-                className="animate-fade-in btn-glow text-lg px-8 py-6 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/25"
+                className="animate-fade-in btn-glow text-lg px-8 py-6 transform hover:scale-105 transition-all duration-300 shadow-glow-lg gradient-button border-0"
                 style={{ animationDelay: "300ms" }}
               >
                 <Sparkles className="h-5 w-5 mr-2" />
@@ -153,7 +149,7 @@ const Index = () => {
 
         {/* Sections Grid */}
         <section>
-          <h2 className="mb-6 text-2xl font-bold text-foreground">Разделы</h2>
+          <h2 className="mb-6 text-2xl font-bold text-white">Разделы</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {sections.map((section, index) => {
               const Icon = section.icon;
@@ -163,11 +159,10 @@ const Index = () => {
                   to={section.path}
                   className={cn(
                     "group relative overflow-hidden rounded-2xl p-6 transition-all duration-500",
-                    "bg-gradient-to-br shadow-card",
-                    "hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02]",
+                    "bg-gradient-to-br shadow-card text-white",
+                    "hover:shadow-glow hover:-translate-y-2 hover:scale-[1.02]",
                     "animate-fade-in",
-                    section.color,
-                    section.textColor
+                    section.color
                   )}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
@@ -193,33 +188,33 @@ const Index = () => {
         </section>
 
         {/* Quick Info */}
-        <section className="mt-12 rounded-2xl bg-card p-6 shadow-card hover:shadow-lg transition-shadow duration-300">
-          <h3 className="text-xl font-bold text-foreground mb-4">О приложении</h3>
+        <section className="mt-12 rounded-2xl bg-card p-6 shadow-card hover:shadow-glow transition-shadow duration-300 border border-border/30">
+          <h3 className="text-xl font-bold text-white mb-4">О приложении</h3>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <div className="flex items-start gap-3 p-3 rounded-xl transition-all duration-300 hover:bg-muted/50">
-              <div className="rounded-lg bg-primary/10 p-2 text-primary transition-transform duration-300 hover:scale-110">
+              <div className="rounded-lg bg-primary/20 p-2 text-primary transition-transform duration-300 hover:scale-110">
                 <BookOpen className="h-5 w-5" />
               </div>
               <div>
-                <h4 className="font-semibold text-foreground">Большой словарь</h4>
+                <h4 className="font-semibold text-white">Большой словарь</h4>
                 <p className="text-sm text-muted-foreground">100+ слов и выражений</p>
               </div>
             </div>
             <div className="flex items-start gap-3 p-3 rounded-xl transition-all duration-300 hover:bg-muted/50">
-              <div className="rounded-lg bg-secondary/10 p-2 text-secondary transition-transform duration-300 hover:scale-110">
+              <div className="rounded-lg bg-secondary/20 p-2 text-secondary transition-transform duration-300 hover:scale-110">
                 <PenTool className="h-5 w-5" />
               </div>
               <div>
-                <h4 className="font-semibold text-foreground">Упражнения</h4>
+                <h4 className="font-semibold text-white">Упражнения</h4>
                 <p className="text-sm text-muted-foreground">Практические задания</p>
               </div>
             </div>
             <div className="flex items-start gap-3 p-3 rounded-xl transition-all duration-300 hover:bg-muted/50">
-              <div className="rounded-lg bg-accent/10 p-2 text-accent transition-transform duration-300 hover:scale-110">
+              <div className="rounded-lg bg-primary/20 p-2 text-primary transition-transform duration-300 hover:scale-110">
                 <FileCheck className="h-5 w-5" />
               </div>
               <div>
-                <h4 className="font-semibold text-foreground">Интерактивные тесты</h4>
+                <h4 className="font-semibold text-white">Интерактивные тесты</h4>
                 <p className="text-sm text-muted-foreground">Проверка знаний</p>
               </div>
             </div>
@@ -228,7 +223,7 @@ const Index = () => {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-card py-8 mt-12">
+      <footer className="border-t border-border/30 bg-card/50 py-8 mt-12">
         <div className="container mx-auto px-4 text-center">
           <p className="text-sm text-muted-foreground">
             © 2024 Русский язык - Приложение для изучения русского языка

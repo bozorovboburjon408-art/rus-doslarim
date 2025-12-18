@@ -3,7 +3,6 @@ import { Button } from "./ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { path: "/", label: "Главная" },
@@ -18,13 +17,13 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-lg">
+    <header className="sticky top-0 z-50 border-b border-border/30 glass-nav">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl gradient-button text-white shadow-glow">
             <BookOpen className="h-5 w-5" />
           </div>
-          <span className="text-xl font-bold text-foreground">Русский язык</span>
+          <span className="text-xl font-bold text-white">Русский язык</span>
         </Link>
         
         <nav className="hidden items-center gap-1 md:flex">
@@ -33,10 +32,10 @@ export function Header() {
               key={link.path}
               to={link.path}
               className={cn(
-                "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                "rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200",
                 location.pathname === link.path
-                  ? "bg-primary/10 text-primary"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                  ? "bg-primary/20 text-primary"
+                  : "text-white/70 hover:bg-white/10 hover:text-white"
               )}
             >
               {link.label}
@@ -45,11 +44,10 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <ThemeToggle />
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="md:hidden text-white hover:bg-white/10"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -59,7 +57,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="border-t border-border bg-background p-4 md:hidden animate-fade-in">
+        <div className="border-t border-border/30 glass-nav p-4 md:hidden animate-fade-in">
           <nav className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link
@@ -67,10 +65,10 @@ export function Header() {
                 to={link.path}
                 onClick={() => setMobileMenuOpen(false)}
                 className={cn(
-                  "rounded-lg px-4 py-3 text-sm font-medium transition-colors",
+                  "rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200",
                   location.pathname === link.path
-                    ? "bg-primary/10 text-primary"
-                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                    ? "bg-primary/20 text-primary"
+                    : "text-white/70 hover:bg-white/10 hover:text-white"
                 )}
               >
                 {link.label}
