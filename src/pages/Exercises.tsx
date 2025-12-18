@@ -364,28 +364,27 @@ const Exercises = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen gradient-navy">
       <Header />
       
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/5 py-12">
+      <section className="relative overflow-hidden py-12">
+        <div className="absolute inset-0 animated-gradient opacity-30" />
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-primary/10 blur-3xl animate-pulse-glow" />
-          <div className="absolute right-10 top-20 h-32 w-32 rounded-full bg-accent/15 blur-2xl animate-bounce-soft" />
-          <div className="absolute left-1/3 bottom-0 h-48 w-48 rounded-full bg-secondary/10 blur-3xl" />
+          <div className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-primary/30 blur-[80px] animate-pulse" />
+          <div className="absolute right-10 top-20 h-32 w-32 rounded-full bg-secondary/20 blur-[60px] animate-pulse" style={{ animationDelay: "1s" }} />
+          <div className="absolute left-1/3 bottom-0 h-48 w-48 rounded-full bg-primary/15 blur-[80px]" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="mx-auto max-w-2xl text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm border border-primary/20 animate-fade-in">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/20 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm border border-primary/30 animate-fade-in">
               <Target className="h-4 w-4" />
               {exerciseCategories.length} kategoriya • 70+ mashq
             </div>
             
-            <h1 className="mb-4 text-4xl font-extrabold tracking-tight md:text-5xl animate-fade-in" style={{ animationDelay: "100ms" }}>
-              <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
-                Mashqlar
-              </span>
+            <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-white md:text-5xl animate-fade-in" style={{ animationDelay: "100ms" }}>
+              Mashqlar
             </h1>
             
             <p className="mb-6 text-lg text-muted-foreground animate-fade-in" style={{ animationDelay: "200ms" }}>
@@ -393,24 +392,30 @@ const Exercises = () => {
             </p>
 
             <div className="flex items-center justify-center gap-4 flex-wrap animate-fade-in" style={{ animationDelay: "300ms" }}>
-              <div className="flex items-center gap-2 rounded-xl bg-card/80 backdrop-blur-sm px-4 py-2 shadow-sm">
-                <Trophy className="h-5 w-5 text-amber-500" />
+              <div className="flex items-center gap-2 rounded-xl bg-card/50 backdrop-blur-sm px-4 py-2 border border-border/30">
+                <div className="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center">
+                  <Trophy className="h-5 w-5 text-amber-400" />
+                </div>
                 <div className="text-left">
-                  <p className="text-lg font-bold text-foreground">3</p>
+                  <p className="text-lg font-bold text-white">3</p>
                   <p className="text-xs text-muted-foreground">Daraja</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 rounded-xl bg-card/80 backdrop-blur-sm px-4 py-2 shadow-sm">
-                <BookOpen className="h-5 w-5 text-blue-500" />
+              <div className="flex items-center gap-2 rounded-xl bg-card/50 backdrop-blur-sm px-4 py-2 border border-border/30">
+                <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+                  <BookOpen className="h-5 w-5 text-primary" />
+                </div>
                 <div className="text-left">
-                  <p className="text-lg font-bold text-foreground">5</p>
+                  <p className="text-lg font-bold text-white">5</p>
                   <p className="text-xs text-muted-foreground">Tur</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 rounded-xl bg-card/80 backdrop-blur-sm px-4 py-2 shadow-sm">
-                <Flame className="h-5 w-5 text-orange-500" />
+              <div className="flex items-center gap-2 rounded-xl bg-card/50 backdrop-blur-sm px-4 py-2 border border-border/30">
+                <div className="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center">
+                  <Flame className="h-5 w-5 text-orange-400" />
+                </div>
                 <div className="text-left">
-                  <p className="text-lg font-bold text-foreground">70+</p>
+                  <p className="text-lg font-bold text-white">70+</p>
                   <p className="text-xs text-muted-foreground">Mashq</p>
                 </div>
               </div>
@@ -430,29 +435,32 @@ const Exercises = () => {
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
                   className={cn(
-                    "group relative overflow-hidden rounded-2xl bg-card p-6 text-left shadow-sm transition-all duration-300",
-                    "hover:shadow-xl hover:-translate-y-1 animate-fade-in border border-border/50"
+                    "group relative overflow-hidden rounded-2xl bg-card/50 backdrop-blur-sm p-6 text-left transition-all duration-300",
+                    "hover:shadow-glow hover:-translate-y-1 animate-fade-in border border-border/30"
                   )}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full opacity-50" />
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/20 to-transparent rounded-bl-full opacity-50" />
                   
                   <div className="relative z-10">
-                    <div className={cn("w-14 h-14 rounded-xl flex items-center justify-center mb-4 bg-muted/50", category.color)}>
-                      <IconComponent className="h-7 w-7" />
+                    <div className={cn(
+                      "w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:shadow-glow",
+                      category.color
+                    )}>
+                      <IconComponent className="h-7 w-7 text-white" />
                     </div>
                     
-                    <h3 className="text-xl font-bold text-foreground mb-1">{category.title}</h3>
+                    <h3 className="text-xl font-bold text-white mb-1">{category.title}</h3>
                     <p className="text-sm text-primary font-medium mb-2">{category.titleUz}</p>
                     <p className="text-sm text-muted-foreground mb-4">{category.description}</p>
                     
                     <div className="flex items-center justify-between">
                       <div className="flex gap-2">
-                        <Badge variant="secondary" className="text-xs">
+                        <Badge variant="secondary" className="text-xs bg-primary/20 text-primary border-primary/30">
                           {category.exercises.length} mashq
                         </Badge>
                       </div>
-                      <ChevronRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:translate-x-1" />
+                      <ChevronRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
                     </div>
                   </div>
                 </button>
@@ -462,45 +470,45 @@ const Exercises = () => {
         ) : completed ? (
           // Completion Screen
           <div className="mx-auto max-w-lg text-center animate-fade-in">
-            <div className="rounded-2xl bg-card p-8 shadow-lg border border-border/50">
+            <div className="rounded-2xl bg-card/50 backdrop-blur-sm p-8 border border-border/30">
               <div className="mb-6">
-                <div className="w-20 h-20 mx-auto bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center mb-4">
+                <div className="w-20 h-20 mx-auto bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center mb-4 shadow-glow">
                   <Trophy className="h-10 w-10 text-white" />
                 </div>
-                <h2 className="text-3xl font-bold text-foreground mb-2">Tabriklaymiz! 🎉</h2>
+                <h2 className="text-3xl font-bold text-white mb-2">Tabriklaymiz! 🎉</h2>
                 <p className="text-muted-foreground">
                   Siz barcha mashqlarni yakunladingiz
                 </p>
               </div>
 
               <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="rounded-xl bg-green-500/10 p-4">
-                  <p className="text-2xl font-bold text-green-600">{score}</p>
+                <div className="rounded-xl bg-green-500/20 border border-green-500/30 p-4">
+                  <p className="text-2xl font-bold text-green-400">{score}</p>
                   <p className="text-xs text-muted-foreground">To'g'ri</p>
                 </div>
-                <div className="rounded-xl bg-primary/10 p-4">
+                <div className="rounded-xl bg-primary/20 border border-primary/30 p-4">
                   <p className="text-2xl font-bold text-primary">{totalPoints}</p>
                   <p className="text-xs text-muted-foreground">Ball</p>
                 </div>
-                <div className="rounded-xl bg-amber-500/10 p-4">
-                  <p className="text-2xl font-bold text-amber-600">{getAccuracy()}%</p>
+                <div className="rounded-xl bg-amber-500/20 border border-amber-500/30 p-4">
+                  <p className="text-2xl font-bold text-amber-400">{getAccuracy()}%</p>
                   <p className="text-xs text-muted-foreground">Aniqlik</p>
                 </div>
               </div>
 
-              <div className="mb-6 rounded-xl bg-muted/50 p-4">
-                <p className="text-3xl font-bold text-foreground">
+              <div className="mb-6 rounded-xl bg-muted/30 border border-border/30 p-4">
+                <p className="text-3xl font-bold text-white">
                   {score} / {filteredExercises.length}
                 </p>
                 <p className="text-sm text-muted-foreground">to'g'ri javoblar</p>
               </div>
 
               <div className="flex gap-3">
-                <Button variant="outline" onClick={goBack} className="flex-1">
+                <Button variant="outline" onClick={goBack} className="flex-1 border-border/50 hover:bg-white/5">
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Ortga
                 </Button>
-                <Button onClick={resetExercises} className="flex-1">
+                <Button onClick={resetExercises} className="flex-1 gradient-button border-0">
                   <RefreshCw className="h-4 w-4 mr-2" />
                   Qaytadan
                 </Button>
