@@ -23,11 +23,16 @@ const IntroSplash = ({ onComplete }: IntroSplashProps) => {
 
   return (
     <div className={cn(
-      "fixed inset-0 z-50 flex items-center justify-center bg-background transition-opacity duration-500",
+      "fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-500",
+      "bg-gradient-to-b from-[hsl(222,47%,10%)] to-[hsl(222,50%,6%)]",
       stage >= 4 ? "opacity-0 pointer-events-none" : "opacity-100"
     )}>
       {/* Animated gradient background */}
-      <div className="absolute inset-0 animated-gradient opacity-20" />
+      <div className="absolute inset-0 animated-gradient opacity-30" />
+      
+      {/* Blur orbs */}
+      <div className="absolute -left-32 top-1/4 h-80 w-80 rounded-full bg-primary/30 blur-[100px] animate-pulse" />
+      <div className="absolute -right-32 bottom-1/4 h-80 w-80 rounded-full bg-secondary/20 blur-[100px] animate-pulse" style={{ animationDelay: "1s" }} />
       
       {/* Floating letters */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -35,7 +40,7 @@ const IntroSplash = ({ onComplete }: IntroSplashProps) => {
           <div
             key={letter}
             className={cn(
-              "absolute text-6xl font-bold text-primary/10 transition-all duration-1000",
+              "absolute text-6xl font-bold text-primary/20 transition-all duration-1000",
               stage >= 1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}
             style={{
@@ -54,7 +59,7 @@ const IntroSplash = ({ onComplete }: IntroSplashProps) => {
       <div className="relative z-10 text-center">
         {/* Logo */}
         <div className={cn(
-          "inline-flex items-center justify-center h-24 w-24 rounded-3xl bg-primary text-primary-foreground mb-6 shadow-2xl transition-all duration-700",
+          "inline-flex items-center justify-center h-24 w-24 rounded-3xl gradient-button text-white mb-6 shadow-glow-lg transition-all duration-700",
           stage >= 1 ? "scale-100 opacity-100" : "scale-50 opacity-0"
         )}>
           <BookOpen className="h-12 w-12" />
@@ -62,7 +67,7 @@ const IntroSplash = ({ onComplete }: IntroSplashProps) => {
 
         {/* Title */}
         <h1 className={cn(
-          "text-4xl md:text-5xl font-bold text-foreground mb-4 transition-all duration-700",
+          "text-4xl md:text-5xl font-bold text-white mb-4 transition-all duration-700",
           stage >= 2 ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
         )}>
           Русский язык
