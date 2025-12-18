@@ -80,10 +80,10 @@ const Exercises = () => {
       setScore(score + 1);
       setTotalPoints(totalPoints + currentExercise.points);
       setStreak(streak + 1);
-      toast.success(`To'g'ri! +${currentExercise.points} ball 🎉`);
+      toast.success(`Правильно! +${currentExercise.points} баллов 🎉`);
     } else {
       setStreak(0);
-      toast.error("Noto'g'ri. Qaytadan urinib ko'ring!");
+      toast.error("Неправильно. Попробуйте ещё раз!");
     }
   };
 
@@ -135,14 +135,14 @@ const Exercises = () => {
         return (
           <div className="space-y-6">
             <div className="space-y-2">
-              <Badge variant="outline" className="mb-2">Bo'sh joyni to'ldiring</Badge>
+              <Badge variant="outline" className="mb-2">Заполните пропуск</Badge>
               <p className="text-2xl font-semibold text-foreground leading-relaxed">
                 {currentExercise.sentence.replace("___", showResult ? `[${currentExercise.answer}]` : "______")}
               </p>
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/50 rounded-lg p-3">
               <span className="text-lg">💡</span>
-              <span>Maslahat: <strong>{currentExercise.hint}</strong></span>
+              <span>Подсказка: <strong>{currentExercise.hint}</strong></span>
             </div>
             
             {!showResult ? (
@@ -150,13 +150,13 @@ const Exercises = () => {
                 <Input
                   value={userAnswer}
                   onChange={(e) => setUserAnswer(e.target.value)}
-                  placeholder="Javobingizni kiriting..."
+                  placeholder="Введите ответ..."
                   className="flex-1 h-12 text-lg"
                   onKeyDown={(e) => e.key === "Enter" && userAnswer.trim() && checkAnswer()}
                   autoFocus
                 />
                 <Button onClick={checkAnswer} disabled={!userAnswer.trim()} size="lg">
-                  Tekshirish
+                  Проверить
                 </Button>
               </div>
             ) : (
@@ -174,7 +174,7 @@ const Exercises = () => {
         return (
           <div className="space-y-6">
             <div className="space-y-2">
-              <Badge variant="outline" className="mb-2">To'g'ri javobni tanlang</Badge>
+              <Badge variant="outline" className="mb-2">Выберите правильный ответ</Badge>
               <p className="text-2xl font-semibold text-foreground">
                 {currentExercise.question}
               </p>
@@ -225,7 +225,7 @@ const Exercises = () => {
                 className="w-full"
                 size="lg"
               >
-                Tekshirish
+                Проверить
               </Button>
             ) : (
               <ResultFeedback 
@@ -243,7 +243,7 @@ const Exercises = () => {
           <div className="space-y-6">
             <div className="space-y-2">
               <Badge variant="outline" className="mb-2">
-                {currentExercise.direction === "ru-uz" ? "Ruscha → O'zbekcha" : "O'zbekcha → Ruscha"}
+                {currentExercise.direction === "ru-uz" ? "Русский → Узбекский" : "Узбекский → Русский"}
               </Badge>
               <p className="text-2xl font-semibold text-foreground">
                 {currentExercise.direction === "ru-uz" ? currentExercise.russian : currentExercise.uzbek}
@@ -255,20 +255,20 @@ const Exercises = () => {
                 <Input
                   value={userAnswer}
                   onChange={(e) => setUserAnswer(e.target.value)}
-                  placeholder={currentExercise.direction === "ru-uz" ? "O'zbekcha tarjima..." : "Русский перевод..."}
+                  placeholder={currentExercise.direction === "ru-uz" ? "Перевод на узбекский..." : "Перевод на русский..."}
                   className="flex-1 h-12 text-lg"
                   onKeyDown={(e) => e.key === "Enter" && userAnswer.trim() && checkAnswer()}
                   autoFocus
                 />
                 <Button onClick={checkAnswer} disabled={!userAnswer.trim()} size="lg">
-                  Tekshirish
+                  Проверить
                 </Button>
               </div>
             ) : (
               <ResultFeedback 
                 isCorrect={isCorrect} 
                 correctAnswer={currentExercise.direction === "ru-uz" ? currentExercise.uzbek : currentExercise.russian}
-                explanation={`Qabul qilinadigan javoblar: ${currentExercise.acceptedAnswers.join(", ")}`}
+                explanation={`Допустимые ответы: ${currentExercise.acceptedAnswers.join(", ")}`}
               />
             )}
           </div>
@@ -278,9 +278,9 @@ const Exercises = () => {
         return (
           <div className="space-y-6">
             <div className="space-y-2">
-              <Badge variant="outline" className="mb-2">Kelishik shakli</Badge>
+              <Badge variant="outline" className="mb-2">Падежная форма</Badge>
               <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-xl p-6">
-                <p className="text-lg text-muted-foreground mb-2">So'zni quyidagi kelishikka o'zgartiring:</p>
+                <p className="text-lg text-muted-foreground mb-2">Измените слово в нужный падеж:</p>
                 <p className="text-3xl font-bold text-foreground mb-4">«{currentExercise.word}»</p>
                 <div className="flex items-center gap-3">
                   <Badge className="bg-primary/20 text-primary border-primary/30">
@@ -296,13 +296,13 @@ const Exercises = () => {
                 <Input
                   value={userAnswer}
                   onChange={(e) => setUserAnswer(e.target.value)}
-                  placeholder="Javobingiz..."
+                  placeholder="Ваш ответ..."
                   className="flex-1 h-12 text-lg"
                   onKeyDown={(e) => e.key === "Enter" && userAnswer.trim() && checkAnswer()}
                   autoFocus
                 />
                 <Button onClick={checkAnswer} disabled={!userAnswer.trim()} size="lg">
-                  Tekshirish
+                  Проверить
                 </Button>
               </div>
             ) : (
@@ -319,9 +319,9 @@ const Exercises = () => {
         return (
           <div className="space-y-6">
             <div className="space-y-2">
-              <Badge variant="outline" className="mb-2">Fe'l tuslanishi</Badge>
+              <Badge variant="outline" className="mb-2">Спряжение глагола</Badge>
               <div className="bg-gradient-to-r from-orange-500/5 to-amber-500/5 rounded-xl p-6">
-                <p className="text-lg text-muted-foreground mb-2">Fe'lni to'g'ri shaklda yozing:</p>
+                <p className="text-lg text-muted-foreground mb-2">Напишите глагол в правильной форме:</p>
                 <p className="text-3xl font-bold text-foreground mb-4">«{currentExercise.infinitive}»</p>
                 <div className="flex flex-wrap items-center gap-3">
                   <Badge className="bg-orange-500/20 text-orange-600 border-orange-500/30">
@@ -339,13 +339,13 @@ const Exercises = () => {
                 <Input
                   value={userAnswer}
                   onChange={(e) => setUserAnswer(e.target.value)}
-                  placeholder="Fe'l shakli..."
+                  placeholder="Форма глагола..."
                   className="flex-1 h-12 text-lg"
                   onKeyDown={(e) => e.key === "Enter" && userAnswer.trim() && checkAnswer()}
                   autoFocus
                 />
                 <Button onClick={checkAnswer} disabled={!userAnswer.trim()} size="lg">
-                  Tekshirish
+                  Проверить
                 </Button>
               </div>
             ) : (
@@ -380,15 +380,15 @@ const Exercises = () => {
           <div className="mx-auto max-w-2xl text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 dark:bg-white/5 backdrop-blur-xl border border-white/20 dark:border-white/10 px-4 py-2 text-sm font-medium text-primary shadow-lg animate-fade-in">
               <Target className="h-4 w-4" />
-              {exerciseCategories.length} kategoriya • 70+ mashq
+              {exerciseCategories.length} категорий • 70+ упражнений
             </div>
             
             <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-foreground md:text-5xl animate-fade-in" style={{ animationDelay: "100ms" }}>
-              Mashqlar
+              Упражнения
             </h1>
             
             <p className="mb-6 text-lg text-muted-foreground animate-fade-in" style={{ animationDelay: "200ms" }}>
-              NDKTU talabalari uchun professional rus tili mashqlari
+              Профессиональные упражнения по русскому языку для студентов НДКТУ
             </p>
 
             <div className="flex items-center justify-center gap-4 flex-wrap animate-fade-in" style={{ animationDelay: "300ms" }}>
@@ -398,7 +398,7 @@ const Exercises = () => {
                 </div>
                 <div className="text-left">
                   <p className="text-lg font-bold text-foreground">3</p>
-                  <p className="text-xs text-muted-foreground">Daraja</p>
+                  <p className="text-xs text-muted-foreground">Уровня</p>
                 </div>
               </div>
               <div className="flex items-center gap-2 rounded-xl glass-section px-4 py-2">
@@ -407,7 +407,7 @@ const Exercises = () => {
                 </div>
                 <div className="text-left">
                   <p className="text-lg font-bold text-foreground">5</p>
-                  <p className="text-xs text-muted-foreground">Tur</p>
+                  <p className="text-xs text-muted-foreground">Типов</p>
                 </div>
               </div>
               <div className="flex items-center gap-2 rounded-xl glass-section px-4 py-2">
@@ -416,7 +416,7 @@ const Exercises = () => {
                 </div>
                 <div className="text-left">
                   <p className="text-lg font-bold text-foreground">70+</p>
-                  <p className="text-xs text-muted-foreground">Mashq</p>
+                  <p className="text-xs text-muted-foreground">Упражнений</p>
                 </div>
               </div>
             </div>
@@ -457,7 +457,7 @@ const Exercises = () => {
                     <div className="flex items-center justify-between">
                       <div className="flex gap-2">
                         <Badge variant="secondary" className="text-xs bg-primary/20 text-primary border-primary/30">
-                          {category.exercises.length} mashq
+                          {category.exercises.length} упр.
                         </Badge>
                       </div>
                       <ChevronRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
@@ -475,24 +475,24 @@ const Exercises = () => {
                 <div className="w-20 h-20 mx-auto bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center mb-4 shadow-glow">
                   <Trophy className="h-10 w-10 text-white" />
                 </div>
-                <h2 className="text-3xl font-bold text-foreground mb-2">Tabriklaymiz! 🎉</h2>
+                <h2 className="text-3xl font-bold text-foreground mb-2">Поздравляем! 🎉</h2>
                 <p className="text-muted-foreground">
-                  Siz barcha mashqlarni yakunladingiz
+                  Вы завершили все упражнения
                 </p>
               </div>
 
               <div className="grid grid-cols-3 gap-4 mb-6">
                 <div className="rounded-xl bg-green-500/20 border border-green-500/30 p-4">
                   <p className="text-2xl font-bold text-green-400">{score}</p>
-                  <p className="text-xs text-muted-foreground">To'g'ri</p>
+                  <p className="text-xs text-muted-foreground">Правильно</p>
                 </div>
                 <div className="rounded-xl bg-primary/20 border border-primary/30 p-4">
                   <p className="text-2xl font-bold text-primary">{totalPoints}</p>
-                  <p className="text-xs text-muted-foreground">Ball</p>
+                  <p className="text-xs text-muted-foreground">Баллов</p>
                 </div>
                 <div className="rounded-xl bg-amber-500/20 border border-amber-500/30 p-4">
                   <p className="text-2xl font-bold text-amber-400">{getAccuracy()}%</p>
-                  <p className="text-xs text-muted-foreground">Aniqlik</p>
+                  <p className="text-xs text-muted-foreground">Точность</p>
                 </div>
               </div>
 
@@ -500,17 +500,17 @@ const Exercises = () => {
                 <p className="text-3xl font-bold text-white">
                   {score} / {filteredExercises.length}
                 </p>
-                <p className="text-sm text-muted-foreground">to'g'ri javoblar</p>
+                <p className="text-sm text-muted-foreground">правильных ответов</p>
               </div>
 
               <div className="flex gap-3">
                 <Button variant="outline" onClick={goBack} className="flex-1 border-border/50 hover:bg-white/5">
                   <ArrowLeft className="h-4 w-4 mr-2" />
-                  Ortga
+                  Назад
                 </Button>
                 <Button onClick={resetExercises} className="flex-1 gradient-button border-0">
                   <RefreshCw className="h-4 w-4 mr-2" />
-                  Qaytadan
+                  Заново
                 </Button>
               </div>
             </div>
@@ -522,7 +522,7 @@ const Exercises = () => {
             <div className="mb-6 flex items-center justify-between">
               <button onClick={goBack} className="flex items-center gap-2 text-primary hover:underline">
                 <ArrowLeft className="h-4 w-4" />
-                Ortga
+                Назад
               </button>
               <div className="flex items-center gap-4">
                 {streak > 0 && (
@@ -552,7 +552,7 @@ const Exercises = () => {
                   }}
                   className="text-xs"
                 >
-                  {diff === "all" ? "Barchasi" : getDifficultyLabel(diff)}
+                  {diff === "all" ? "Все" : getDifficultyLabel(diff)}
                 </Button>
               ))}
             </div>
@@ -561,11 +561,11 @@ const Exercises = () => {
             <div className="mb-6 space-y-2">
               <div className="flex items-center justify-between text-sm">
                 <span className="text-muted-foreground">
-                  Mashq {currentIndex + 1} / {filteredExercises.length}
+                  Упражнение {currentIndex + 1} / {filteredExercises.length}
                 </span>
                 <div className="flex items-center gap-4">
-                  <span className="text-green-600 font-medium">{score} to'g'ri</span>
-                  <span className="text-primary font-medium">{totalPoints} ball</span>
+                  <span className="text-green-600 font-medium">{score} правильно</span>
+                  <span className="text-primary font-medium">{totalPoints} баллов</span>
                 </div>
               </div>
               <Progress 
@@ -583,7 +583,7 @@ const Exercises = () => {
                     {getDifficultyLabel(currentExercise?.difficulty || "beginner")}
                   </Badge>
                   <Badge variant="outline">
-                    +{currentExercise?.points} ball
+                    +{currentExercise?.points} баллов
                   </Badge>
                 </div>
 
@@ -592,17 +592,17 @@ const Exercises = () => {
                 {showResult && (
                   <Button onClick={nextExercise} className="w-full mt-6" size="lg">
                     {currentIndex < filteredExercises.length - 1
-                      ? "Keyingi mashq"
-                      : "Natijani ko'rish"}
+                      ? "Следующее упражнение"
+                      : "Показать результат"}
                     <ChevronRight className="h-4 w-4 ml-2" />
                   </Button>
                 )}
               </div>
             ) : (
               <div className="text-center py-12">
-                <p className="text-muted-foreground">Bu darajada mashqlar mavjud emas</p>
+                <p className="text-muted-foreground">На этом уровне упражнений нет</p>
                 <Button variant="outline" onClick={() => setDifficultyFilter("all")} className="mt-4">
-                  Barcha mashqlarni ko'rish
+                  Показать все упражнения
                 </Button>
               </div>
             )}
@@ -638,7 +638,7 @@ const ResultFeedback = ({ isCorrect, correctAnswer, explanation, additionalInfo 
       )}
       <div className="space-y-1">
         <p className={cn("font-semibold", isCorrect ? "text-green-700" : "text-red-700")}>
-          {isCorrect ? "To'g'ri!" : `Noto'g'ri. To'g'ri javob: ${correctAnswer}`}
+          {isCorrect ? "Правильно!" : `Неправильно. Правильный ответ: ${correctAnswer}`}
         </p>
         <p className="text-sm text-muted-foreground">{explanation}</p>
         {additionalInfo && (
