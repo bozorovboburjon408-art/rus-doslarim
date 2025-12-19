@@ -8,7 +8,6 @@ import { ThemeProvider } from "next-themes";
 import { AdminProvider } from "./contexts/AdminContext";
 import IntroSplash from "./components/IntroSplash";
 import Index from "./pages/Index";
-import Vocabulary from "./pages/Vocabulary";
 import Grammar from "./pages/Grammar";
 import Exercises from "./pages/Exercises";
 import Tests from "./pages/Tests";
@@ -48,7 +47,6 @@ const App = () => {
             <BrowserRouter>
               <Routes>
                 <Route path="/" element={<Index />} />
-                <Route path="/vocabulary" element={<Vocabulary />} />
                 <Route path="/grammar" element={<Grammar />} />
                 <Route path="/exercises" element={<Exercises />} />
                 <Route path="/tests" element={<Tests />} />
