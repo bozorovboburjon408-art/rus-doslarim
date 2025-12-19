@@ -1,14 +1,19 @@
 import { useState } from "react";
 import { Header } from "@/components/Header";
-import { Volume2, Search, ChevronRight } from "lucide-react";
+import { Volume2, Search, ChevronRight, BookOpen, Gamepad2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { vocabularyCategories } from "@/data/vocabularyData";
+import { VocabularyQuiz } from "@/components/VocabularyQuiz";
+import { Button } from "@/components/ui/button";
+
+type ViewMode = "list" | "quiz";
 
 const Vocabulary = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedWord, setExpandedWord] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<ViewMode>("list");
 
   const speak = (text: string) => {
     const utterance = new SpeechSynthesisUtterance(text);
@@ -23,6 +28,12 @@ const Vocabulary = () => {
       word.russian.toLowerCase().includes(searchQuery.toLowerCase()) ||
       word.uzbek.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  const handleBack = () => {
+    setSelectedCategory(null);
+    setSearchQuery("");
+    setViewMode("list");
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -57,23 +68,45 @@ const Vocabulary = () => {
               </button>
             ))}
           </div>
+        ) : viewMode === "quiz" && currentCategory ? (
+          <VocabularyQuiz category={currentCategory} onBack={handleBack} />
         ) : (
           <div>
             <button
-              onClick={() => {
-                setSelectedCategory(null);
-                setSearchQuery("");
-              }}
+              onClick={handleBack}
               className="mb-6 flex items-center gap-2 text-primary hover:underline"
             >
               ← Вернуться к категориям
             </button>
 
-            <div className="mb-6 flex items-center gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-2xl">
-                {currentCategory?.icon}
+            <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-2xl">
+                  {currentCategory?.icon}
+                </div>
+                <h2 className="text-2xl font-bold text-foreground">{currentCategory?.name}</h2>
               </div>
-              <h2 className="text-2xl font-bold text-foreground">{currentCategory?.name}</h2>
+              
+              <div className="flex gap-2">
+                <Button
+                  size="sm"
+                  variant={viewMode === "list" ? "default" : "outline"}
+                  onClick={() => setViewMode("list")}
+                  className="gap-2"
+                >
+                  <BookOpen className="h-4 w-4" />
+                  Список
+                </Button>
+                <Button
+                  size="sm"
+                  variant={viewMode === "quiz" ? "default" : "outline"}
+                  onClick={() => setViewMode("quiz")}
+                  className="gap-2"
+                >
+                  <Gamepad2 className="h-4 w-4" />
+                  Викторина
+                </Button>
+              </div>
             </div>
 
             <div className="relative mb-6">
