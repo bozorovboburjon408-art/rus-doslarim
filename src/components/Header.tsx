@@ -7,6 +7,7 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { path: "/", label: "Главная" },
+  { path: "/vocabulary", label: "Словарь" },
   { path: "/grammar", label: "Грамматика" },
   { path: "/exercises", label: "Упражнения" },
   { path: "/tests", label: "Тесты" },

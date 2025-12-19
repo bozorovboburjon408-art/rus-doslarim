@@ -8,25 +8,32 @@ import { useEffect, useState } from "react";
 
 const sections = [
   {
+    title: "Словарь",
+    description: "Термины для горного дела и технологий",
+    icon: BookOpen,
+    path: "/vocabulary",
+    color: "from-primary to-primary/80",
+  },
+  {
     title: "Грамматика",
     description: "Русский алфавит и грамматические правила",
     icon: GraduationCap,
     path: "/grammar",
-    color: "from-primary to-primary/80",
+    color: "from-secondary to-secondary/80",
   },
   {
     title: "Упражнения",
     description: "Заполнение пропусков и выбор ответа",
     icon: PenTool,
     path: "/exercises",
-    color: "from-secondary to-secondary/80",
+    color: "from-primary to-primary/80",
   },
   {
     title: "Тесты",
     description: "Тесты по каждой теме с результатами",
     icon: FileCheck,
     path: "/tests",
-    color: "from-primary to-primary/80",
+    color: "from-secondary to-secondary/80",
   },
 ];
 
@@ -121,7 +128,7 @@ const Index = () => {
             </p>
             
             {/* CTA Button with Glow */}
-            <Link to="/grammar">
+            <Link to="/vocabulary">
               <Button
                 variant="hero" 
                 size="lg" 
