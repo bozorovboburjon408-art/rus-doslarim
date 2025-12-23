@@ -1,5 +1,5 @@
 import { Header } from "@/components/Header";
-import { notesData } from "@/data/notesData";
+import { notesData, Note } from "@/data/notesData";
 import {
   Accordion,
   AccordionContent,
@@ -16,9 +16,105 @@ import {
 } from "@/components/ui/table";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { BookOpen, Languages, GraduationCap, PenLine } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { BookOpen, Languages, GraduationCap, PenLine, Download } from "lucide-react";
+import { toast } from "sonner";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
 
 const Notes = () => {
+  const downloadPDF = (note: Note) => {
+    try {
+      const doc = new jsPDF();
+      
+      // Title
+      doc.setFontSize(18);
+      doc.text(note.title, 14, 20);
+      
+      // Topics
+      doc.setFontSize(12);
+      doc.setTextColor(100);
+      doc.text(`Grammatika: ${note.grammarTopic}`, 14, 30);
+      doc.text(`Leksika: ${note.lexicalTopic}`, 14, 38);
+      
+      let yPosition = 50;
+      
+      // Vocabulary Table
+      doc.setFontSize(14);
+      doc.setTextColor(0);
+      doc.text("Lug'at / Glossariy", 14, yPosition);
+      yPosition += 5;
+      
+      autoTable(doc, {
+        startY: yPosition,
+        head: [["Russkiy", "O'zbekcha"]],
+        body: note.vocabulary.map(item => [item.russian, item.uzbek]),
+        styles: { fontSize: 10 },
+        headStyles: { fillColor: [59, 130, 246] },
+        margin: { left: 14, right: 14 },
+      });
+      
+      yPosition = (doc as any).lastAutoTable.finalY + 15;
+      
+      // Check if we need a new page
+      if (yPosition > 250) {
+        doc.addPage();
+        yPosition = 20;
+      }
+      
+      // Grammar Rules Table
+      doc.setFontSize(14);
+      doc.text("Grammatik qoidalar", 14, yPosition);
+      yPosition += 5;
+      
+      autoTable(doc, {
+        startY: yPosition,
+        head: [["Qoida", "Misol"]],
+        body: note.grammarRules.map(rule => [rule.rule, rule.example]),
+        styles: { fontSize: 10 },
+        headStyles: { fillColor: [34, 197, 94] },
+        margin: { left: 14, right: 14 },
+        columnStyles: {
+          0: { cellWidth: 90 },
+          1: { cellWidth: 80, fontStyle: 'italic' },
+        },
+      });
+      
+      yPosition = (doc as any).lastAutoTable.finalY + 15;
+      
+      // Exercises
+      if (note.exercises && note.exercises.length > 0) {
+        if (yPosition > 250) {
+          doc.addPage();
+          yPosition = 20;
+        }
+        
+        doc.setFontSize(14);
+        doc.text("Mashqlar", 14, yPosition);
+        yPosition += 8;
+        
+        doc.setFontSize(10);
+        note.exercises.forEach((exercise, idx) => {
+          if (yPosition > 280) {
+            doc.addPage();
+            yPosition = 20;
+          }
+          doc.text(`${idx + 1}. ${exercise}`, 14, yPosition);
+          yPosition += 7;
+        });
+      }
+      
+      // Save PDF
+      const fileName = `konspekt-${note.id}-${note.title.replace(/[^a-zA-Z0-9]/g, '_')}.pdf`;
+      doc.save(fileName);
+      
+      toast.success("PDF muvaffaqiyatli yuklandi!");
+    } catch (error) {
+      console.error("PDF yaratishda xatolik:", error);
+      toast.error("PDF yaratishda xatolik yuz berdi");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -53,6 +149,18 @@ const Notes = () => {
               </AccordionTrigger>
               <AccordionContent className="pb-6">
                 <div className="grid gap-6">
+                  {/* Download Button */}
+                  <div className="flex justify-end">
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => downloadPDF(note)}
+                    >
+                      <Download className="w-4 h-4 mr-2" />
+                      PDF yuklab olish
+                    </Button>
+                  </div>
+
                   {/* Vocabulary Table */}
                   <Card>
                     <CardHeader className="pb-3">
