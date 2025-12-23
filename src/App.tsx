@@ -10,6 +10,7 @@ import IntroSplash from "./components/IntroSplash";
 import Index from "./pages/Index";
 import Vocabulary from "./pages/Vocabulary";
 import Grammar from "./pages/Grammar";
+import Notes from "./pages/Notes";
 import Exercises from "./pages/Exercises";
 import Tests from "./pages/Tests";
 import AdminAuth from "./pages/AdminAuth";
@@ -50,6 +51,7 @@ const App = () => {
                 <Route path="/" element={<Index />} />
                 <Route path="/vocabulary" element={<Vocabulary />} />
                 <Route path="/grammar" element={<Grammar />} />
+                <Route path="/notes" element={<Notes />} />
                 <Route path="/exercises" element={<Exercises />} />
                 <Route path="/tests" element={<Tests />} />
                 <Route path="/admin" element={<AdminAuth />} />

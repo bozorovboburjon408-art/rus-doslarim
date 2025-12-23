@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, GraduationCap, Sparkles, PenTool, FileCheck, ChevronRight } from "lucide-react";
+import { BookOpen, GraduationCap, Sparkles, PenTool, FileCheck, ChevronRight, FileText } from "lucide-react";
 import { Header } from "@/components/Header";
 
 import { Button } from "@/components/ui/button";
@@ -22,18 +22,25 @@ const sections = [
     color: "from-secondary to-secondary/80",
   },
   {
+    title: "Конспекты",
+    description: "Краткие справочные материалы",
+    icon: FileText,
+    path: "/notes",
+    color: "from-primary to-primary/80",
+  },
+  {
     title: "Упражнения",
     description: "Заполнение пропусков и выбор ответа",
     icon: PenTool,
     path: "/exercises",
-    color: "from-primary to-primary/80",
+    color: "from-secondary to-secondary/80",
   },
   {
     title: "Тесты",
     description: "Тесты по каждой теме с результатами",
     icon: FileCheck,
     path: "/tests",
-    color: "from-secondary to-secondary/80",
+    color: "from-primary to-primary/80",
   },
 ];
 
