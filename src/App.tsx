@@ -14,6 +14,7 @@ import Notes from "./pages/Notes";
 import Exercises from "./pages/Exercises";
 import Tests from "./pages/Tests";
 import AdminAuth from "./pages/AdminAuth";
+import AdminNotes from "./pages/AdminNotes";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -55,6 +56,7 @@ const App = () => {
                 <Route path="/exercises" element={<Exercises />} />
                 <Route path="/tests" element={<Tests />} />
                 <Route path="/admin" element={<AdminAuth />} />
+                <Route path="/admin/notes" element={<AdminNotes />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>
