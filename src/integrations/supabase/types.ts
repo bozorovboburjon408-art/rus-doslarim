@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      notes: {
+        Row: {
+          created_at: string
+          exercises: Json
+          grammar_rules: Json
+          grammar_topic: string
+          id: string
+          is_published: boolean
+          lesson_number: number
+          lexical_topic: string
+          title: string
+          updated_at: string
+          vocabulary: Json
+        }
+        Insert: {
+          created_at?: string
+          exercises?: Json
+          grammar_rules?: Json
+          grammar_topic: string
+          id?: string
+          is_published?: boolean
+          lesson_number: number
+          lexical_topic: string
+          title: string
+          updated_at?: string
+          vocabulary?: Json
+        }
+        Update: {
+          created_at?: string
+          exercises?: Json
+          grammar_rules?: Json
+          grammar_topic?: string
+          id?: string
+          is_published?: boolean
+          lesson_number?: number
+          lexical_topic?: string
+          title?: string
+          updated_at?: string
+          vocabulary?: Json
+        }
+        Relationships: []
+      }
       tests: {
         Row: {
           created_at: string
