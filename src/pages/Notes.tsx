@@ -203,28 +203,11 @@ const Notes = () => {
                     </Button>
                   </div>
 
-                  {/* For lesson 1, show document pages */}
-                  {note.id === 1 && (
-                    <div className="space-y-4">
-                      {Array.from({ length: lesson1Pages }, (_, i) => i + 1).map((pageNum) => (
-                        <div key={pageNum} className="border rounded-lg overflow-hidden shadow-sm">
-                          <img
-                            src={`/lessons/lesson1/page_${pageNum}.jpg`}
-                            alt={`Sahifa ${pageNum}`}
-                            className="w-full h-auto"
-                            loading="lazy"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* For other lessons, show placeholder */}
+                  {/* Placeholder for lessons without uploaded document */}
                   {note.id !== 1 && (
-                    <div className="text-center py-12 text-muted-foreground">
+                    <div className="text-center py-8 text-muted-foreground">
                       <FileText className="w-12 h-12 mx-auto mb-4 opacity-50" />
                       <p>Hujjat yuklanmagan</p>
-                      <p className="text-sm">Word faylni yuklash uchun yuqoridagi tugmani bosing</p>
                     </div>
                   )}
                 </div>
