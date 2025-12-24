@@ -23,15 +23,62 @@ import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 
 const Notes = () => {
-  const downloadPDF = (note: Note) => {
+  // Lesson 1 has 16 pages from uploaded document
+  const lesson1Pages = 16;
+
+  const downloadPDF = async (note: Note) => {
     try {
       const doc = new jsPDF();
       
-      // Title
+      // For lesson 1, use uploaded document pages
+      if (note.id === 1) {
+        toast.info("PDF tayyorlanmoqda...");
+        
+        for (let i = 1; i <= lesson1Pages; i++) {
+          const img = new Image();
+          img.crossOrigin = "anonymous";
+          
+          await new Promise<void>((resolve, reject) => {
+            img.onload = () => {
+              if (i > 1) {
+                doc.addPage();
+              }
+              
+              // Calculate dimensions to fit A4
+              const pageWidth = doc.internal.pageSize.getWidth();
+              const pageHeight = doc.internal.pageSize.getHeight();
+              const imgRatio = img.width / img.height;
+              const pageRatio = pageWidth / pageHeight;
+              
+              let imgWidth, imgHeight;
+              if (imgRatio > pageRatio) {
+                imgWidth = pageWidth - 20;
+                imgHeight = imgWidth / imgRatio;
+              } else {
+                imgHeight = pageHeight - 20;
+                imgWidth = imgHeight * imgRatio;
+              }
+              
+              const x = (pageWidth - imgWidth) / 2;
+              const y = (pageHeight - imgHeight) / 2;
+              
+              doc.addImage(img, 'JPEG', x, y, imgWidth, imgHeight);
+              resolve();
+            };
+            img.onerror = () => reject(new Error(`Sahifa ${i} yuklanmadi`));
+            img.src = `/lessons/lesson1/page_${i}.jpg`;
+          });
+        }
+        
+        doc.save(`konspekt-1-prakticheskoe_zanyatie_1.pdf`);
+        toast.success("PDF muvaffaqiyatli yuklandi!");
+        return;
+      }
+      
+      // For other lessons, generate PDF from data
       doc.setFontSize(18);
       doc.text(note.title, 14, 20);
       
-      // Topics
       doc.setFontSize(12);
       doc.setTextColor(100);
       doc.text(`Grammatika: ${note.grammarTopic}`, 14, 30);
@@ -39,7 +86,6 @@ const Notes = () => {
       
       let yPosition = 50;
       
-      // Vocabulary Table
       doc.setFontSize(14);
       doc.setTextColor(0);
       doc.text("Lug'at / Glossariy", 14, yPosition);
@@ -56,13 +102,11 @@ const Notes = () => {
       
       yPosition = (doc as any).lastAutoTable.finalY + 15;
       
-      // Check if we need a new page
       if (yPosition > 250) {
         doc.addPage();
         yPosition = 20;
       }
       
-      // Grammar Rules Table
       doc.setFontSize(14);
       doc.text("Grammatik qoidalar", 14, yPosition);
       yPosition += 5;
@@ -82,7 +126,6 @@ const Notes = () => {
       
       yPosition = (doc as any).lastAutoTable.finalY + 15;
       
-      // Exercises
       if (note.exercises && note.exercises.length > 0) {
         if (yPosition > 250) {
           doc.addPage();
@@ -104,7 +147,6 @@ const Notes = () => {
         });
       }
       
-      // Save PDF
       const fileName = `konspekt-${note.id}-${note.title.replace(/[^a-zA-Z0-9]/g, '_')}.pdf`;
       doc.save(fileName);
       
