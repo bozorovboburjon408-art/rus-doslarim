@@ -6,17 +6,31 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Languages, GraduationCap, PenLine, FileText } from "lucide-react";
+import { BookOpen, Languages, FileText, Download } from "lucide-react";
 import { toast } from "sonner";
 import { Document, Packer, Paragraph, Table as DocxTable, TableRow as DocxTableRow, TableCell as DocxTableCell, TextRun, HeadingLevel, WidthType } from "docx";
 import { saveAs } from "file-saver";
 
 const Notes = () => {
+  // Lesson 1 has 16 pages from uploaded document
+  const lesson1Pages = 16;
+
   const downloadWord = async (note: Note) => {
     try {
+      // For lesson 1, download the original document
+      if (note.id === 1) {
+        const link = document.createElement('a');
+        link.href = '/lessons/lesson1/document.docx';
+        link.download = 'Prakticheskoe_zanyatie_1.docx';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        toast.success("Word muvaffaqiyatli yuklandi!");
+        return;
+      }
+
       toast.info("Word tayyorlanmoqda...");
 
       // Create vocabulary table
@@ -184,49 +198,35 @@ const Notes = () => {
                       size="sm"
                       onClick={() => downloadWord(note)}
                     >
-                      <FileText className="w-4 h-4 mr-2" />
+                      <Download className="w-4 h-4 mr-2" />
                       Word yuklab olish
                     </Button>
                   </div>
 
-                  {/* Vocabulary Table */}
-                  <Card>
-                    <CardHeader className="pb-3">
-                      <CardTitle className="text-base flex items-center gap-2">
-                        <Languages className="w-4 h-4" />
-                        Lug'at / Глоссарий
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground text-sm">Ma'lumotlar qo'shilmagan</p>
-                    </CardContent>
-                  </Card>
+                  {/* For lesson 1, show document pages */}
+                  {note.id === 1 && (
+                    <div className="space-y-4">
+                      {Array.from({ length: lesson1Pages }, (_, i) => i + 1).map((pageNum) => (
+                        <div key={pageNum} className="border rounded-lg overflow-hidden shadow-sm">
+                          <img
+                            src={`/lessons/lesson1/page_${pageNum}.jpg`}
+                            alt={`Sahifa ${pageNum}`}
+                            className="w-full h-auto"
+                            loading="lazy"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
 
-                  {/* Grammar Rules Table */}
-                  <Card>
-                    <CardHeader className="pb-3">
-                      <CardTitle className="text-base flex items-center gap-2">
-                        <GraduationCap className="w-4 h-4" />
-                        Grammatik qoidalar / Грамматические правила
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground text-sm">Ma'lumotlar qo'shilmagan</p>
-                    </CardContent>
-                  </Card>
-
-                  {/* Exercises */}
-                  <Card>
-                    <CardHeader className="pb-3">
-                      <CardTitle className="text-base flex items-center gap-2">
-                        <PenLine className="w-4 h-4" />
-                        Mashqlar / Упражнения
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground text-sm">Ma'lumotlar qo'shilmagan</p>
-                    </CardContent>
-                  </Card>
+                  {/* For other lessons, show placeholder */}
+                  {note.id !== 1 && (
+                    <div className="text-center py-12 text-muted-foreground">
+                      <FileText className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                      <p>Hujjat yuklanmagan</p>
+                      <p className="text-sm">Word faylni yuklash uchun yuqoridagi tugmani bosing</p>
+                    </div>
+                  )}
                 </div>
               </AccordionContent>
             </AccordionItem>
