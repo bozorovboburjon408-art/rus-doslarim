@@ -170,22 +170,7 @@ const Notes = () => {
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <Table>
-                        <TableHeader>
-                          <TableRow>
-                            <TableHead className="w-1/2">Русский</TableHead>
-                            <TableHead className="w-1/2">O'zbekcha</TableHead>
-                          </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                          {note.vocabulary.map((item, idx) => (
-                            <TableRow key={idx}>
-                              <TableCell className="font-medium">{item.russian}</TableCell>
-                              <TableCell>{item.uzbek}</TableCell>
-                            </TableRow>
-                          ))}
-                        </TableBody>
-                      </Table>
+                      <p className="text-muted-foreground text-sm">Ma'lumotlar qo'shilmagan</p>
                     </CardContent>
                   </Card>
 
@@ -198,43 +183,22 @@ const Notes = () => {
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <Table>
-                        <TableHeader>
-                          <TableRow>
-                            <TableHead className="w-1/2">Qoida / Правило</TableHead>
-                            <TableHead className="w-1/2">Misol / Пример</TableHead>
-                          </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                          {note.grammarRules.map((rule, idx) => (
-                            <TableRow key={idx}>
-                              <TableCell className="font-medium">{rule.rule}</TableCell>
-                              <TableCell className="italic text-muted-foreground">{rule.example}</TableCell>
-                            </TableRow>
-                          ))}
-                        </TableBody>
-                      </Table>
+                      <p className="text-muted-foreground text-sm">Ma'lumotlar qo'shilmagan</p>
                     </CardContent>
                   </Card>
 
                   {/* Exercises */}
-                  {note.exercises && note.exercises.length > 0 && (
-                    <Card>
-                      <CardHeader className="pb-3">
-                        <CardTitle className="text-base flex items-center gap-2">
-                          <PenLine className="w-4 h-4" />
-                          Mashqlar / Упражнения
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <ul className="list-disc list-inside space-y-2">
-                          {note.exercises.map((exercise, idx) => (
-                            <li key={idx} className="text-muted-foreground">{exercise}</li>
-                          ))}
-                        </ul>
-                      </CardContent>
-                    </Card>
-                  )}
+                  <Card>
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-base flex items-center gap-2">
+                        <PenLine className="w-4 h-4" />
+                        Mashqlar / Упражнения
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground text-sm">Ma'lumotlar qo'shilmagan</p>
+                    </CardContent>
+                  </Card>
                 </div>
               </AccordionContent>
             </AccordionItem>
