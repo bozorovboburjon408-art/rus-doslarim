@@ -21,13 +21,7 @@ const Notes = () => {
     try {
       // For lesson 1, download the original document
       if (note.id === 1) {
-        const link = document.createElement('a');
-        link.href = '/lessons/lesson1/document.docx';
-        link.download = 'Prakticheskoe_zanyatie_1.docx';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        toast.success("Word muvaffaqiyatli yuklandi!");
+        window.open('/lessons/lesson1/document.docx', '_blank');
         return;
       }
 
