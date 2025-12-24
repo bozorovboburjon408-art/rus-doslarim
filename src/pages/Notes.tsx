@@ -17,10 +17,12 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Languages, GraduationCap, PenLine, Download } from "lucide-react";
+import { BookOpen, Languages, GraduationCap, PenLine, Download, FileText } from "lucide-react";
 import { toast } from "sonner";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
+import { Document, Packer, Paragraph, Table as DocxTable, TableRow as DocxTableRow, TableCell as DocxTableCell, TextRun, HeadingLevel, WidthType, BorderStyle } from "docx";
+import { saveAs } from "file-saver";
 
 const Notes = () => {
   // Lesson 1 has 16 pages from uploaded document
@@ -157,6 +159,134 @@ const Notes = () => {
     }
   };
 
+  const downloadWord = async (note: Note) => {
+    try {
+      toast.info("Word tayyorlanmoqda...");
+
+      // Create vocabulary table
+      const vocabRows = [
+        new DocxTableRow({
+          children: [
+            new DocxTableCell({
+              children: [new Paragraph({ children: [new TextRun({ text: "Русский", bold: true })] })],
+              shading: { fill: "3B82F6" },
+            }),
+            new DocxTableCell({
+              children: [new Paragraph({ children: [new TextRun({ text: "O'zbekcha", bold: true })] })],
+              shading: { fill: "3B82F6" },
+            }),
+          ],
+        }),
+        ...note.vocabulary.map(
+          (item) =>
+            new DocxTableRow({
+              children: [
+                new DocxTableCell({ children: [new Paragraph(item.russian)] }),
+                new DocxTableCell({ children: [new Paragraph(item.uzbek)] }),
+              ],
+            })
+        ),
+      ];
+
+      // Create grammar table
+      const grammarRows = [
+        new DocxTableRow({
+          children: [
+            new DocxTableCell({
+              children: [new Paragraph({ children: [new TextRun({ text: "Qoida", bold: true })] })],
+              shading: { fill: "22C55E" },
+            }),
+            new DocxTableCell({
+              children: [new Paragraph({ children: [new TextRun({ text: "Misol", bold: true })] })],
+              shading: { fill: "22C55E" },
+            }),
+          ],
+        }),
+        ...note.grammarRules.map(
+          (rule) =>
+            new DocxTableRow({
+              children: [
+                new DocxTableCell({ children: [new Paragraph(rule.rule)] }),
+                new DocxTableCell({ children: [new Paragraph({ children: [new TextRun({ text: rule.example, italics: true })] })] }),
+              ],
+            })
+        ),
+      ];
+
+      // Create exercises list
+      const exerciseParagraphs = note.exercises?.map(
+        (exercise, idx) =>
+          new Paragraph({
+            text: `${idx + 1}. ${exercise}`,
+            spacing: { after: 100 },
+          })
+      ) || [];
+
+      const doc = new Document({
+        sections: [
+          {
+            children: [
+              new Paragraph({
+                text: note.title,
+                heading: HeadingLevel.HEADING_1,
+                spacing: { after: 200 },
+              }),
+              new Paragraph({
+                children: [
+                  new TextRun({ text: "Grammatika: ", bold: true }),
+                  new TextRun(note.grammarTopic),
+                ],
+                spacing: { after: 100 },
+              }),
+              new Paragraph({
+                children: [
+                  new TextRun({ text: "Leksika: ", bold: true }),
+                  new TextRun(note.lexicalTopic),
+                ],
+                spacing: { after: 300 },
+              }),
+              new Paragraph({
+                text: "Lug'at / Глоссарий",
+                heading: HeadingLevel.HEADING_2,
+                spacing: { after: 100 },
+              }),
+              new DocxTable({
+                width: { size: 100, type: WidthType.PERCENTAGE },
+                rows: vocabRows,
+              }),
+              new Paragraph({ text: "", spacing: { after: 300 } }),
+              new Paragraph({
+                text: "Grammatik qoidalar / Грамматические правила",
+                heading: HeadingLevel.HEADING_2,
+                spacing: { after: 100 },
+              }),
+              new DocxTable({
+                width: { size: 100, type: WidthType.PERCENTAGE },
+                rows: grammarRows,
+              }),
+              new Paragraph({ text: "", spacing: { after: 300 } }),
+              new Paragraph({
+                text: "Mashqlar / Упражнения",
+                heading: HeadingLevel.HEADING_2,
+                spacing: { after: 100 },
+              }),
+              ...exerciseParagraphs,
+            ],
+          },
+        ],
+      });
+
+      const blob = await Packer.toBlob(doc);
+      const fileName = `konspekt-${note.id}-${note.title.replace(/[^a-zA-Z0-9]/g, "_")}.docx`;
+      saveAs(blob, fileName);
+
+      toast.success("Word muvaffaqiyatli yuklandi!");
+    } catch (error) {
+      console.error("Word yaratishda xatolik:", error);
+      toast.error("Word yaratishda xatolik yuz berdi");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -191,8 +321,16 @@ const Notes = () => {
               </AccordionTrigger>
               <AccordionContent className="pb-6">
                 <div className="grid gap-6">
-                  {/* Download Button */}
-                  <div className="flex justify-end">
+                  {/* Download Buttons */}
+                  <div className="flex justify-end gap-2">
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => downloadWord(note)}
+                    >
+                      <FileText className="w-4 h-4 mr-2" />
+                      Word yuklab olish
+                    </Button>
                     <Button 
                       variant="outline" 
                       size="sm"
