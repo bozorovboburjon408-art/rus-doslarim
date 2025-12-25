@@ -17,17 +17,27 @@ const Notes = () => {
   // Lesson 1 has 16 pages from uploaded document
   const lesson1Pages = 16;
 
+  const downloadOriginalDoc = (url: string, filename: string) => {
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    toast.success("Fayl yuklab olindi!");
+  };
+
   const downloadWord = async (note: Note) => {
     try {
       // For lesson 1, download the original document
       if (note.id === 1) {
-        window.open('/lessons/lesson1/Amaliy_mashgulot_1.docx', '_blank');
+        downloadOriginalDoc('/lessons/lesson1/Amaliy_mashgulot_1.docx', 'Amaliy_mashgulot_1.docx');
         return;
       }
 
       // For lesson 2, download the original document
       if (note.id === 2) {
-        window.open('/lessons/lesson2/Amaliy_mashgulot_2.docx', '_blank');
+        downloadOriginalDoc('/lessons/lesson2/Amaliy_mashgulot_2.docx', 'Amaliy_mashgulot_2.docx');
         return;
       }
 
