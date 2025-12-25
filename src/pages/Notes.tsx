@@ -125,6 +125,12 @@ const Notes = () => {
         return;
       }
 
+      // For lesson 17, download the original document
+      if (note.id === 17) {
+        downloadOriginalDoc('/lessons/lesson17/Amaliy_mashgulot_17.docx', 'Amaliy_mashgulot_17.docx');
+        return;
+      }
+
       toast.info("Word tayyorlanmoqda...");
 
       // Create vocabulary table
