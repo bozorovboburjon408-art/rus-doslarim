@@ -25,6 +25,12 @@ const Notes = () => {
         return;
       }
 
+      // For lesson 2, download the original document
+      if (note.id === 2) {
+        window.open('/lessons/lesson2/Amaliy_mashgulot_2.docx', '_blank');
+        return;
+      }
+
       toast.info("Word tayyorlanmoqda...");
 
       // Create vocabulary table
