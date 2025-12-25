@@ -15,7 +15,7 @@ export interface VocabularyCategory {
 export const vocabularyCategories: VocabularyCategory[] = [
   {
     id: "lesson-1",
-    name: "1-dars: Tanishuv. O'zim haqida hikoya",
+    name: "Занятие 1: Знакомство. Рассказ о себе",
     icon: "👋",
     words: [
       { russian: "автобиография", uzbek: "tarjimaihol", pronunciation: "[автобиография]", example: "Я написал автобиографию для документов." },
@@ -35,7 +35,7 @@ export const vocabularyCategories: VocabularyCategory[] = [
   },
   {
     id: "lesson-2",
-    name: "2-dars: Mening inoq oilam",
+    name: "Занятие 2: Моя дружная семья",
     icon: "👨‍👩‍👧‍👦",
     words: [
       { russian: "семья", uzbek: "oila", pronunciation: "[семья]", example: "Моя семья большая." },
@@ -55,7 +55,7 @@ export const vocabularyCategories: VocabularyCategory[] = [
   },
   {
     id: "lesson-3",
-    name: "3-dars: Mening kun tartibim",
+    name: "Занятие 3: Мой распорядок дня",
     icon: "⏰",
     words: [
       { russian: "распорядок дня", uzbek: "kun tartibi", pronunciation: "[распорядок дня]", example: "У меня строгий распорядок дня." },
@@ -73,7 +73,7 @@ export const vocabularyCategories: VocabularyCategory[] = [
   },
   {
     id: "lesson-4",
-    name: "4-dars: Yashayotgan shahar",
+    name: "Занятие 4: Город, в котором я живу",
     icon: "🏙️",
     words: [
       { russian: "город", uzbek: "shahar", pronunciation: "[город]", example: "Я живу в большом городе." },
@@ -90,7 +90,7 @@ export const vocabularyCategories: VocabularyCategory[] = [
   },
   {
     id: "lesson-5",
-    name: "5-dars: Mening institutim",
+    name: "Занятие 5: Мой институт",
     icon: "🎓",
     words: [
       { russian: "институт", uzbek: "institut", pronunciation: "[институт]", example: "Я учусь в институте." },
@@ -108,7 +108,7 @@ export const vocabularyCategories: VocabularyCategory[] = [
   },
   {
     id: "lesson-6",
-    name: "6-dars: Subyekt-predikat munosabatlari",
+    name: "Занятие 6: Субъектно-предикатные отношения",
     icon: "📝",
     words: [
       { russian: "подлежащее", uzbek: "ega", pronunciation: "[подлежащее]", example: "Подлежащее отвечает на вопрос кто? что?" },
@@ -124,7 +124,7 @@ export const vocabularyCategories: VocabularyCategory[] = [
   },
   {
     id: "lesson-7",
-    name: "7-dars: Rus tili - jahon tillaridan biri",
+    name: "Занятие 7: Русский язык - мировой язык",
     icon: "🌍",
     words: [
       { russian: "мировой язык", uzbek: "jahon tili", pronunciation: "[мировой язык]", example: "Русский - мировой язык." },
@@ -139,7 +139,7 @@ export const vocabularyCategories: VocabularyCategory[] = [
   },
   {
     id: "lesson-8",
-    name: "8-dars: Rossiya haqida umumiy ma'lumot",
+    name: "Занятие 8: Общие сведения о России",
     icon: "🇷🇺",
     words: [
       { russian: "Россия", uzbek: "Rossiya", pronunciation: "[Россия]", example: "Россия - большая страна." },
@@ -156,7 +156,7 @@ export const vocabularyCategories: VocabularyCategory[] = [
   },
   {
     id: "lesson-9",
-    name: "9-dars: O'zbekistonda ta'lim",
+    name: "Занятие 9: Образование в Узбекистане",
     icon: "📚",
     words: [
       { russian: "образование", uzbek: "ta'lim", pronunciation: "[образование]", example: "Образование в Узбекистане развивается." },
@@ -172,7 +172,7 @@ export const vocabularyCategories: VocabularyCategory[] = [
   },
   {
     id: "lesson-10",
-    name: "10-dars: Ma'naviyat va madaniyat",
+    name: "Занятие 10: Духовность и культура",
     icon: "🎭",
     words: [
       { russian: "духовность", uzbek: "ma'naviyat", pronunciation: "[духовность]", example: "Духовность важна для общества." },
@@ -187,7 +187,7 @@ export const vocabularyCategories: VocabularyCategory[] = [
   },
   {
     id: "lesson-11",
-    name: "11-dars: Fazoviy munosabatlar",
+    name: "Занятие 11: Пространственные отношения",
     icon: "🗺️",
     words: [
       { russian: "пространство", uzbek: "fazo", pronunciation: "[пространство]", example: "Космическое пространство." },
@@ -204,7 +204,7 @@ export const vocabularyCategories: VocabularyCategory[] = [
   },
   {
     id: "lesson-12",
-    name: "12-dars: Zamonaviy taniqli shaxslar",
+    name: "Занятие 12: Выдающиеся личности",
     icon: "👤",
     words: [
       { russian: "личность", uzbek: "shaxs", pronunciation: "[личность]", example: "Выдающаяся личность." },
@@ -219,7 +219,7 @@ export const vocabularyCategories: VocabularyCategory[] = [
   },
   {
     id: "lesson-13",
-    name: "13-dars: Ekologik falokatlar",
+    name: "Занятие 13: Экологические катастрофы",
     icon: "🌿",
     words: [
       { russian: "экология", uzbek: "ekologiya", pronunciation: "[экология]", example: "Проблемы экологии." },
@@ -234,7 +234,7 @@ export const vocabularyCategories: VocabularyCategory[] = [
   },
   {
     id: "grammar-terms",
-    name: "Grammatik terminlar",
+    name: "Грамматические термины",
     icon: "📖",
     words: [
       { russian: "падеж", uzbek: "kelishik", pronunciation: "[падеж]", example: "Русский язык имеет шесть падежей." },
@@ -253,7 +253,7 @@ export const vocabularyCategories: VocabularyCategory[] = [
   },
   {
     id: "common-phrases",
-    name: "Ko'p ishlatiladigan iboralar",
+    name: "Часто используемые фразы",
     icon: "💬",
     words: [
       { russian: "Здравствуйте!", uzbek: "Assalomu alaykum!", pronunciation: "[здраствуйте]", example: "Здравствуйте, как дела?" },
