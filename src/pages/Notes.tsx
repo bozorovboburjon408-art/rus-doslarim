@@ -47,6 +47,12 @@ const Notes = () => {
         return;
       }
 
+      // For lesson 4, download the original document
+      if (note.id === 4) {
+        downloadOriginalDoc('/lessons/lesson4/Amaliy_mashgulot_4.docx', 'Amaliy_mashgulot_4.docx');
+        return;
+      }
+
       toast.info("Word tayyorlanmoqda...");
 
       // Create vocabulary table
