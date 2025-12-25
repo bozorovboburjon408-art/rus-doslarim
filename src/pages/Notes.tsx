@@ -137,6 +137,12 @@ const Notes = () => {
         return;
       }
 
+      // For lesson 19, download the original document
+      if (note.id === 19) {
+        downloadOriginalDoc('/lessons/lesson19/Amaliy_mashgulot_19.docx', 'Amaliy_mashgulot_19.docx');
+        return;
+      }
+
       toast.info("Word tayyorlanmoqda...");
 
       // Create vocabulary table
