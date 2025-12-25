@@ -21,7 +21,7 @@ const Notes = () => {
     try {
       // For lesson 1, download the original document
       if (note.id === 1) {
-        window.open('/lessons/lesson1/document.docx', '_blank');
+        window.open('/lessons/lesson1/Amaliy_mashgulot_1.docx', '_blank');
         return;
       }
 
