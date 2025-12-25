@@ -83,6 +83,12 @@ const Notes = () => {
         return;
       }
 
+      // For lesson 10, download the original document
+      if (note.id === 10) {
+        downloadOriginalDoc('/lessons/lesson10/Amaliy_mashgulot_10.docx', 'Amaliy_mashgulot_10.docx');
+        return;
+      }
+
       toast.info("Word tayyorlanmoqda...");
 
       // Create vocabulary table
